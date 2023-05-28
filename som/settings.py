@@ -149,7 +149,6 @@ STATICFILES_FINDERS = [
 
 # COMPRESS_ROOT = STATIC_ROOT
 
-COMPRESS_ENABLED = False
 COMPRESS_OUTPUT_DIR = 'cache'
 COMPRESS_CSS_FILTERS = [
     'compressor.filters.css_default.CssAbsoluteFilter',
