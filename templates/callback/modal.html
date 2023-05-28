@@ -1,0 +1,14 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Заказать обратный звонок</h1>
+        {% comment %} <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times fa-lg"></i></button> {% endcomment %}
+        <a href="#" type="button" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times fa-lg"></i></a>
+      </div>
+      <div class="modal-body">
+      {% include 'callback/form.html' %}
+      </div>
+    </div>
+  </div>
+</div>

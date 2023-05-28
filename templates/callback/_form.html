@@ -1,0 +1,144 @@
+{% load recaptcha3 sekizai_tags %}
+
+{% addtoblock 'recaptcha' %}
+{% comment %} {% recaptcha_init %} {% endcomment %}
+<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_key }}"></script>
+
+  <script>
+    //global grecaptcha
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ recaptcha_key }}').then(function(token) {
+        {% comment %} document.getElementById('g-recaptcha-response').value = token; {% endcomment %}
+        document.getElementById('id_recaptcha').value = token;
+      });
+    });
+  </script>
+{% comment %} 
+  <script>
+    //global grecaptcha
+    grecaptcha.ready(function() {
+      grecaptcha.execute('{{ recaptcha_key }}', {action: "{% url "callback:request" %}"}).then(function(token) {
+        document.getElementById('id_recaptcha').value = token;
+      });
+    });
+  </script> {% endcomment %}
+
+{% endaddtoblock %}
+
+{% block content %}
+<section id="callback">
+  <div class="container mb-5">
+    <div class="section-title section-title--blue">
+      <h2>Обратный звонок</h2>
+    </div>
+    <div class="row d-flex justify-content-center">
+    {% comment %} <div class="container">
+      <div class="row"> {% endcomment %}
+        <div class="col-6">
+      {% if callback_form.errors %}
+            <div class="alert alert-danger">
+                Пожалуйста исправьте ошибки.
+                <a class="close" data-dismiss="alert">×</a>
+            </div>
+        {% endif %}
+        <form action="{% url "callback:request" %}" method="post" role="form" class="callback-form">{% csrf_token %}
+        {% comment %} <form method="post" role="form" class="callback-form">{% csrf_token %} {% endcomment %}
+          <div class="overlay-wrapper p-3">
+            <div class="overlay">
+                <div class="loading d-none spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="error-message d-none" role="alert">
+                  <i class="fas fa-exclamation-triangle fa-lg"></i>
+                </div>
+                {% comment %} <div class="alert alert-success" role="alert"> {% endcomment %}
+                <div class="sent-message d-none" role="alert">
+                  <i class="far fa-check-circle fa-lg me-3"></i>
+                </div>
+            </div>
+              <div class="row g-3">
+                <div class="col-12">
+                  <div class="form-floating">
+                    {% comment %} <input
+                      type="text"
+                      class="form-control bg-light border-0"
+                      id="name"
+                      placeholder="Your Name"
+                    /> {% endcomment %}
+                    {{ callback_form.name }}
+                    <label for="{{ callback_form.name.id_for_label }}">{{ callback_form.name.label }}</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    {% comment %} <input
+                      type="email"
+                      class="form-control bg-light border-0"
+                      id="email"
+                      placeholder="Your Email"
+                    /> {% endcomment %}
+                    {{ callback_form.phone }}
+                    <label for="{{ callback_form.phone.id_for_label }}">{{ callback_form.phone.label }}</label>
+                  </div>
+                </div>
+                {% comment %} {{ callback_form.captcha }} {% endcomment %}
+                {{ callback_form.recaptcha }}
+                <div class="col-12">
+                    <small>Даю своё согласие на обработку персональных данных. <a href="{% url "privacy-policy" %}">Правила&nbsp;обработки</a>.</small>
+                </div>
+               
+                <div class="col-12 mt-4">
+                  <button class="btn btn-primary px-4" type="submit">
+                    Отправить
+                  </button>
+                </div>
+                {% comment %} <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div> {% endcomment %}
+              </div>
+            </div>
+            </form>
+          </div>
+
+        {% comment %} <form method="POST">{% csrf_token %}
+            <div class="form-group {% if form.name.errors %}has-error{% endif %}">
+                <label for="{{ form.name.id_for_label }}" class="control-label">{{ form.name.label }}</label>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">
+                    <i class="fa fa-envelope" aria-hidden="true"></i></span>
+                </div>
+                    {{ form.name }}
+                </div>
+                {% if form.name.errors %}
+                    <span class="text-danger">{{ form.name.errors.as_text }}</span>
+                {% endif %}
+            </div>
+            <div class="form-group {% if form.phone.errors %}has-error{% endif %}">
+                <label for="{{ form.phone.id_for_label }}" class="control-label">{{ form.phone.label }}</label>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">
+                    <i class="fa fa-crosshairs" aria-hidden="true"></i></span>
+                </div>
+                    {{ form.phone }}
+                </div>
+                {% if form.phone.errors %}
+                    <span class="text-danger">{{ form.phone.errors.as_text }}</span>
+                {% endif %}
+            </div>
+                <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LcfcnEUAAAAANbuWiTnecdyHkLi7La0Z0W3Cerf"></div>
+                {% if form.captcha.errors %}
+                    <span class="text-danger">{{ form.captcha.errors.as_text }}</span>
+                {% endif %}
+            </div>
+            <button class="btn btn-primary" type="submit">Отправить</button>
+        </form> {% endcomment %}
+{% comment %} </div>
+</div> {% endcomment %}
+</div>
+</section>
+{% endblock %}

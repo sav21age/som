@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% load markdownify %}
+
+{% block head %}
+  <title>{{object.head_title}}</title>
+  <meta name="description" content="{{object.meta_description}}">
+  <meta name="keywords" content="{{object.meta_keywords}}">
+{% endblock %} 
+
+{% block h1 %}
+{{object.name}}
+{% endblock %}
+
+{% block content %}
+
+{% include "line-blue-background.html" %}
+<section id="about">
+  <div class="container">
+    <div class="section-title section-title--blue">
+      <h2>{{object.description_title}}</h2>
+    </div>
+    {{object.description_text|markdownify}}
+  </div>
+</section>
+
+{% if object.block_svg.all %}
+{% include "blocks/block_svg.html" %}
+{% endif %}
+
+{% include "prices/index.html" %}
+
+{% include "line-gold-background.html" %}
+{% include "portfolio/images.html" %}
+
+{% include "callback/index.html" %}
+
+{% endblock %}

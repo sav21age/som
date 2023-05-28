@@ -1,0 +1,131 @@
+{% load thumbnail %}
+{% comment %} <section id="our-works"> {% endcomment %}
+<section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title section-title--metal">
+      <h2>Наши работы</h2>
+    </div>
+
+    <div class="row" data-aos="fade-up" data-aos-delay="200">
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+      {% for image in object.images.all %}
+      <div class="col-lg-4 col-md-6 portfolio-item">
+        <div class="portfolio-wrap">
+            <img
+            src="{{ image.path|thumbnail_url:'1920w' }}"
+            data-srcset="
+              {{ image.path|thumbnail_url:'360w' }} 360w,
+              {{ image.path|thumbnail_url:'720w' }} 720w,
+              {{ image.path|thumbnail_url:'1080w' }} 1080w,
+              {{ image.path|thumbnail_url:'1920w' }} 1920w,
+            "
+            srcset="
+              {{ image.path|thumbnail_url:'360w_poor' }} 360w,
+              {{ image.path|thumbnail_url:'720w_poor' }} 720w,
+              {{ image.path|thumbnail_url:'1080w_poor' }} 1080w,
+              {{ image.path|thumbnail_url:'1920w_poor' }} 1920w,
+            "
+            sizes="(max-width: 575px) 100vw, 30vw"
+            decoding="async"
+            class="img-fluid lozad"
+            alt="{{image.alt}}"
+            title="{{image.title}}"
+          />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+      {% comment %} {% for image in
+      object.images.all %}
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="card">
+          <img
+            src="{{ image.path|thumbnail_url:'detail_bad' }}"
+            data-src="{{ image.path|thumbnail_url:'detail' }}"
+            class="img-fluid lazyload"
+            alt=""
+          />
+        </div>
+      </div>
+      {% empty %} {% endfor %} {% endcomment %}
+
+
+      {% comment %} {% for image in object.images.all %}
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="card">
+          <img
+            src="{{ image.path|thumbnail_url:'1920w' }}"
+            data-srcset="
+              {{ image.path|thumbnail_url:'360w' }} 360w,
+              {{ image.path|thumbnail_url:'720w' }} 720w,
+              {{ image.path|thumbnail_url:'1080w' }} 1080w,
+              {{ image.path|thumbnail_url:'1920w' }} 1920w,
+            "
+            srcset="
+              {{ image.path|thumbnail_url:'360w_poor' }} 360w,
+              {{ image.path|thumbnail_url:'720w_poor' }} 720w,
+              {{ image.path|thumbnail_url:'1080w_poor' }} 1080w,
+              {{ image.path|thumbnail_url:'1920w_poor' }} 1920w,
+            "
+            sizes="(max-width: 575px) 100vw, 30vw"
+            decoding="async"
+            class="img-fluid lozad"
+            alt="{{image.alt}}"
+            title="{{image.title}}"
+          />
+        </div>
+      </div>
+      {% endfor %} {% endcomment %}
+
+{% comment %} <div class="gallery">
+      {% for image in object.images.all %}
+        <div class="item">
+            <img
+            src="{{ image.path|thumbnail_url:'1920w' }}"
+            data-srcset="
+              {{ image.path|thumbnail_url:'360w' }} 360w,
+              {{ image.path|thumbnail_url:'720w' }} 720w,
+              {{ image.path|thumbnail_url:'1080w' }} 1080w,
+              {{ image.path|thumbnail_url:'1920w' }} 1920w,
+            "
+            srcset="
+              {{ image.path|thumbnail_url:'360w_poor' }} 360w,
+              {{ image.path|thumbnail_url:'720w_poor' }} 720w,
+              {{ image.path|thumbnail_url:'1080w_poor' }} 1080w,
+              {{ image.path|thumbnail_url:'1920w_poor' }} 1920w,
+            "
+            sizes="(max-width: 575px) 100vw, 30vw"
+            decoding="async"
+            class="img-fluid lozad"
+            alt="{{image.alt}}"
+            title="{{image.title}}"
+          />
+        </div>
+      {% endfor %}
+    </div> {% endcomment %}
+
+
+
+
+
+
+      {% comment %} <picture>
+        <img
+          alt="Aaron Weber has reduced the rent for several of his commercial tenants.&nbsp;“As long as they are paying something, we’re happy,’’ he said."
+          class="css-rq4mmj"
+          src="https://static01.nyt.com/images/2020/09/04/nyregion/04Landlord-3/merlin_176564970_618fd090-543b-468c-b68e-fe822b7ba19d-articleLarge.jpg?quality=75&amp;auto=webp&amp;disable=upscale"
+          srcset="
+            https://static01.nyt.com/images/2020/09/04/nyregion/04Landlord-3/merlin_176564970_618fd090-543b-468c-b68e-fe822b7ba19d-articleLarge.jpg?quality=75&amp;auto=webp  600w,
+            https://static01.nyt.com/images/2020/09/04/nyregion/04Landlord-3/merlin_176564970_618fd090-543b-468c-b68e-fe822b7ba19d-jumbo.jpg?quality=75&amp;auto=webp        1024w,
+            https://static01.nyt.com/images/2020/09/04/nyregion/04Landlord-3/merlin_176564970_618fd090-543b-468c-b68e-fe822b7ba19d-superJumbo.jpg?quality=75&amp;auto=webp   2048w
+          "
+          sizes="((min-width: 600px) and (max-width: 1004px)) 84vw, (min-width: 1005px) 60vw, 100vw"
+          decoding="async"
+          width="600"
+          height="399"
+          style="cursor: pointer"
+      /></picture> {% endcomment %}
+    
+    </div>
+  </div>
+</section>

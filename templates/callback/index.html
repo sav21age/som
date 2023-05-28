@@ -1,0 +1,27 @@
+{% load %}
+
+{% comment %} {% addtoblock 'recaptcha' %}
+<script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_key }}"></script>
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute('{{ recaptcha_key }}').then(function(token) {
+      document.getElementById('id_recaptcha').value = token;
+    });
+  });
+</script>
+{% endaddtoblock %} {% endcomment %}
+
+{% block content %}
+<section id="callback">
+  <div class="container mb-5">
+    <div class="section-title section-title--blue">
+      <h2>Консультация специалиста</h2>
+      <p>Наш менеджер ответит Вам в течении 15 минут.</p>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        {% include 'callback/form.html' %}
+    </div>
+</div>
+</section>
+{% endblock %}

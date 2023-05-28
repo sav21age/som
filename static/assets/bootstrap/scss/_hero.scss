@@ -1,0 +1,36 @@
+// #hero {
+//     width: 100%;
+//     height: 50vh;
+//     // height: calc(100vh - 110px);
+//     background: url(../../../images/background/staircase.jpg) top center;
+//     background-size: cover;
+//     // margin-bottom: -200px;
+//     // position: relative;
+//     padding: 120px 0;
+// }
+
+// @media (max-height: 600px) {
+// #hero {
+//     height: 110vh;
+//   }
+// }
+
+// @media (min-width: 1024px) {
+//   #hero {
+//     background-attachment: fixed;
+//   }
+// }
+// .breadcrumb-item + .breadcrumb-item::before {
+//     // color: var(--light);
+//     color: #fff;;
+// }
+
+.hero-background {
+    // background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)), url(../../../images/background/staircase.jpg) center center no-repeat;
+    background: url(../../../images/background/staircase.jpg) center center no-repeat;
+    background-size: cover;
+    // background-color:rgba(0, 0, 0, 0.5);
+}
+.hero-eclipse{
+  background-color:rgba(0, 0, 0, 0.4);
+}

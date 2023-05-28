@@ -1,0 +1,63 @@
+{% extends "main.html" %}
+{% load markdownify %}
+
+{% block head %}
+  <title>{{object.head_title}}</title>
+  <meta name="description" content="{{object.meta_description}}">
+  <meta name="keywords" content="{{object.meta_keywords}}">
+{% endblock %} 
+
+{% block h1 %}
+{{object.name}}
+{% endblock %}
+
+{% block content %}
+
+{% comment %} {% include "index/advantages.html" %} {% endcomment %}
+
+        {% comment %} {% for obj in advantages %}
+          {{ obj.name }}
+        {% endfor %} {% endcomment %}
+
+{% comment %} {% include "index/by-contacting-us.html" %} {% endcomment %}
+
+{% comment %} {% include "index/how-we-are-working.html" %} {% endcomment %}
+
+{% include "line-blue-background.html" %}
+<section id="about">
+  <div class="container">
+    <div class="section-title section-title--blue">
+      <h2>{{object.description_title}}</h2>
+    </div>
+    {{object.description_text|markdownify}}
+  </div>
+</section>
+
+{% include "prices/index.html" %}
+
+{% include "line-blue-background.html" %}
+<section id="about">
+  <div class="container">
+    <div class="section-title section-title--blue">
+      <h2>{{object.about_title}}</h2>
+    </div>
+    {{object.about_text|markdownify}}
+  </div>
+</section>
+
+{% include "index/hwaw.html" %}
+{% comment %} {% include "line-light-background.html" %} {% endcomment %}
+{% comment %} {{index.about|markdownify}} {% endcomment %}
+{% comment %} {{'Some *test* [link](#)'|markdownify}} {% endcomment %}
+
+{% include "line-gold-background.html" %}
+{% include "portfolio/images.html" %}
+
+{% comment %} {% include "index/bcu.html" %} {% endcomment %}
+{% include "blocks/block_svg.html" %}
+
+{% include "callback/index.html" %}
+
+{% comment %} {{object.interior_staircase.description}} {% endcomment %}
+
+{% endblock %}

@@ -1,0 +1,99 @@
+section {
+  padding: 40px 0 20px;
+  // overflow: hidden;
+}
+
+.section-title {
+  padding: 10px 0 20px;
+  position: relative;
+  // span {
+  //   position: absolute;
+  //   top: 30px;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: 1;
+  //   font-weight: 700;
+  //   font-size: 24px;
+  //   text-transform: uppercase;
+  //   line-height: 0;
+  //   color: $metal-color;
+  //   opacity: 0.1;
+  // }
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 0;
+    color: #191919;
+    // color: $primary;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// .section-title::before {
+//     position: absolute;
+//     content: "";
+//     width: 100px;
+//     height: 3px;
+//     left: 0;
+//     bottom: 0;
+//     background: $primary;
+//     // border-radius: 2px;
+//     margin-bottom: 20px;
+// }
+
+.section-title--dark {
+  span {
+    color: $metal-color;
+  }
+  h2 {
+    color: #fff;
+  }
+}
+.section-title--blue {
+  span {
+    color: $metal-color;
+  }
+  // h2 {
+  //   // color: #fff;
+  // }
+}
+
+#hwaw {
+  @include block_svg;
+}
+#bcu {
+  @include block_svg;
+}
+#block-svg {
+  @include block_svg;
+}
+#portfolio{
+  @include background_gold;
+}
+#prices {
+  border-top: 3px solid transparent;
+  // border-image: 5 repeating-linear-gradient(45deg, #e4e4e4, #e4e4e4 5px, transparent 5px, transparent 5px, #e4e4e4 5px, #e4e4e4 10px, transparent 10px, transparent 20px);
+  border-image: 5 repeating-linear-gradient(45deg, $primary-background, $primary-background 5px, transparent 5px, transparent 5px, $primary-background 5px, $primary-background 10px, transparent 10px, transparent 20px);
+}
+#about {
+  @include background_blue;
+}
+
+#callback {
+  border-top: 3px solid transparent;
+  border-image: 5 repeating-linear-gradient(45deg, $gold-background, $gold-background 5px, transparent 5px, transparent 5px, $gold-background 5px, $gold-background 10px, transparent 10px, transparent 20px);
+}
+
+@media (min-width: 992px) {
+  #callback {
+    background: url('../../../images/background/callback.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+}
+
+
+

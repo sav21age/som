@@ -1,0 +1,38 @@
+<form action="{% url "callback:request" %}" data-recaptcha-site-key="{{ recaptcha_key }}" method="post" role="form" class="callback-form">{% csrf_token %}
+  <div class="overlay-wrapper p-3">
+    <div class="overlay">
+        <div class="loading d-none spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="error-message d-none" role="alert">
+          <i class="fas fa-exclamation-triangle fa-lg"></i>
+        </div>
+        <div class="sent-message d-none" role="alert">
+          <i class="far fa-check-circle fa-lg me-3"></i>
+        </div>
+    </div>
+      <div class="row g-3">
+        <div class="col-12">
+          <div class="form-floating">
+            {{ callback_form.name }}
+            <label for="{{ callback_form.name.id_for_label }}">{{ callback_form.name.label }}</label>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-floating">
+            {{ callback_form.phone }}
+            <label for="{{ callback_form.phone.id_for_label }}">{{ callback_form.phone.label }}</label>
+          </div>
+        </div>
+        {{ callback_form.recaptcha }}
+        <div class="col-12">
+            <small>Даю своё согласие на обработку персональных данных. <a href="{% url "privacy-policy" %}">Правила&nbsp;обработки</a>.</small>
+        </div>
+        <div class="col-12 mt-4">
+          <button class="btn btn-primary px-4" type="submit">
+            Отправить
+          </button>
+        </div>
+      </div>
+    </div>
+</form>
