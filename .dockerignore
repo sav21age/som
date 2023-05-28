@@ -9,7 +9,7 @@ __pycache__
 node_modules
 db_backup
 cache
-media
+media/*
 
 settings_local.py
 
