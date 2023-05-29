@@ -10,6 +10,10 @@
     <meta http-equiv="Expires" content="0" />
     {% endif %}
 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_16x16.png">
+
     {% block head %}{% endblock %}
     {% comment %} {% render_block 'recaptcha' %} {% endcomment %}
     {% comment %} {% recaptcha_ready action_name='callback/callback/' %} {% endcomment %}
