@@ -52,16 +52,16 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            export DOCKER_USER="${{secrets.DOCKER_USER }}"
-            export RECAPTCHA_PRIVATE_KEY="${{secrets.RECAPTCHA_PRIVATE_KEY }}"
-            export RECAPTCHA_PUBLIC_KEY="${{secrets.RECAPTCHA_PUBLIC_KEY }}"
-            export DB_NAME="${{secrets.DB_NAME }}"
-            export DB_USER="${{secrets.DB_USER }}"
-            export DB_PASSWORD="${{secrets.DB_PASSWORD }}"
-            export DB_HOST="${{secrets.DB_HOST }}"
-            export DB_PORT="${{secrets.DB_PORT }}"
-            export DEBUG=${{ false }}
-            export DJANGO_ALLOWED_HOSTS="${{secrets.DJANGO_ALLOWED_HOSTS }}"
+            export DOCKER_USER="${{ secrets.DOCKER_USER }}"
+            export RECAPTCHA_PRIVATE_KEY="${{ secrets.RECAPTCHA_PRIVATE_KEY }}"
+            export RECAPTCHA_PUBLIC_KEY="${{ secrets.RECAPTCHA_PUBLIC_KEY }}"
+            export DB_NAME="${{ secrets.DB_NAME }}"
+            export DB_USER="${{ secrets.DB_USER }}"
+            export DB_PASSWORD="${{ secrets.DB_PASSWORD }}"
+            export DB_HOST="${{ secrets.DB_HOST }}"
+            export DB_PORT="${{ secrets.DB_PORT }}"
+            export DEBUG="${{ 0 }}"
+            export DJANGO_ALLOWED_HOSTS="${{ secrets.DJANGO_ALLOWED_HOSTS }}"
 
             # login Docker Hub
             # docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
@@ -70,6 +70,5 @@ jobs:
             cd web
             docker-compose stop
             docker-compose rm -f
-            docker volume rm static errors
             docker-compose pull
             docker-compose up -d

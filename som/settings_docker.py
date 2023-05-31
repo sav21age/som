@@ -1,6 +1,14 @@
 import os
 
-DEBUG = os.environ.get("DEBUG")
+def str2bool(s):
+    if s in ('1', 'True'):
+        return True
+    elif s in ('0', 'False'):
+        return False
+    else:
+        raise ValueError("Cannot covert {} to a bool".format(s))
+
+DEBUG = str2bool(os.environ.get("DEBUG"))
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
