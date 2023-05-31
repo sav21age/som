@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'som.wsgi.application'
 
+# CACHE_BACKEND = "django.core.cache.backends.dummy.DummyCache"
 CACHE_BACKEND = 'django.core.cache.backends.filebased.FileBasedCache'
 CACHE_LOCATION_DIR = os.path.join(BASE_DIR, 'cache')
 
