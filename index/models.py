@@ -36,7 +36,7 @@ class IndexPage(Page, SingletonModel):
     about_text = models.TextField('Текст', blank=True)
     # about_text = MartorField()
 
-    portfolio = fields.GenericRelation(Image)
+    portfolio_images = fields.GenericRelation(Image)
 
     def __str__(self):
         return self.name
@@ -46,16 +46,16 @@ class IndexPage(Page, SingletonModel):
         verbose_name_plural = 'главные страницы'
 
 
-@receiver(post_save, sender=IndexPage)
-def cache_invalidate(instance, **kwargs):
-    """ Rule of naming cache template fragment: time, model_name + fragment name, object_id, language_code """
-    if kwargs.get('raw'):  # add for test, pass fixtures
-        return
+# @receiver(post_save, sender=IndexPage)
+# def cache_invalidate(instance, **kwargs):
+#     """ Rule of naming cache template fragment: time, model_name + fragment name, object_id, language_code """
+#     if kwargs.get('raw'):  # add for test, pass fixtures
+#         return
 
-    # print(instance._meta.app_label)
-    # key = make_template_fragment_key(
-    #     'images', [instance._meta.app_label, instance.id])
-    # caches['images'].delete(key)
-    # cache.delete()
-    # cache.clear()
-    caches['images'].clear()
+#     # print(instance._meta.app_label)
+#     # key = make_template_fragment_key(
+#     #     'images', [instance._meta.app_label, instance.id])
+#     # caches['images'].delete(key)
+#     # cache.delete()
+#     # cache.clear()
+#     caches['images'].clear()

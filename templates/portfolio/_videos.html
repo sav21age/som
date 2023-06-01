@@ -1,0 +1,24 @@
+{% load cache app_label %}
+{% if object.portfolio_videos.all %}
+{% cache cache_timeout videos object|app_label object.id using="videos" %}
+<section id="portfolio-videos" class="portfolio-videos">
+  <div class="container">
+    {% comment %} <div class="section-title">
+      <h2>Видео</h2>
+    </div> {% endcomment %}
+    <div class="row portfolio-container">
+    {% for video in object.portfolio_videos.all %}
+      <div class="col-md-6">
+      <div class="ratio ratio-16x9">
+        <iframe src="{{ video.url }}" title="{{ video.title }}" allowfullscreen></iframe>
+      </div>
+        {% comment %} <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+        </div> {% endcomment %}
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+{% endcache %}
+{% endif%}

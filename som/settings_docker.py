@@ -1,4 +1,5 @@
 import os
+from som.settings import BASE_DIR
 
 def str2bool(s):
     if s in ('1', 'True'):
@@ -38,3 +39,18 @@ RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 
 COMPRESS_ENABLED = True
+
+# CACHE_BACKEND = "django.core.cache.backends.dummy.DummyCache"
+CACHE_BACKEND = 'django.core.cache.backends.locmem.LocMemCache'
+
+CACHE_TIMEOUT = os.environ.get("CACHE_TIMEOUT")
+CACHES = {
+    'default': {
+        'BACKEND': CACHE_BACKEND,
+        'TIMEOUT': CACHE_TIMEOUT,
+    },
+    'file_resubmit': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(os.path.join(BASE_DIR, 'cache'), 'file_resubmit'),
+    },
+}

@@ -46,11 +46,11 @@ class Image(models.Model):
 #         return
 #     Image.objects.filter(path__exact='').delete()
 
-@receiver(post_save, sender=Image)
-def cache_invalidate(instance, **kwargs):
-    if kwargs.get('raw'):  # add for test, pass fixtures
-        return
+# @receiver(post_save, sender=Image)
+# def cache_invalidate(instance, **kwargs):
+#     if kwargs.get('raw'):  # add for test, pass fixtures
+#         return
     
-    # cache.delete('images')
-    # cache.delete_many(keys=cache.keys('images*'))
-    cache.clear()
+#     # cache.delete('images')
+#     # cache.delete_many(keys=cache.keys('images*'))
+#     cache.clear()

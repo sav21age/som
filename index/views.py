@@ -9,7 +9,7 @@ def index(request):
             .prefetch_related('block_svg') \
             .prefetch_related('hwaw') \
             .prefetch_related('prices') \
-            .prefetch_related('portfolio') \
+            .prefetch_related('portfolio_images') \
             .get()
     except IndexPage.DoesNotExist:
         raise Http404

@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'blocks',
     'index',
     'images',
+    'videos',
     'staircases',
     'railing',
     'porch',
@@ -69,38 +70,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'som.wsgi.application'
-
-# CACHE_BACKEND = "django.core.cache.backends.dummy.DummyCache"
-CACHE_BACKEND = 'django.core.cache.backends.filebased.FileBasedCache'
-CACHE_LOCATION_DIR = os.path.join(BASE_DIR, 'cache')
-
-# CACHE_BACKEND = 'django.core.cache.backends.locmem.LocMemCache'
-# CACHE_MAX_ENTRIES = 1000
-CACHE_TIMEOUT = 900
-
-# CACHE_BACKEND = 'django.core.cache.backends.memcached.MemcachedCache'
-# CACHE_LOCATION = '127.0.0.1:11211'
-
-CACHES = {
-    'default': {
-        'BACKEND': CACHE_BACKEND,
-        'LOCATION': CACHE_LOCATION_DIR,
-        'TIMEOUT': CACHE_TIMEOUT,
-        'OPTIONS': {
-            # 'MAX_ENTRIES': CACHE_MAX_ENTRIES,
-        }
-    },
-    'images': {
-        'BACKEND': CACHE_BACKEND,
-        'LOCATION': os.path.join(CACHE_LOCATION_DIR, 'images'),
-        'TIMEOUT': CACHE_TIMEOUT,
-    },
-    'file_resubmit': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(CACHE_LOCATION_DIR, 'file_resubmit'),
-    },
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

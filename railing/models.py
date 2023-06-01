@@ -11,7 +11,7 @@ class Railing(Page):
     menu_order = models.PositiveSmallIntegerField(
         'порядковый номер в меню', default=0,)
 
-    portfolio = fields.GenericRelation(Image)
+    portfolio_images = fields.GenericRelation(Image)
 
     def __str__(self):
         return self.name

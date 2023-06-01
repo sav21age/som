@@ -7,7 +7,8 @@ def staircase(request, slug):
     try:
         object = Staircase.is_visible_objects.filter(slug=slug) \
             .prefetch_related('prices') \
-            .prefetch_related('portfolio') \
+            .prefetch_related('portfolio_images') \
+            .prefetch_related('portfolio_videos') \
             .get()
     except Staircase.DoesNotExist:
         raise Http404

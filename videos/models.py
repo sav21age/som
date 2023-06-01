@@ -11,9 +11,9 @@ class Video(models.Model):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
-    title = models.CharField(_("title"), max_length=255)
-    url = models.CharField('url', max_length=255, unique=True)
-
+    url = models.CharField('ссылка', max_length=255, unique=True)
+    title = models.CharField('аттрибут title', max_length=255, blank=True)
+    order_number = models.PositiveSmallIntegerField('порядковый номер', default=0)
     is_visible = models.BooleanField(_("show"), default=1, db_index=True)
 
     objects = models.Manager()
@@ -27,5 +27,6 @@ class Video(models.Model):
         self.url = self.url.replace('watch?v=', 'embed/')
 
     class Meta:
-        verbose_name = _("video")
-        verbose_name_plural = _("videos")
+        ordering = ('order_number',)
+        verbose_name = 'видео'
+        verbose_name_plural = 'видео'

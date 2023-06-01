@@ -7,7 +7,7 @@ from solo.models import SingletonModel
 
 
 class Bridge(Page, SingletonModel):
-    portfolio = fields.GenericRelation(Image)
+    portfolio_images = fields.GenericRelation(Image)
 
     def __str__(self):
         return self.name

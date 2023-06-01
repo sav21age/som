@@ -6,7 +6,7 @@ from porch.models import Porch
 def porch(request, slug):
     try:
         object = Porch.objects.filter(slug=slug) \
-            .prefetch_related('portfolio') \
+            .prefetch_related('portfolio_images') \
             .get()
     except Porch.DoesNotExist:
         raise Http404

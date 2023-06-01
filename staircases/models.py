@@ -3,6 +3,7 @@ from django.contrib.contenttypes import fields
 from blocks.models import BlockPrice, BlockSVG
 from common.models import Page
 from images.models import Image
+from videos.models import Video
 
 
 class Staircase(Page):
@@ -19,7 +20,8 @@ class Staircase(Page):
         BlockPrice, verbose_name='"Цены"', related_name='+',
         blank=True, db_index=True)
 
-    portfolio = fields.GenericRelation(Image)
+    portfolio_images = fields.GenericRelation(Image)
+    portfolio_videos = fields.GenericRelation(Video)
 
     def __str__(self):
         return self.name

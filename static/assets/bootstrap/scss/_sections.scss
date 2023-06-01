@@ -72,6 +72,15 @@ section {
 #portfolio{
   @include background_gold;
 }
+
+// #portfolio-videos{
+//   @include background_gold;
+//   // padding: 0 0 20px;
+//   border-top: 3px dotted #ece7df;
+//   // border-top: 3px solid transparent;
+//   // border-image: 5 repeating-linear-gradient(135deg, $metal-color, $metal-color 5px, transparent 5px, transparent 5px, $metal-color 5px, $metal-color 10px, transparent 10px, transparent 20px);
+// }
+
 #prices {
   border-top: 3px solid transparent;
   // border-image: 5 repeating-linear-gradient(45deg, #e4e4e4, #e4e4e4 5px, transparent 5px, transparent 5px, #e4e4e4 5px, #e4e4e4 10px, transparent 10px, transparent 20px);
