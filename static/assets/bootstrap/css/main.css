@@ -290,7 +290,7 @@ section {
   }
 }
 .line {
-  height: 1px;
+  height: 0;
   position: relative;
 }
 
