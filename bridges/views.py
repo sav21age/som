@@ -5,7 +5,7 @@ from bridges.models import Bridge
 
 def bridges(request):
     try:
-        object = Bridge.objects.get()
+        object = Bridge.objects.prefetch_related('hwaw').get()
     except Bridge.DoesNotExist:
         raise Http404
 

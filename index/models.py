@@ -4,12 +4,12 @@ from blocks.models import BlockPrice, BlockSVG
 from common.models import Page
 from images.models import Image
 from solo.models import SingletonModel
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.core.cache.utils import make_template_fragment_key
-from django.core.cache import caches, cache
-from django.db.models.signals import post_save
-from martor.models import MartorField
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
+# from django.core.cache.utils import make_template_fragment_key
+# from django.core.cache import caches, cache
+# from django.db.models.signals import post_save
+# from martor.models import MartorField
 
 
 class IndexPage(Page, SingletonModel):
@@ -21,7 +21,7 @@ class IndexPage(Page, SingletonModel):
         blank=True, db_index=True)
 
     hwaw = models.ManyToManyField(
-        BlockSVG, verbose_name='"Как мы работаем?"', related_name='hwaw', 
+        BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
         blank=True, db_index=True)
 
     prices = models.ManyToManyField(

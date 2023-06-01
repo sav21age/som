@@ -7,9 +7,7 @@
   <meta name="keywords" content="{{object.meta_keywords}}">
 {% endblock %} 
 
-{% block h1 %}
-{{object.name}}
-{% endblock %}
+{% block h1 %}{{object.name}}{% endblock %}
 
 {% block content %}
 
@@ -24,8 +22,6 @@
 </section>
 
 {% comment %} {% include "prices/index.html" %} {% endcomment %}
-
-{% comment %} {% include "line-gold-background.html" %}
 
 {% include "callback/index.html" %}
 

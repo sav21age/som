@@ -23,15 +23,17 @@ class IndexPageAdmin(SingletonPageAdmin):
             if t[0] != 'Меню':
                 lst.append(t)
         return tuple(lst) + (
-            ('Блоки', {
-                # 'fields': ('bcu', 'hwaw', 'prices',)
-                'fields': ('hwaw', 'prices',)
-            }),
             ('Блок с векторной графикой', {
                 'fields': ('block_svg_title', 'block_svg', )
             }),
+            ('Блок с ценами', {
+                'fields': ('prices',)
+            }),
             ('О компании', {
                 'fields': ('about_title', 'about_text',)
+            }),
+            ('Как мы работаем?', {
+                'fields': ('hwaw',)
             }),
         )
 

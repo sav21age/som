@@ -10,6 +10,10 @@ class Staircase(Page):
     menu_name = models.CharField('название для меню', max_length=80, blank=True)
     menu_order = models.PositiveSmallIntegerField('порядковый номер в меню', default=0,)
 
+    hwaw = models.ManyToManyField(
+        BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
+        blank=True, db_index=True)
+
     block_svg_title = models.CharField(
         'Заголовок', max_length=200, blank=True)
     block_svg = models.ManyToManyField(

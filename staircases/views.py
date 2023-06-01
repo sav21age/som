@@ -6,7 +6,9 @@ from staircases.models import Staircase
 def staircase(request, slug):
     try:
         object = Staircase.is_visible_objects.filter(slug=slug) \
+            .prefetch_related('hwaw') \
             .prefetch_related('prices') \
+            .prefetch_related('block_svg') \
             .prefetch_related('portfolio_images') \
             .prefetch_related('portfolio_videos') \
             .get()
