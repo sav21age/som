@@ -25,12 +25,38 @@
 //     color: #fff;;
 // }
 
-.hero-background {
-    // background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)), url(../../../images/background/staircase.jpg) center center no-repeat;
+// .hero-background {
+//     // background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)), url(../../../images/background/staircase.jpg) center center no-repeat;
+//     background: url(../../../images/background/staircase.jpg) center center no-repeat;
+//     background-size: cover;
+//     // background-color:rgba(0, 0, 0, 0.5);
+// }
+
+.staircase-background {
     background: url(../../../images/background/staircase.jpg) center center no-repeat;
     background-size: cover;
-    // background-color:rgba(0, 0, 0, 0.5);
 }
+.railing-background {
+    background: url(../../../images/background/railing.jpg) center center no-repeat;
+    background-size: cover;
+}
+.bridge-background {
+    background: url(../../../images/background/bridge.jpg) center center no-repeat;
+    background-size: cover;
+}
+.porch-background {
+    background: url(../../../images/background/porch.jpg) center center no-repeat;
+    background-size: cover;
+}
+.contact-background {
+    background: url(../../../images/background/contact.jpg) center center no-repeat;
+    background-size: cover;
+}
+.steps-background {
+    background: url(../../../images/background/steps.jpg) center center no-repeat;
+    background-size: cover;
+}
+
 .hero-eclipse{
   background-color:rgba(0, 0, 0, 0.4);
 }

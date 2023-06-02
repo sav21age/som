@@ -703,8 +703,33 @@ section {
   opacity: 1;
 }
 
-.hero-background {
+.staircase-background {
   background: url(../../../images/background/staircase.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.railing-background {
+  background: url(../../../images/background/railing.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.bridge-background {
+  background: url(../../../images/background/bridge.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.porch-background {
+  background: url(../../../images/background/porch.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.contact-background {
+  background: url(../../../images/background/contact.jpg) center center no-repeat;
+  background-size: cover;
+}
+
+.steps-background {
+  background: url(../../../images/background/steps.jpg) center center no-repeat;
   background-size: cover;
 }
 

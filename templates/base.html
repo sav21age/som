@@ -61,7 +61,7 @@
 
 {% comment %} <div class="container-fluid hero-background py-5" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;"> {% endcomment %}
 {% comment %} <div class="container-fluid hero-background"> {% endcomment %}
-<div class="hero-background">
+<div class="{% block hero_background %}{% endblock %}">
       <div class="hero-eclipse py-5">
       <div class="container py-5">
         <h1 class="display-4 text-white slideInDown">{% block h1 %}{% endblock %}</h1>
