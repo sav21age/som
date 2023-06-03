@@ -1,0 +1,8 @@
+{% load crispy_forms_field %}
+<label {% if field.id_for_label and not field|is_radioselect %}for="{{ field.id_for_label }}"{% endif %} class="{% if 'form-horizontal' in form_class %}col-form-label{% else %}form-label{% endif %}{% if label_class %} {{ label_class }}{% endif %}{% if field.field.required %} requiredField{% endif %}">
+    {{ field.label }}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}
+</label>
+<div class="range-wrap">
+    <div class="range-value" id="range_value">
+</div>
+{% crispy_field field 'class' 'form-range' %}

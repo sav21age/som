@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render
+from calculator.forms import CalculatorForm
 from index.models import IndexPage
 
 
@@ -17,6 +18,6 @@ def index(request):
     response = render(
         request,
         'index/index.html',
-        {'object': object, }
+        {'object': object, 'form': CalculatorForm(),}
     )
     return response

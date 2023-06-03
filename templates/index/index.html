@@ -13,16 +13,6 @@
 
 {% block content %}
 
-{% comment %} {% include "index/advantages.html" %} {% endcomment %}
-
-        {% comment %} {% for obj in advantages %}
-          {{ obj.name }}
-        {% endfor %} {% endcomment %}
-
-{% comment %} {% include "index/by-contacting-us.html" %} {% endcomment %}
-
-{% comment %} {% include "index/how-we-are-working.html" %} {% endcomment %}
-
 {% include "line-blue-background.html" %}
 <section id="about">
   <div class="container">
@@ -34,6 +24,8 @@
 </section>
 
 {% include "prices/index.html" %}
+
+{% include "calculator/index.html" %}
 
 {% include "line-blue-background.html" %}
 <section id="about">

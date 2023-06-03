@@ -90,6 +90,11 @@ section {
   @include background_blue;
 }
 
+#calculator {
+  border-top: 3px solid transparent;
+  border-image: 5 repeating-linear-gradient(45deg, $gold-background, $gold-background 5px, transparent 5px, transparent 5px, $gold-background 5px, $gold-background 10px, transparent 10px, transparent 20px);
+}
+
 #callback {
   border-top: 3px solid transparent;
   border-image: 5 repeating-linear-gradient(45deg, $gold-background, $gold-background 5px, transparent 5px, transparent 5px, $gold-background 5px, $gold-background 10px, transparent 10px, transparent 20px);

@@ -16,8 +16,8 @@ INSTALLED_APPS = [
     # 'sekizai',
     'django_db_logger',
     'compressor',
-    'mdeditor',
-    'martor',
+    # 'mdeditor',
+    # 'martor',
     'easy_thumbnails',
     'solo',
     'reset_migrations',
@@ -32,9 +32,12 @@ INSTALLED_APPS = [
     'steps',
     'bridges',
     'contacts',
+    'calculator',
     'callback',
     'common',
     'file_resubmit',
+    "crispy_forms",
+    "crispy_bootstrap5",
     'django_cleanup.apps.CleanupConfig',
 ]
 
@@ -216,6 +219,10 @@ LOGGING = {
         }
     }
 }
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+# CRISPY_CLASS_CONVERTERS = {'numberinput': "form-range",}
 
 if os.environ.get("DEBUG"):
     try:

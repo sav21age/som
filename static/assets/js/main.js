@@ -320,8 +320,63 @@
     });
   });
 
-  /**
-   * Initiate Pure Counter
-   */
-  // new PureCounter();
+  // --
+
+  const range = document.getElementById("id_h"),
+    range_value = document.getElementById("range_value"),
+    setValue = () => {
+      const newValue = Number(
+          ((range.value - range.min) * 100) / (range.max - range.min)
+        ),
+        newPosition = 10 - newValue * 0.2;
+      range_value.innerHTML = `<span>${range.value}</span>`;
+      range_value.style.left = `calc(${newValue}% + (${newPosition}px))`;
+    };
+  document.addEventListener("DOMContentLoaded", setValue);
+  range.addEventListener("input", setValue);
+
+
+  const NF = (val) => new Intl.NumberFormat("ru").format(val);
+
+  const calc = () => {
+    const h = Number(select("#id_h").value);
+    const h_coeff = Number(select("#id_h_coeff").value);
+    // const sct_coeff = Number(select("#id_cst_coeff").value);
+    const sct_coeff = Number(select('input[name="cst_coeff"]:checked').value);
+
+    let mf_amount = (h / 0.2) * h_coeff + sct_coeff;
+    if (h >= 2) {
+      mf_amount += 10000;
+    }
+    select("#id_mf_amount").textContent = NF(mf_amount);
+
+    const st = Number(select('input[name="st"]:checked').value);
+    st_amount = (h / 0.2) * st;
+    select("#id_st_amount").textContent = NF(st_amount);
+
+    const rt = Number(select('input[name="rt"]:checked').value);
+    rt_amount = (h / 0.2) * rt;
+    select("#id_rt_amount").textContent = NF(rt_amount);
+
+    const s_arr = document.getElementsByName("s");
+    let s_amount = 0;
+    for (var i = 0; i < s_arr.length; i++) {
+      if (s_arr[i].checked) {
+        s_amount += Number(s_arr[i].value);
+      }
+    }
+    select("#id_s_amount").textContent = NF(s_amount);
+
+    select("#id_total_amount").textContent = NF(
+      mf_amount + st_amount + rt_amount + s_amount
+    );
+  }
+
+  const form = select("#form_calculator");
+  form.addEventListener("change", function () {
+    calc();
+  });
+
+  calc();
+
 })();

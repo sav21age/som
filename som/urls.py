@@ -71,8 +71,6 @@ urlpatterns = [
     path('privacy-policy/', TemplateView.as_view(
         template_name="privacy-policy/privacy-policy.html"), name="privacy-policy"),
         
-    path('martor/', include('martor.urls')),
-
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 

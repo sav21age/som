@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.shortcuts import render
+from calculator.forms import CalculatorForm
 from staircases.models import Staircase
 
 
@@ -18,6 +19,6 @@ def staircase(request, slug):
     response = render(
         request,
         'staircases/index.html',
-        {'object': object,}
+        {'object': object, 'form': CalculatorForm(),}
     )
     return response

@@ -1,0 +1,16 @@
+{% load crispy_forms_tags cache %}
+{% cache cache_timeout calculator %}
+<section id="calculator" class="calculator mb-5">
+  <div class="container">
+    <div class="section-title">
+      <h2>Расчитайте стоимость Вашей лестницы</h2>
+      <p>Расчет осуществляется в рублях и является приблизительным, не является публичной офертой.</p>
+    </div>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        {% crispy form %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endcache %}
