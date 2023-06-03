@@ -7,6 +7,7 @@
         </div>
         <div class="row">
         {% for value in object.hwaw.all %}
+          {% if value.is_visible %}
             <div class="col-lg-3 col-md-6">
               <div class="order-number">{{value.order_number}}</div>
               <div class="d-flex align-items-stretch justify-content-center" data-aos="fade-up" data-aos-delay="200">
@@ -18,7 +19,8 @@
                 </div>
               </div>
               </div>
-          {% endfor %}
+          {% endif %}
+        {% endfor %}
       </div>
   </div>
 </section>
