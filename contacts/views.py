@@ -11,7 +11,7 @@ def contacts(request):
 
     response = render(
         request,
-        'contacts/contacts.html',
+        'contacts/index.html',
         {'object': object, }
     )
     return response
