@@ -16,12 +16,9 @@ INSTALLED_APPS = [
     # 'sekizai',
     'django_db_logger',
     'compressor',
-    # 'mdeditor',
-    # 'martor',
     'easy_thumbnails',
     'solo',
     'reset_migrations',
-    'debug_toolbar',
     'blocks',
     'index',
     'images',
@@ -38,6 +35,7 @@ INSTALLED_APPS = [
     'file_resubmit',
     "crispy_forms",
     "crispy_bootstrap5",
+    'axes',
     'django_cleanup.apps.CleanupConfig',
 ]
 
@@ -49,7 +47,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'axes.middleware.AxesMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesStandaloneBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROOT_URLCONF = 'som.urls'
@@ -137,10 +140,6 @@ COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.SlimItFilter',]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
 
 MARKDOWNIFY = {
     "default": {
