@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    'django.contrib.humanize',
     'markdownify.apps.MarkdownifyConfig',
     'snowpenguin.django.recaptcha3',
     # 'sekizai',

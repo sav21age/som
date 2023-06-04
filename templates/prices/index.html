@@ -1,9 +1,10 @@
-{% load thumbnail cache app_label %}
+{% load thumbnail cache app_label humanize %}
 {% cache cache_timeout prices object|app_label object.id %}
 <section id="prices">
   <div class="container">
     <div class="section-title section-title--blue">
       <h2>Наши цены на Вашу лестницу Вас приятно удивят</h2>
+      <p>Указанные цены не являются публичной офертой.</p>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for price in object.prices.all %}
@@ -20,7 +21,7 @@
               <img src="{{ price.img_path|thumbnail_url:'1920w' }}" data-srcset="{{ price.img_path|thumbnail_url:'360w' }} 360w, {{ price.img_path|thumbnail_url:'720w' }} 720w, {{ price.img_path|thumbnail_url:'1080w' }} 1080w, {{ price.img_path|thumbnail_url:'1920w' }} 1920w" srcset="{{ price.img_path|thumbnail_url:'360w_poor' }} 360w, {{ price.img_path|thumbnail_url:'720w_poor' }} 720w, {{ price.img_path|thumbnail_url:'1080w_poor' }} 1080w, {{ price.img_path|thumbnail_url:'1920w_poor' }} 1920w" sizes="(max-width: 576px) 100vw, ((min-width: 577px) and (max-width: 992px)) 50vw, 30vw" class="img-fluid lazyload" alt="{{price.title}}" title="{{price.title}}" />
               {% endif %}
               <div class="card-body">
-                <h5 class="card-text">от {{ price.price }} руб.</h5>
+                <h5 class="card-text">от {{ price.price|intcomma }} руб.</h5>
                 <p class="card-title">{{ price.title }}</p>
               </div>
             </div>
