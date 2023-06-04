@@ -322,8 +322,9 @@
 
   // --
 
-  const range = document.getElementById("id_h"),
-    range_value = document.getElementById("range_value"),
+  const range = select("#id_h")
+  const range_value = select("#range_value")
+  if (range && range_value){
     setValue = () => {
       const newValue = Number(
           ((range.value - range.min) * 100) / (range.max - range.min)
@@ -332,8 +333,9 @@
       range_value.innerHTML = `<span>${range.value}</span>`;
       range_value.style.left = `calc(${newValue}% + (${newPosition}px))`;
     };
-  document.addEventListener("DOMContentLoaded", setValue);
-  range.addEventListener("input", setValue);
+    document.addEventListener("DOMContentLoaded", setValue);
+    range.addEventListener("input", setValue);
+  }
 
 
   const NF = (val) => new Intl.NumberFormat("ru").format(val);
@@ -372,11 +374,12 @@
     );
   }
 
-  const form = select("#form_calculator");
-  form.addEventListener("change", function () {
+  const form_calc = select("#form_calculator");
+  if (form_calc) {
+    form_calc.addEventListener("change", function () {
+      calc();
+    });
     calc();
-  });
-
-  calc();
+  }
 
 })();
