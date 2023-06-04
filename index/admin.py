@@ -11,7 +11,7 @@ from images.admin import ImageInline
 
 
 class IndexPageAdmin(SingletonPageAdmin):
-    inlines = [ImageInline]
+    inlines = [ImageInline, ]
     # filter_horizontal = ('bcu', 'hwaw', 'prices',)
     filter_horizontal = ('hwaw', 'prices', 'block_svg',)
     prepopulated_fields = {'slug': ('name', ),}
@@ -34,6 +34,9 @@ class IndexPageAdmin(SingletonPageAdmin):
             }),
             ('Как мы работаем?', {
                 'fields': ('hwaw',)
+            }),
+            ('Наши работы', {
+                'fields': ('portfolio_title',)
             }),
         )
 

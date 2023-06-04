@@ -7,6 +7,7 @@ from solo.models import SingletonModel
 
 
 class Bridge(Page, SingletonModel):
+    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
     portfolio_images = fields.GenericRelation(Image)
 
     hwaw = models.ManyToManyField(

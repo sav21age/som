@@ -15,6 +15,9 @@ class PorchAdmin(PageAdmin):
             ('Как мы работаем?', {
                 'fields': ('hwaw',)
             }),
+            ('Наши работы', {
+                'fields': ('portfolio_title',)
+            }),
         )
     
 admin.site.register(Porch, PorchAdmin)

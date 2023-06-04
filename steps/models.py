@@ -10,6 +10,7 @@ class Steps(Page):
     menu_order = models.PositiveSmallIntegerField(
         'порядковый номер в меню', default=0,)
 
+    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
     portfolio_images = fields.GenericRelation(Image)
 
     def __str__(self):

@@ -18,6 +18,7 @@ class Porch(Page):
         BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
         blank=True, db_index=True)
 
+    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
     portfolio_images = fields.GenericRelation(Image)
 
     def __str__(self):

@@ -24,6 +24,7 @@ class Staircase(Page):
         BlockPrice, verbose_name='"Цены"', related_name='+',
         blank=True, db_index=True)
 
+    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
     portfolio_images = fields.GenericRelation(Image)
     portfolio_videos = fields.GenericRelation(Video)
 

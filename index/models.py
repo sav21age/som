@@ -36,6 +36,7 @@ class IndexPage(Page, SingletonModel):
     about_text = models.TextField('Текст', blank=True)
     # about_text = MartorField()
 
+    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
     portfolio_images = fields.GenericRelation(Image)
 
     def __str__(self):
