@@ -89,7 +89,7 @@ class CalculatorForm(forms.Form):
             Field('h_coeff'),
             Div(
                 Div(
-                    Field('h', template="calculator/slider.html"),
+                    Field('h', template="calculator/range.html"),
                     css_class='col-12 mb-3'
                 ),
                 css_class='row'
@@ -125,7 +125,7 @@ class CalculatorForm(forms.Form):
                 ),
                 Div(
                     # HTML('<span id="id_mf_amount" class="fw-bold"></span>&nbsp;<span class="fw-bold">руб.</span>'),
-                    HTML('<span id="id_mf_amount"></span>'),
+                    HTML('<span id="id_mf_amount">-</span>'),
                     css_class='col-6 text-end'
                 ),
                 css_class='row'
@@ -136,7 +136,7 @@ class CalculatorForm(forms.Form):
                     css_class='col-6'
                 ),
                 Div(
-                    HTML('<span id="id_st_amount">'),
+                    HTML('<span id="id_st_amount">-</span>'),
                     css_class='col-6 text-end'
                 ),
                 css_class='row'
@@ -147,7 +147,7 @@ class CalculatorForm(forms.Form):
                     css_class='col-6'
                 ),
                 Div(
-                    HTML('<span id="id_rt_amount"></span>'),
+                    HTML('<span id="id_rt_amount">-</span>'),
                     css_class='col-6 text-end'
                 ),
                 css_class='row'
@@ -158,7 +158,7 @@ class CalculatorForm(forms.Form):
                     css_class='col-6'
                 ),
                 Div(
-                    HTML('<span id="id_s_amount">'),
+                    HTML('<span id="id_s_amount">-</span>'),
                     css_class='col-6 text-end'
                 ),
                 css_class='row'
@@ -169,7 +169,7 @@ class CalculatorForm(forms.Form):
                     css_class='col-6'
                 ),
                 Div(
-                    HTML('<span id="id_total_amount" class="fw-bold"></span>'),
+                    HTML('<span id="id_total_amount" class="fw-bold">-</span>'),
                     css_class='col-6 text-end'
                 ),
                 css_class='row mt-2'
