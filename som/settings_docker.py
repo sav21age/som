@@ -57,3 +57,8 @@ CACHES = {
         'LOCATION': os.path.join(os.path.join(BASE_DIR, 'cache'), 'file_resubmit'),
     },
 }
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
