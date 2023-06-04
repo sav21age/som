@@ -11740,3 +11740,13 @@ body {
   -ms-user-select: none;
       user-select: none;
 }
+
+.navbar-toggler:focus {
+  border: 0 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.navbar-toggler {
+  border: 0 !important;
+}
