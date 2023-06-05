@@ -26,6 +26,7 @@ from contacts.views import contacts
 from django.views.generic import TemplateView
 from porch.sitemap import PorchSitemap
 from django.shortcuts import render
+from railing.sitemap import RailingSitemap
 from staircases.sitemap import StaircaseSitemap
 from steps.sitemap import StepsSitemap
 from django.contrib.sitemaps.views import sitemap
@@ -33,10 +34,11 @@ from django.contrib.sitemaps.views import sitemap
 sitemaps = {
     'index': IndexSitemap,
     'staircase': StaircaseSitemap,
+    'railing': RailingSitemap,
     'steps': StepsSitemap,
     'porch': PorchSitemap,
-    'contacts': ContactsSitemap,
     'bridges': BridgeSitemap,
+    'contacts': ContactsSitemap,
 }
 
 

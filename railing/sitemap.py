@@ -3,7 +3,7 @@ from django.urls import reverse
 from railing.models import Railing
 
 
-class StaircaseSitemap(Sitemap):
+class RailingSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
