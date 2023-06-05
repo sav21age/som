@@ -4,7 +4,7 @@ from staircases.models import Staircase
 
 
 class StaircaseSitemap(Sitemap):
-    priority = 0.5
+    priority = 1
 
     def items(self):
         return Staircase.is_visible_objects.all()

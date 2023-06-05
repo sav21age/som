@@ -1,19 +1,3 @@
-"""som URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
@@ -48,32 +32,14 @@ urlpatterns = [
     path('contacts/', contacts, name='contacts'),
     path('crossing-bridge/', bridges, name='bridges'),
     path('callback/', include(('callback.urls', 'callback'), namespace='callback')),
-
-    path('staircases/', include(('staircases.urls',
-         'staircases'), namespace='staircases')),
-
-    path('railing/', include(('railing.urls',
-         'railing'), namespace='railing')),
-
-    # path('<slug:slug>/', staircase, name='staircase'),
-    # path('<slug>/', staircase, name='staircase'),
-
-    # path('porch/', include(('porch.urls', 'porch'), namespace='porch')),
-    # path('<slug>/', porch, name='porch'),
-
-    path('porch/', include(('porch.urls',
-         'porch'), namespace='porch')),
-
-    # path('steps/', include(('steps.urls', 'steps'), namespace='steps')),
-    # path('<slug>/', steps, name='steps'),
-
-    path('steps/', include(('steps.urls',
-         'steps'), namespace='steps')),
-
+    path('staircases/', include(('staircases.urls', 'staircases'), namespace='staircases')),
+    path('railing/', include(('railing.urls', 'railing'), namespace='railing')),
+    path('porch/', include(('porch.urls', 'porch'), namespace='porch')),
+    path('steps/', include(('steps.urls', 'steps'), namespace='steps')),
     path('privacy-policy/', TemplateView.as_view(
         template_name="privacy-policy/privacy-policy.html"), name="privacy-policy"),
-        
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 
