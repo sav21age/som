@@ -69,7 +69,11 @@ jobs:
             echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
 
             cd web
-            docker-compose stop
+            # docker-compose stop
+            
+            docker-compose down
+            docker volume rm som_static son_errors
+            
             docker-compose rm -f
             docker-compose pull
             docker-compose up -d
