@@ -8,10 +8,10 @@ class ContactPageAdmin(SingletonPageAdmin):
         fieldsets = super().get_fieldsets(request, obj)
         lst = []
         for t in fieldsets:
-            if t[0] != 'Описание':
+            if t[0] != 'Описание' and t[0] != 'Меню':
                 lst.append(t)
         return tuple(lst) + (
-            ('', {
+            ('Контактная информация', {
                 'fields': (
                     'phone',
                     'email',

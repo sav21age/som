@@ -43,7 +43,7 @@ class IndexPage(Page, SingletonModel):
         return self.name
 
     class Meta:
-        verbose_name = 'главную страницу'
+        verbose_name = 'главная страница'
         verbose_name_plural = 'главные страницы'
 
 

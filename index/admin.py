@@ -3,16 +3,9 @@ from common.admin import SingletonPageAdmin
 from index.models import IndexPage
 from images.admin import ImageInline
 
-# class BCUInline(GenericStackedInline):
-#     extra = 0
-#     model = Block
-#     verbose_name = 'обратившись к нам Вы гарантированно получите'
-#     verbose_name_plural = 'обратившись к нам Вы гарантированно получите'
-
 
 class IndexPageAdmin(SingletonPageAdmin):
     inlines = [ImageInline, ]
-    # filter_horizontal = ('bcu', 'hwaw', 'prices',)
     filter_horizontal = ('hwaw', 'prices', 'block_svg',)
     prepopulated_fields = {'slug': ('name', ),}
 
