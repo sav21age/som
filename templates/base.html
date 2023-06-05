@@ -70,19 +70,9 @@
 <div class="{% block hero_background %}{% endblock %}">
       <div class="hero-eclipse py-5">
       <div class="container py-5">
-        <h1 class="display-4 text-white slideInDown">{% block h1 %}{% endblock %}</h1>
-        {% comment %} {% if request.path != '/' %}
-        <nav aria-label="breadcrumb animated slideInDown">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item">
-              <a href="/" class="text-white"><i class="fas fa-home fa-lg"></i></a>
-            </li>
-            <li class="breadcrumb-item text-primary active" aria-current="page">
-              {% block breadcrumb %}{% endblock %}
-            </li>
-          </ol>
-        </nav>
-        {% endif %} {% endcomment %}
+          <h1 class="display-4 text-white">
+            {% block h1 %}{% endblock %}
+          </h1>
       </div>
       </div>
     </div>

@@ -709,6 +709,11 @@ section {
   opacity: 1;
 }
 
+.index-background {
+  background: url(../../../images/background/index.jpg) center center no-repeat;
+  background-size: cover;
+}
+
 .staircase-background {
   background: url(../../../images/background/staircase.jpg) center center no-repeat;
   background-size: cover;
@@ -739,8 +744,13 @@ section {
   background-size: cover;
 }
 
+.privacy-policy-background {
+  background: url(../../../images/background/privacy-policy.jpg) center center no-repeat;
+  background-size: cover;
+}
+
 .hero-eclipse {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .overlay-wrapper {
