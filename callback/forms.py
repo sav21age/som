@@ -1,4 +1,3 @@
-# from snowpenguin.django.recaptcha3.fields import ReCaptchaField
 from django import forms
 
 
@@ -12,7 +11,6 @@ class CallbackForm(forms.Form):
             'class': 'form-control',
             'data-phone-pattern': '',
         }),)
-    # captcha = ReCaptchaField()
     recaptcha = forms.CharField(widget=forms.HiddenInput(
         attrs={'class': 'g-recaptcha-response', }
     ))
