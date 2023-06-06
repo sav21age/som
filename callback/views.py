@@ -3,11 +3,9 @@ import json
 import time
 from django.conf import settings
 from django.http import HttpResponse
-from django.core.mail import EmailMessage, EmailMultiAlternatives
 import requests
 from callback.forms import CallbackForm
 from common.loggers import logger
-from django.core.serializers.json import DjangoJSONEncoder
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 
@@ -84,7 +82,6 @@ def callback_form(request):
                 logger.info(msg)
                 return HttpResponse(json.dumps(msg))
         else:
-            print(form)
             # msg = 'Произошла ошибка. Пожалуйста попробуйте позже.'
             # logger.info(msg)
             # return HttpResponse(msg, status=400)

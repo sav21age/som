@@ -21,13 +21,16 @@ class CalculatorForm(forms.Form):
     )
 
     # obj = Coeff.objects.filter(id=1).get()
-    obj = Coeff.objects.first()
+    # h_coeff = forms.IntegerField(
+    #     widget=forms.HiddenInput(
+    #         attrs={
+    #             'value': obj.h,
+    #         },
+    #     ),
+    # )
+
     h_coeff = forms.IntegerField(
-        widget=forms.HiddenInput(
-            attrs={
-                'value': obj.h,
-            },
-        ),
+        widget=forms.HiddenInput(),
     )
 
     
@@ -79,6 +82,8 @@ class CalculatorForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # self.fields['h_coeff'].widget.attrs['value'] = Coeff.objects.first()
+        self.fields['h_coeff'].initial = Coeff.objects.first()
         self.fields["st"].initial = StepsMaterialType.is_visible_objects.first()
         self.fields["rt"].initial = RailingType.is_visible_objects.first()
         self.fields["cst_coeff"].initial = CoeffStaircaseType.is_visible_objects.first()
