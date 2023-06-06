@@ -1,10 +1,10 @@
 from django.contrib import admin
-from contacts.models import ContactPage
+from contacts.models import Contacts
 from common.admin import SimplePageAdmin
 from solo.admin import SingletonModelAdmin
 
 
-class ContactPageAdmin(SimplePageAdmin, SingletonModelAdmin):
+class ContactsAdmin(SimplePageAdmin, SingletonModelAdmin):
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
         return fieldsets + (
@@ -27,4 +27,4 @@ class ContactPageAdmin(SimplePageAdmin, SingletonModelAdmin):
         form.base_fields['address_production_map'].widget.attrs['rows'] = 7
         return form
 
-admin.site.register(ContactPage, ContactPageAdmin)
+admin.site.register(Contacts, ContactsAdmin)

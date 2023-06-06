@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
-from contacts.models import ContactPage
+from contacts.models import Contacts
 
 
 class ContactsSitemap(Sitemap):
@@ -8,7 +8,7 @@ class ContactsSitemap(Sitemap):
     
     def items(self):
         # return ['contacts']
-        return ContactPage.is_visible_objects.all()
+        return Contacts.is_visible_objects.all()
     
     def lastmod(self, obj):
         return obj.updated_at

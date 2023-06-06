@@ -7,9 +7,9 @@ from django.core.cache import cache
 from django.db.models.signals import post_save
 from blocks.models import BlockPrice, BlockSVG, BlockText
 from bridges.models import Bridge
-from contacts.models import ContactPage
+from contacts.models import Contacts
 from images.models import Image
-from index.models import IndexPage
+from index.models import Index
 from porch.models import Porch
 from railing.models import Railing
 from staircases.models import Staircase
@@ -20,11 +20,11 @@ from videos.models import Video
 @receiver(post_save, sender=BlockText)
 @receiver(post_save, sender=BlockPrice)
 @receiver(post_save, sender=BlockSVG)
-@receiver(post_save, sender=ContactPage)
+@receiver(post_save, sender=Contacts)
 @receiver(post_save, sender=Image)
 @receiver(post_save, sender=Video)
 @receiver(post_save, sender=Railing)
-@receiver(post_save, sender=IndexPage)
+@receiver(post_save, sender=Index)
 @receiver(post_save, sender=Staircase)
 @receiver(post_save, sender=Steps)
 @receiver(post_save, sender=Porch)

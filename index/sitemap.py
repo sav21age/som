@@ -1,6 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
-from index.models import IndexPage
+from index.models import Index
 
 
 class IndexSitemap(Sitemap):
@@ -8,7 +8,7 @@ class IndexSitemap(Sitemap):
 
     def items(self):
         # return ['index']
-        return IndexPage.is_visible_objects.all()
+        return Index.is_visible_objects.all()
     
     def lastmod(self, obj):
         return obj.updated_at

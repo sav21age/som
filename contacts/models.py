@@ -4,7 +4,7 @@ from common.models import SimplePage
 from solo.models import SingletonModel
 
 
-class ContactPage(SimplePage, SingletonModel):
+class Contacts(SimplePage, SingletonModel):
     address_showroom = models.CharField(
         'адрес выставочного зала', max_length=200, null=True, blank=True)
     address_showroom_map = models.TextField(

@@ -1,10 +1,10 @@
 from solo.admin import SingletonModelAdmin
 from django.contrib import admin
-from index.models import IndexPage
+from index.models import Index
 from common.admin import PageDescriptionAdmin, PageHWAWAdmin, PagePortfolioAdmin, SimplePageAdmin
 
 
-class IndexPageAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, SingletonModelAdmin):
+class IndexAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, SingletonModelAdmin):
     filter_horizontal = ('hwaw', 'prices', 'block_svg',)
 
     def get_fieldsets(self, request, obj=None):
@@ -21,7 +21,7 @@ class IndexPageAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDes
             }),
         )
 
-admin.site.register(IndexPage, IndexPageAdmin)
+admin.site.register(Index, IndexAdmin)
 
 
 # def get_fieldsets(self, request, obj=None):

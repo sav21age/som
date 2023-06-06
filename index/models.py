@@ -4,7 +4,7 @@ from solo.models import SingletonModel
 from common.models import PageDescription, PageHWAW, PagePortfolio, SimplePage
 
 
-class IndexPage(SimplePage, PageDescription, PagePortfolio, PageHWAW, SingletonModel):
+class Index(SimplePage, PageDescription, PagePortfolio, PageHWAW, SingletonModel):
     block_svg_title = models.CharField(
         'Заголовок', max_length=200, blank=True)
     block_svg = models.ManyToManyField(
