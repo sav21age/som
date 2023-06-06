@@ -18,7 +18,6 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.humanize',
     'markdownify.apps.MarkdownifyConfig',
-    # 'snowpenguin.django.recaptcha3',
     # 'sekizai',
     'django_db_logger',
     'compressor',

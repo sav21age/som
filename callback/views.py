@@ -14,8 +14,6 @@ def callback_form(request):
     if request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest' and request.method == 'POST':
         form = CallbackForm(request.POST)
         if form.is_valid():
-            score = form.cleaned_data['recaptcha'].get('score')
-            print(score)
 
             if 'RECAPTCHA_DISABLE' in os.environ.keys(): # For tests
                 res = json.loads(request.POST.get('recaptcha'))
