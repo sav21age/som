@@ -18,6 +18,8 @@ settings_local.py
 *.zip
 */.env
 
+commands.txt
+
 .ssh
 .coverage
 .coveragerc
