@@ -9,19 +9,22 @@ class BridgeAdmin(SingletonPageAdmin):
     prepopulated_fields = {'slug': ('name', )}
     filter_horizontal = ('hwaw',)
 
-    def get_fieldsets(self, request, obj=None):
-        fieldsets = super().get_fieldsets(request, obj)
-        lst = []
-        for t in fieldsets:
-            if t[0] != 'Меню':
-                lst.append(t)
-        return tuple(lst) + (
-            ('Как мы работаем?', {
-                'fields': ('hwaw',)
-            }),
-            ('Наши работы', {
-                'fields': ('portfolio_title',)
-            }),
-        )
+    fieldsets = (
+        ('Заголовок и мета теги страницы', {
+            'fields': ('head_title', 'meta_description', 'meta_keywords',)
+        }),
+        ('Имя и url-адрес страницы', {
+            'fields': ('name', 'slug',)
+        }),
+        ('Описание', {
+            'fields': ('description_title', 'description_text',)
+        }),
+        ('Как мы работаем?', {
+            'fields': ('hwaw',)
+        }),
+        ('Наши работы', {
+            'fields': ('portfolio_title',)
+        }),
+    )
 
 admin.site.register(Bridge, BridgeAdmin)

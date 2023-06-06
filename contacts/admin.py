@@ -1,28 +1,34 @@
 from django.contrib import admin
 from contacts.models import ContactPage
 from common.admin import SingletonPageAdmin
-
+from django.forms import Textarea
+from django.db import models
 
 class ContactPageAdmin(SingletonPageAdmin):
-    def get_fieldsets(self, request, obj=None):
-        fieldsets = super().get_fieldsets(request, obj)
-        lst = []
-        for t in fieldsets:
-            if t[0] != 'Описание' and t[0] != 'Меню':
-                lst.append(t)
-        return tuple(lst) + (
-            ('Контактная информация', {
-                'fields': (
-                    'phone',
-                    'email',
-                    'work_schedule',
-                    'address_showroom',
-                    'address_showroom_map',
-                    'address_production',
-                    'address_production_map',
-                )
-            }),
-        )
+    fieldsets = (
+        ('Заголовок и мета теги страницы', {
+            'fields': ('head_title', 'meta_description', 'meta_keywords',)
+        }),
+        ('Имя и url-адрес страницы', {
+            'fields': ('name', 'slug',)
+        }),
+        ('Контактная информация', {
+            'fields': (
+                'phone',
+                'email',
+                'work_schedule',
+                'address_showroom',
+                'address_showroom_map',
+                'address_production',
+                'address_production_map',
+            )
+        }),
+    )
 
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+        form.base_fields['address_showroom_map'].widget.attrs['rows'] = 7
+        form.base_fields['address_production_map'].widget.attrs['rows'] = 7
+        return form
 
 admin.site.register(ContactPage, ContactPageAdmin)

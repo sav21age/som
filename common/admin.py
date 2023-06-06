@@ -2,13 +2,11 @@ from solo.admin import SingletonModelAdmin
 from django.forms import TextInput, Textarea
 from django.db import models
 from django.contrib import admin
-# from martor.widgets import AdminMartorWidget
 
 
 formfield_overrides = {
     models.CharField: {'widget': TextInput(attrs={'style': 'width: 70%; font-size: 115%;'})},
     models.TextField: {'widget': Textarea(attrs={'rows': 30, 'style': 'width: 70%; font-size: 115%;'})},
-    # models.TextField: {'widget': AdminMartorWidget},
 }
 
 fieldsets = (
