@@ -1,6 +1,11 @@
 import os
 from pathlib import Path
 
+import locale
+def getpreferredencoding(do_setlocale = True):
+    return "utf-8"
+locale.getpreferredencoding = getpreferredencoding
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 INSTALLED_APPS = [
@@ -22,6 +27,7 @@ INSTALLED_APPS = [
     'reset_migrations',
     'blocks',
     'index',
+    'calculator',
     'images',
     'videos',
     'staircases',
@@ -30,7 +36,6 @@ INSTALLED_APPS = [
     'steps',
     'bridges',
     'contacts',
-    'calculator',
     'callback',
     'common',
     'file_resubmit',

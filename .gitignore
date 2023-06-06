@@ -24,7 +24,7 @@ commands.txt
 .coverage
 .coveragerc
 htmlcov/
+fixtures/
+
 */certbot/*
 letsencrypt.sh
-
-#media/

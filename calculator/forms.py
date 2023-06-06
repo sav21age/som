@@ -1,7 +1,7 @@
 from django import forms
-from calculator.models import Coeff, CoeffStaircaseType, RailingType, Service, StepsMaterialType
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Field, HTML
+from calculator.models import Coeff, CoeffStaircaseType, RailingType, Service, StepsMaterialType
 
 
 class CalculatorForm(forms.Form):
@@ -20,7 +20,7 @@ class CalculatorForm(forms.Form):
         required=False,
     )
     
-    obj=Coeff.objects.filter(id=1).get()
+    obj = Coeff.objects.filter(id=1).get()
     h_coeff = forms.IntegerField(
         widget=forms.HiddenInput(
             attrs={

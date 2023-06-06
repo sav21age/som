@@ -8,6 +8,7 @@ def porch(request, slug):
         object = Porch.objects.filter(slug=slug) \
             .prefetch_related('hwaw') \
             .prefetch_related('portfolio_images') \
+            .prefetch_related('portfolio_videos') \
             .get()
     except Porch.DoesNotExist:
         raise Http404

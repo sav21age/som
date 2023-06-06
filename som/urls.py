@@ -1,11 +1,11 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from index.views import index
 from bridges.sitemap import BridgeSitemap
 from bridges.views import bridges
 from contacts.sitemap import ContactsSitemap
 from index.sitemap import IndexSitemap
-from index.views import index
 from contacts.views import contacts
 from django.views.generic import TemplateView
 from porch.sitemap import PorchSitemap

@@ -5,7 +5,11 @@ from bridges.models import Bridge
 
 def bridges(request):
     try:
-        object = Bridge.objects.prefetch_related('hwaw').get()
+        object = Bridge.objects \
+        .prefetch_related('hwaw') \
+        .prefetch_related('portfolio_images') \
+        .prefetch_related('portfolio_videos') \
+        .get()
     except Bridge.DoesNotExist:
         raise Http404
 

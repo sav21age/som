@@ -7,6 +7,7 @@ def railing(request, slug):
     try:
         object = Railing.is_visible_objects.filter(slug=slug) \
             .prefetch_related('portfolio_images') \
+            .prefetch_related('portfolio_videos') \
             .get()
     except Railing.DoesNotExist:
         raise Http404
