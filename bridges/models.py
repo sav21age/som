@@ -1,22 +1,10 @@
 from django.db import models
-from django.contrib.contenttypes import fields
 from blocks.models import BlockSVG
-from common.models import Page
-from images.models import Image
 from solo.models import SingletonModel
+from common.models import PageDescription, PageHWAW, PagePortfolio, SimplePage
 
 
-class Bridge(Page, SingletonModel):
-    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
-    portfolio_images = fields.GenericRelation(Image)
-
-    hwaw = models.ManyToManyField(
-        BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
-        blank=True, db_index=True)
-
-    def __str__(self):
-        return self.name
-
+class Bridge(SimplePage, PageDescription, PagePortfolio, PageHWAW, SingletonModel):
     class Meta:
         verbose_name = 'мостик'
         verbose_name_plural = 'мостики'

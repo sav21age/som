@@ -1,21 +1,7 @@
-from django.db import models
-from django.contrib.contenttypes import fields
-from common.models import Page
-from images.models import Image
+from common.models import PageDescription, PageMenu, PagePortfolio, SimplePage
 
 
-class Steps(Page):
-    menu_name = models.CharField(
-        'название для меню', max_length=80, blank=True)
-    menu_order = models.PositiveSmallIntegerField(
-        'порядковый номер в меню', default=0,)
-
-    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
-    portfolio_images = fields.GenericRelation(Image)
-
-    def __str__(self):
-        return self.name
-
+class Steps(SimplePage, PageDescription, PageMenu, PagePortfolio):
     class Meta:
         ordering = ('menu_order', )
         verbose_name = 'ступень'

@@ -1,5 +1,9 @@
 from django.db import models
+from blocks.models import BlockSVG
 from common.managers import IsVisibleManager
+from django.contrib.contenttypes import fields
+from images.models import Image
+from videos.models import Video
 
 
 class SimplePage(models.Model):
@@ -17,13 +21,42 @@ class SimplePage(models.Model):
     objects = models.Manager()
     is_visible_objects = IsVisibleManager()
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         abstract = True
 
-  
-class Page(SimplePage):
+
+class PageDescription(models.Model):
     description_title = models.CharField('Заголовок', blank=True, max_length=200)
     description_text = models.TextField('Текст', blank=True)
+
+    class Meta:
+        abstract = True
+
+
+class PageMenu(models.Model):
+    menu_name = models.CharField('название для меню', max_length=80)
+    menu_order = models.PositiveSmallIntegerField('порядковый номер в меню', default=0,)
+
+    class Meta:
+        abstract = True
+
+
+class PagePortfolio(models.Model):
+    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
+    portfolio_images = fields.GenericRelation(Image)
+    portfolio_videos = fields.GenericRelation(Video)
+
+    class Meta:
+        abstract = True
+
+
+class PageHWAW(models.Model):
+    hwaw = models.ManyToManyField(
+        BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
+        blank=True, db_index=True)
 
     class Meta:
         abstract = True

@@ -1,19 +1,9 @@
 from django.db import models
-from django.contrib.contenttypes import fields
 from blocks.models import BlockPrice, BlockSVG
-from common.models import Page
-from images.models import Image
-from videos.models import Video
+from common.models import PageDescription, PageHWAW, PageMenu, PagePortfolio, SimplePage
 
 
-class Staircase(Page):
-    menu_name = models.CharField('название для меню', max_length=80, blank=True)
-    menu_order = models.PositiveSmallIntegerField('порядковый номер в меню', default=0,)
-
-    hwaw = models.ManyToManyField(
-        BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
-        blank=True, db_index=True)
-
+class Staircase(SimplePage, PageDescription, PageMenu, PagePortfolio, PageHWAW):
     block_svg_title = models.CharField(
         'Заголовок', max_length=200, blank=True)
     block_svg = models.ManyToManyField(
@@ -23,13 +13,6 @@ class Staircase(Page):
     prices = models.ManyToManyField(
         BlockPrice, verbose_name='"Цены"', related_name='+',
         blank=True, db_index=True)
-
-    portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
-    portfolio_images = fields.GenericRelation(Image)
-    portfolio_videos = fields.GenericRelation(Video)
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         ordering = ('menu_order', )

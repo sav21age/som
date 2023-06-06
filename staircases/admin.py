@@ -1,12 +1,9 @@
 from django.contrib import admin
-from common.admin import PageAdmin
-from images.admin import ImageInline
+from common.admin import PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, SimplePageAdmin
 from staircases.models import Staircase
-from videos.admin import VideoInline
 
 
-class StaircaseAdmin(PageAdmin):
-    inlines = [ImageInline, VideoInline,]
+class StaircaseAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
     filter_horizontal = ('hwaw', 'prices', 'block_svg', )
 
@@ -18,12 +15,6 @@ class StaircaseAdmin(PageAdmin):
             }),
             ('Блок с ценами', {
                 'fields': ('prices',)
-            }),
-            ('Как мы работаем?', {
-                'fields': ('hwaw',)
-            }),
-            ('Наши работы', {
-                'fields': ('portfolio_title',)
             }),
         )
 

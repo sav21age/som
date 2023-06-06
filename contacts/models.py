@@ -1,45 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.contrib.contenttypes import fields
-from blocks.models import BlockText
 from common.models import SimplePage
-from images.models import Image
 from solo.models import SingletonModel
-
-# class Address(models.Model):
-#     title = models.CharField(_("title"), max_length=30)
-#     address = models.TextField(_("address"),)
-
-#     def __str__(self):
-#         return self.name
-
-#     class Meta:
-#         verbose_name = _('address')
-#         verbose_name_plural = _('addresses')
-
-
-# class Phone(models.Model):
-#     title = models.CharField(_("title"), max_length=30)
-#     number = models.TextField(_("number"),)
-
-#     def __str__(self):
-#         return self.name
-
-#     class Meta:
-#         verbose_name = _('phone')
-#         verbose_name_plural = _('phones')
-
-
-# class Email(models.Model):
-#     title = models.CharField(_("title"), max_length=30)
-#     email = models.TextField(_("email"),)
-
-#     def __str__(self):
-#         return self.name
-
-#     class Meta:
-#         verbose_name = _('email')
-#         verbose_name_plural = _('emails')
 
 
 class ContactPage(SimplePage, SingletonModel):
@@ -56,18 +18,11 @@ class ContactPage(SimplePage, SingletonModel):
     phone = models.CharField('телефон', max_length=20, null=True, blank=True)
     email = models.CharField('email', max_length=50, null=True, blank=True)
 
-    # address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    # phone = models.ForeignKey(Phone, on_delete=models.CASCADE)
-    # email = models.ForeignKey(Email, on_delete=models.CASCADE)
-
     work_schedule = models.CharField(
         'график работы', max_length=50, null=True, blank=True)
 
-
-    images = fields.GenericRelation(Image, verbose_name="картинки")
-
     def __str__(self):
-        return self.address_showroom
+        return 'Контакты'
 
     class Meta:
         verbose_name = 'контакты'

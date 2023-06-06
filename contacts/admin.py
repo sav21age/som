@@ -1,29 +1,25 @@
 from django.contrib import admin
 from contacts.models import ContactPage
-from common.admin import SingletonPageAdmin
-from django.forms import Textarea
-from django.db import models
+from common.admin import SimplePageAdmin
+from solo.admin import SingletonModelAdmin
 
-class ContactPageAdmin(SingletonPageAdmin):
-    fieldsets = (
-        ('Заголовок и мета теги страницы', {
-            'fields': ('head_title', 'meta_description', 'meta_keywords',)
-        }),
-        ('Имя и url-адрес страницы', {
-            'fields': ('name', 'slug',)
-        }),
-        ('Контактная информация', {
-            'fields': (
-                'phone',
-                'email',
-                'work_schedule',
-                'address_showroom',
-                'address_showroom_map',
-                'address_production',
-                'address_production_map',
-            )
-        }),
-    )
+
+class ContactPageAdmin(SimplePageAdmin, SingletonModelAdmin):
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        return fieldsets + (
+            ('Контактная информация', {
+                'fields': (
+                    'phone',
+                    'email',
+                    'work_schedule',
+                    'address_showroom',
+                    'address_showroom_map',
+                    'address_production',
+                    'address_production_map',
+                )
+            }),
+        )
 
     def get_form(self, request, obj=None, **kwargs):
         form = super().get_form(request, obj, **kwargs)
