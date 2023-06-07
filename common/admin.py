@@ -19,7 +19,7 @@ class SimplePageAdmin(admin.ModelAdmin):
             'fields': ('is_visible',)
         }),
         ('Заголовок и мета теги страницы', {
-            'fields': ('head_title', 'meta_description', 'meta_keywords',)
+            'fields': ('head_title', 'meta_description',)
         }),
         ('Имя и url-адрес страницы', {
             'fields': ('name', 'slug',)

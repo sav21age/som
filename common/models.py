@@ -9,9 +9,8 @@ from videos.models import Video
 class SimplePage(models.Model):
     head_title = models.CharField('title', max_length=80)
     meta_description = models.CharField('meta description', max_length=160)
-    meta_keywords = models.CharField('meta keywords', max_length=160)
 
-    name = models.CharField('название', max_length=80)
+    name = models.CharField('h1-название', max_length=80)
     slug = models.SlugField('url-адрес страницы', max_length=80, blank=False, unique=True)
 
     created_at = models.DateTimeField('дата создания', auto_now_add=True)
