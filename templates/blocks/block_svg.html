@@ -11,7 +11,7 @@
       {% if value.is_visible %}
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="icon-box">
-            <div class="icon"><image src={% get_media_prefix %}{{value.svg_path}} width="44" height="44"></div>
+            <div class="icon"><image src={% get_media_prefix %}{{value.svg_path}} width="44" height="44" alt="{{value.title}}"></div>
               <p class="caption">{{value.title}}</p>
               <p>{{value.description}}</p>
             </div>
