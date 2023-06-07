@@ -4,27 +4,22 @@
 .docker
 __pycache__
 
-*.json
-
 node_modules
-db_backup
 cache
-media/*
+media
+htmlcov
+fixtures
 
 settings_local.py
 
 *.sql
 *.log
 *.zip
-*/.env
-
-commands.txt
+*.json
 
 .ssh
 .coverage
 .coveragerc
-htmlcov/
-fixtures/
 
-*/certbot/*
+*/certbot
 letsencrypt.sh
