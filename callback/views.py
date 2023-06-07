@@ -1,9 +1,9 @@
 import json
 import os
-from datetime import datetime
+import requests
+from datetime import datetime, timezone
 from django.conf import settings
 from django.http import HttpResponse
-import requests
 from callback.forms import CallbackForm
 from common.loggers import logger
 from django.template.loader import render_to_string
@@ -39,7 +39,7 @@ def callback_form(request):
                     'subject': subject,
                     'name': name,
                     'phone': phone,
-                    'date': datetime.now()
+                    'date': datetime.now(timezone.utc)
                 }
 
                 html_body = render_to_string(
