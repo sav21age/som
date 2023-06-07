@@ -1,2 +1,5 @@
 User-agent: *
 Disallow: /
+Disallow: /admin
+Host: studio-of-metal.ru
+Sitemap: https://studio-of-metal.ru/sitemap.xml
