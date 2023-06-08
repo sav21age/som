@@ -375,6 +375,6 @@
     calc();
   }
 
-  var lazyLoadInstance = new LazyLoad({});
+  let lazyLoadInstance = new LazyLoad({});
 
 })();
