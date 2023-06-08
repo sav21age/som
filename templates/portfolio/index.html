@@ -1,4 +1,4 @@
-{% load thumbnail cache app_label %}
+{% load thumbnail cache app_label static %}
 {% cache cache_timeout portfolio object|app_label object.id %}
 {% include "line-gold-background.html" %}
 <section id="portfolio" class="portfolio">
@@ -30,7 +30,7 @@
     {% for video in object.portfolio_videos.all %}
       {% comment %} {% if video.is_visible %} {% endcomment %}
       <div class="col-md-6">
-        <div class="ratio ratio-16x9">
+        <div class="ratio ratio-16x9 bg-dark">
           <iframe class="lazy" data-src="{{ video.url }}" title="{{ video.title }}" allowfullscreen></iframe>
         </div>
       </div>
