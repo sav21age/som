@@ -1,8 +1,6 @@
 (function () {
   ("use strict");
 
-  lozad(".lazyload").observe();
-
   /**
    * Easy selector helper function
    */
@@ -374,7 +372,7 @@
     });
     calc();
   }
-
+  lozad(".lazyload").observe();
   let lazyLoadInstance = new LazyLoad({});
 
 })();
