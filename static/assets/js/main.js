@@ -375,4 +375,6 @@
     calc();
   }
 
+  var lazyLoadInstance = new LazyLoad({});
+
 })();

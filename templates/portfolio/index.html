@@ -34,7 +34,7 @@
       {% if video.is_visible %}
       <div class="col-md-6">
       <div class="ratio ratio-16x9">
-        <iframe src="{{ video.url }}" title="{{ video.title }}" allowfullscreen></iframe>
+        <iframe class="lazy" data-src="{{ video.url }}" title="{{ video.title }}" allowfullscreen></iframe>
       </div>
         {% comment %} <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
