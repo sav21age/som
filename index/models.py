@@ -11,8 +11,8 @@ class Index(SimplePage, PageDescription, PagePortfolio, PageHWAW, SingletonModel
         BlockSVG, verbose_name='Контент', related_name='+',
         blank=True, db_index=True)
 
-    prices = models.ManyToManyField(
-        BlockPrice, verbose_name='"Цены"', related_name='prices',
+    block_price = models.ManyToManyField(
+        BlockPrice, verbose_name='"Цены"', related_name='+',
         blank=True, db_index=True)
 
     about_title = models.CharField('Заголовок', blank=True, max_length=200)

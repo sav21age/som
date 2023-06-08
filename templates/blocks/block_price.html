@@ -7,8 +7,8 @@
       <p class="fst-italic">Указанные цены не являются публичной офертой.</p>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      {% for price in object.prices.all %}
-        {% if price.is_visible %}
+      {% for price in object.block_price.all %}
+        {% comment %} {% if price.is_visible %} {% endcomment %}
           <div class="col">
             <div class="card rounded-0 border-light h-100">
               {% if not price.img_path %}
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-        {% endif %}
+        {% comment %} {% endif %} {% endcomment %}
       {% endfor %}
     </div>
   </div>

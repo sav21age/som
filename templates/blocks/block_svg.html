@@ -8,7 +8,7 @@
     </div>
     <div class="row">
     {% for value in object.block_svg.all %}
-      {% if value.is_visible %}
+      {% comment %} {% if value.is_visible %} {% endcomment %}
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="icon-box">
             <div class="icon"><image src={% get_media_prefix %}{{value.svg_path}} width="44" height="44" alt="{{value.title}}"></div>
@@ -16,7 +16,7 @@
               <p>{{value.description}}</p>
             </div>
           </div>
-      {% endif %}
+      {% comment %} {% endif %} {% endcomment %}
     {% endfor %}
     </div>
   </div>

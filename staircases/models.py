@@ -10,7 +10,7 @@ class Staircase(SimplePage, PageDescription, PageMenu, PagePortfolio, PageHWAW):
         BlockSVG, verbose_name='"Контент"', related_name='block_svg',
         blank=True, db_index=True)
 
-    prices = models.ManyToManyField(
+    block_price = models.ManyToManyField(
         BlockPrice, verbose_name='"Цены"', related_name='+',
         blank=True, db_index=True)
 

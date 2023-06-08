@@ -5,7 +5,7 @@ from common.admin import PageDescriptionAdmin, PageHWAWAdmin, PagePortfolioAdmin
 
 
 class IndexAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, SingletonModelAdmin):
-    filter_horizontal = ('hwaw', 'prices', 'block_svg',)
+    filter_horizontal = ('hwaw', 'block_price', 'block_svg',)
 
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
@@ -17,7 +17,7 @@ class IndexAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescrip
                 'fields': ('block_svg_title', 'block_svg', )
             }),
             ('Блок с ценами', {
-                'fields': ('prices',)
+                'fields': ('block_price',)
             }),
         )
 

@@ -5,7 +5,7 @@ from staircases.models import Staircase
 
 class StaircaseAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
-    filter_horizontal = ('hwaw', 'prices', 'block_svg', )
+    filter_horizontal = ('hwaw', 'block_price', 'block_svg', )
 
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
@@ -14,7 +14,7 @@ class StaircaseAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDes
                 'fields': ('block_svg_title', 'block_svg', )
             }),
             ('Блок с ценами', {
-                'fields': ('prices',)
+                'fields': ('block_price',)
             }),
         )
 
