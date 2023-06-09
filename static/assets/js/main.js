@@ -372,7 +372,8 @@
     });
     calc();
   }
-  lozad(".lazyload").observe();
-  let lazyLoadInstance = new LazyLoad({});
 
+  lozad(".lozad").observe();
+
+  let lazyLoadInstance = new LazyLoad({});
 })();
