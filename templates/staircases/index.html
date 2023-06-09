@@ -1,5 +1,4 @@
 {% extends "main.html" %}
-{% load markdownify %}
 
 {% block head %}
   <title>{{object.head_title}}</title>
@@ -12,19 +11,8 @@
 
 {% block content %}
 
-{% include "line-blue-background.html" %}
-<section id="about">
-  <div class="container">
-    <div class="section-title section-title--blue">
-      <h2>{{object.description_title}}</h2>
-    </div>
-    {{object.description_text|markdownify}}
-  </div>
-</section>
-
-
+{% include "description.html" %}
 {% include "blocks/block_svg.html" %}
-
 {% include "blocks/block_price.html" %}
 {% include "calculator/index.html" %}
 {% include "portfolio/index.html" %}

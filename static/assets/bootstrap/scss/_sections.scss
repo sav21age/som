@@ -86,7 +86,7 @@ section {
   // border-image: 5 repeating-linear-gradient(45deg, #e4e4e4, #e4e4e4 5px, transparent 5px, transparent 5px, #e4e4e4 5px, #e4e4e4 10px, transparent 10px, transparent 20px);
   border-image: 5 repeating-linear-gradient(45deg, $primary-background, $primary-background 5px, transparent 5px, transparent 5px, $primary-background 5px, $primary-background 10px, transparent 10px, transparent 20px);
 }
-#about {
+.about {
   @include background_blue;
 }
 

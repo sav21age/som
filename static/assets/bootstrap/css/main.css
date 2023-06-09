@@ -271,7 +271,7 @@ section {
      border-image: 5 repeating-linear-gradient(45deg, #f7f9fb, #f7f9fb 5px, transparent 5px, transparent 5px, #f7f9fb 5px, #f7f9fb 10px, transparent 10px, transparent 20px);
 }
 
-#about {
+.about {
   background: #f7f9fb;
 }
 
