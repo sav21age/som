@@ -1,5 +1,5 @@
 {% load static compress %}
-{% spaceless %}
+{% comment %} {% spaceless %} {% endcomment %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -72,9 +72,9 @@
   <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
   <script src="{% static 'assets/vendor/phone-mask/phone-mask.min.js' %}"></script>
   <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  {% endcompress %}
   <script src="{% static 'assets/js/callback_form.js' %}"></script>
   <script src="{% static 'assets/js/main.js' %}"></script>
-  {% endcompress %}
 </body>
 </html>
-{% endspaceless %}
+{% comment %} {% endspaceless %} {% endcomment %}
