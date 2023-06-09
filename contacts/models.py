@@ -23,7 +23,7 @@ class Contacts(SimplePage, SingletonModel):
 
     def __str__(self):
         return 'Контакты'
-
+       
     class Meta:
         verbose_name = 'контакты'
         verbose_name_plural = 'контакты'
