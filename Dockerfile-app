@@ -51,7 +51,8 @@ FROM python:3.10.1-alpine
 RUN mkdir -p /home/app
 
 # create the app user
-RUN addgroup -S app && adduser -S app -G app
+# RUN addgroup -S app && adduser -S app -G app
+RUN addgroup -g 1111 -S app && adduser -u 1111 -S app -G app
 
 # create the appropriate directories
 ENV HOME=/home/app
