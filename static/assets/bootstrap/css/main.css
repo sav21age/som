@@ -320,7 +320,7 @@ section {
   fill: #fff;
 }
 
-#monogram-light path {
+.monogram-blue path, .monogram-gold path {
   fill: #232c35;
 }
 
