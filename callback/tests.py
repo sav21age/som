@@ -1,8 +1,69 @@
 import os
 import json
+from datetime import datetime, timezone
+from django.conf import settings
 from django.test import TestCase, Client
 from django.urls import reverse
 from callback.forms import CallbackForm
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+from django.core import mail
+
+
+class SendMailTest(TestCase):
+    def test_send_email_fail(self):
+        """ Test send_mail """
+
+        send_mail(
+            '',
+            message='',
+            recipient_list='',
+            from_email='',
+            fail_silently=False,
+        )
+
+        # Test that one message has been sent.
+        self.assertEqual(len(mail.outbox), 0)
+
+    def test_send_email_ok(self):
+        """ Test send_mail """
+
+        subject = 'Обратный звонок'
+        name = 'Имя'
+        phone = '+77777777777'
+
+        context = {
+            'subject': subject,
+            'name': name,
+            'phone': phone,
+            'date': datetime.now(timezone.utc)
+        }
+
+        html_body = render_to_string(
+            'callback/email/callback.html', 
+            context
+        )
+
+        text_body = render_to_string(
+            'callback/email/callback.txt', 
+            context
+        )
+
+        send_mail(
+            subject,
+            message=text_body,
+            html_message=html_body,
+            recipient_list=settings.LIST_OF_EMAIL_RECIPIENTS,
+            from_email=settings.EMAIL_HOST_USER,
+            fail_silently=False,
+        )
+
+        # Test that one message has been sent.
+        self.assertEqual(len(mail.outbox), 1)
+
+        # Verify that the subject of the first message is correct.
+        self.assertEqual(mail.outbox[0].subject, 'Обратный звонок')
+
 
 class CallbackFormTest(TestCase):
     def setUp(self):
