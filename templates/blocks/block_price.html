@@ -1,6 +1,6 @@
 {% load thumbnail cache app_label humanize %}
-{% cache cache_timeout prices object|app_label object.id %}
-<section id="prices">
+{% cache cache_timeout block_price object|app_label object.id %}
+<section id="block-price">
   <div class="container">
     <div class="section-title section-title--blue">
       <h2>Наши цены на Вашу лестницу Вас приятно удивят</h2>

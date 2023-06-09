@@ -160,56 +160,6 @@ section {
   margin-bottom: 15px;
 }
 
-#bcu .order-number {
-  font-size: 230px;
-  font-weight: bold;
-  color: #c0c0c0;
-  position: absolute;
-  z-index: 0;
-  opacity: 0.1;
-  line-height: 0.9;
-}
-#bcu .icon-box {
-  text-align: center;
-  padding: 20px 20px;
-  -webkit-transition: all ease-in-out 0.3s;
-  -o-transition: all ease-in-out 0.3s;
-  transition: all ease-in-out 0.3s;
-  z-index: 1;
-}
-#bcu .icon-box .icon {
-  margin: 0 auto;
-  width: 70px;
-  height: 70px;
-  background: #00569c;
-  -webkit-transition: all 0.3s ease-out 0s;
-  -o-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 20px;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  border-radius: 50%;
-}
-#bcu p {
-  line-height: 1.5;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-#bcu .caption {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
 #block-svg .order-number {
   font-size: 230px;
   font-weight: bold;
@@ -265,7 +215,7 @@ section {
   color: #232c35;
 }
 
-#prices {
+#block-price {
   border-top: 3px solid transparent;
   -o-border-image: 5 -o-repeating-linear-gradient(45deg, #f7f9fb, #f7f9fb 5px, transparent 5px, transparent 5px, #f7f9fb 5px, #f7f9fb 10px, transparent 10px, transparent 20px);
      border-image: 5 repeating-linear-gradient(45deg, #f7f9fb, #f7f9fb 5px, transparent 5px, transparent 5px, #f7f9fb 5px, #f7f9fb 10px, transparent 10px, transparent 20px);
