@@ -320,7 +320,7 @@
       const newValue = Number(
           ((range.value - range.min) * 100) / (range.max - range.min)
         ),
-        newPosition = 10 - newValue * 0.2;
+        newPosition = 10 - newValue * 0.18;
       range_value.innerHTML = `<span>${range.value}</span>`;
       range_value.style.left = `calc(${newValue}% + (${newPosition}px))`;
     };
