@@ -30,7 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('contacts/', contacts, name='contacts'),
-    path('crossing-bridge/', bridges, name='bridges'),
+    path('crossing-bridge/', bridges, name='crossing-bridge'),
     path('callback/', include(('callback.urls', 'callback'), namespace='callback')),
     path('staircases/', include(('staircases.urls', 'staircases'), namespace='staircases')),
     path('railing/', include(('railing.urls', 'railing'), namespace='railing')),
