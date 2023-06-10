@@ -136,9 +136,6 @@ COMPRESS_CSS_FILTERS = [
     'compressor.filters.cssmin.rCSSMinFilter',
 ]
 COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.SlimItFilter',]
-# COMPRESS_PRECOMPILERS = (
-#     ('text/x-scss', 'django_libsass.SassCompiler'),
-# )
 
 
 # Default primary key field type
