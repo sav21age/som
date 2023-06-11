@@ -1,9 +1,13 @@
+import re
 from django.db import models
 from blocks.models import BlockSVG
 from common.managers import IsVisibleManager
 from django.contrib.contenttypes import fields
 from images.models import Image
 from videos.models import Video
+
+quote = re.compile(r'\"(.*?)\"')
+quote_office = re.compile(r'\“(.*?)\”')
 
 
 class SimplePage(models.Model):
@@ -22,6 +26,19 @@ class SimplePage(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def clean(self):
+        self.head_title = re.sub(quote, r"«\1»", self.head_title)
+        self.head_title = re.sub(quote_office, r"«\1»", self.head_title)
+        self.meta_description = re.sub(quote, r"«\1»", self.meta_description)
+        self.meta_description = re.sub(quote_office, r"«\1»", self.meta_description)
+
+        self.name = re.sub(quote, r"«\1»", self.name)
+        self.name = re.sub(quote_office, r"«\1»", self.name)
+
+        # self.head_title = self.head_title.replace('"', "'")
+        # self.meta_description = self.meta_description.replace('"', "'")
+        super().clean()
 
     class Meta:
         abstract = True
@@ -30,6 +47,11 @@ class SimplePage(models.Model):
 class PageDescription(models.Model):
     description_title = models.CharField('Заголовок', blank=True, max_length=200)
     description_text = models.TextField('Текст', blank=True)
+
+    def clean(self):
+        self.description_text = re.sub(quote, r"«\1»", self.description_text)
+        self.description_text = re.sub(quote_office, r"«\1»", self.description_text)
+        super().clean()
 
     class Meta:
         abstract = True
