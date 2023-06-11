@@ -51,13 +51,13 @@ class PageDescriptionAdmin(admin.ModelAdmin):
 
 class PagePortfolioAdmin(admin.ModelAdmin):
     inlines = [ImageInline, VideoInline,]
-    def get_fieldsets(self, request, obj=None):
-        fieldsets = super().get_fieldsets(request, obj)
-        return fieldsets + (
-            ('Наши работы', {
-                'fields': ('portfolio_title',)
-            }),
-        )
+    # def get_fieldsets(self, request, obj=None):
+    #     fieldsets = super().get_fieldsets(request, obj)
+    #     return fieldsets + (
+    #         ('Наши работы', {
+    #             'fields': ('portfolio_title',)
+    #         }),
+    #     )
 
 
 class PageHWAWAdmin(admin.ModelAdmin):
