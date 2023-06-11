@@ -21,9 +21,9 @@
   <meta name="theme-color" content="#ffffff">
 
   {% block head %}{% endblock %}
-  
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="preload stylesheet" as="font" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="preload stylesheet">
 
   {% compress css %}
   <link type="text/css" href="{% static 'assets/bootstrap/css/main.css' %}" rel="stylesheet" media="screen">
