@@ -19,7 +19,7 @@ section {
   //   color: $metal-color;
   //   opacity: 0.1;
   // }
-  h2 {
+  span {
     font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
@@ -43,22 +43,22 @@ section {
 //     margin-bottom: 20px;
 // }
 
-.section-title--dark {
-  span {
-    color: $metal-color;
-  }
-  h2 {
-    color: #fff;
-  }
-}
-.section-title--blue {
-  span {
-    color: $metal-color;
-  }
-  // h2 {
-  //   // color: #fff;
-  // }
-}
+// .section-title--dark {
+//   span {
+//     color: $metal-color;
+//   }
+//   h2 {
+//     color: #fff;
+//   }
+// }
+// .section-title--blue {
+//   span {
+//     color: $metal-color;
+//   }
+//   // h2 {
+//   //   // color: #fff;
+//   // }
+// }
 
 #hwaw {
   @include block_svg;

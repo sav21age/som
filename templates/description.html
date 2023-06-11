@@ -4,8 +4,8 @@
 <section class="about">
   <div class="container">
     {% if object.description_title %}
-    <div class="section-title section-title--blue">
-      <h2>{{object.description_title}}</h2>
+    <div class="section-title">
+      <span>{{object.description_title}}</span>
     </div>
     {% endif %}
     {{object.description_text|markdownify}}

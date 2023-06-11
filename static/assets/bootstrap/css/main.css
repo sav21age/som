@@ -89,7 +89,7 @@ section {
   padding: 10px 0 20px;
   position: relative;
 }
-.section-title h2, .section-title .h2 {
+.section-title span {
   font-size: 28px;
   font-weight: 700;
   text-transform: uppercase;
@@ -97,17 +97,6 @@ section {
   color: #191919;
   position: relative;
   z-index: 2;
-}
-
-.section-title--dark span {
-  color: #c0c0c0;
-}
-.section-title--dark h2, .section-title--dark .h2 {
-  color: #fff;
-}
-
-.section-title--blue span {
-  color: #c0c0c0;
 }
 
 #hwaw .order-number {
