@@ -8,13 +8,23 @@ def str2bool(s):
         return False
     else:
         raise ValueError("Cannot covert {} to a bool".format(s))
+    
+def str2admins(s):
+    lst_str = s.split(',')
+    lst_lst = []
+    for val in lst_str:
+        tmp = val.strip().split(' ')
+        if isinstance(tmp, list) and len(tmp) == 2:
+            lst_lst.append(tmp)
+    return lst_lst
 
 DEBUG = str2bool(os.environ.get("DEBUG"))
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-ADMINS = ((os.environ.get('EMAIL'),), )
-LIST_OF_EMAIL_RECIPIENTS = (os.environ.get('EMAIL'), )
+
+ADMINS = str2admins(os.environ.get('ADMINS'))
+LIST_OF_EMAIL_RECIPIENTS = os.environ.get("EMAIL_RECIPIENTS").split(" ")
 
 DATABASES = {
     'default': {
