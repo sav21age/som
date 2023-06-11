@@ -3,9 +3,11 @@
 {% include "line-blue-background.html" %}
 <section class="about">
   <div class="container">
+    {% if object.description_title %}
     <div class="section-title section-title--blue">
       <h2>{{object.description_title}}</h2>
     </div>
+    {% endif %}
     {{object.description_text|markdownify}}
   </div>
 </section>
