@@ -42,6 +42,7 @@ urlpatterns = [
          name='django.contrib.sitemaps.views.sitemap'),
 ]
 
+admin.site.site_header = admin.site.site_title = 'ПМ «Студия Металла»'
 
 def handler400(request, exception, template_name='errors/400.html'):
     response = render(request, template_name)
