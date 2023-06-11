@@ -1,6 +1,7 @@
 from django.forms import TextInput, Textarea
 from django.db import models
 from django.contrib import admin
+from common.forms import SimplePageAdminForm
 from images.admin import ImageInline
 from videos.admin import VideoInline
 
@@ -12,6 +13,7 @@ formfield_overrides = {
 
 class SimplePageAdmin(admin.ModelAdmin):
     save_on_top = True
+    form = SimplePageAdminForm
     prepopulated_fields = {'slug': ('name', )}
     formfield_overrides = formfield_overrides
     fieldsets = (
