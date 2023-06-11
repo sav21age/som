@@ -751,6 +751,11 @@ input[type=range]::-webkit-slider-runnable-track {
   margin-top: -1px;
 }
 
+p.card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
