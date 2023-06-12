@@ -49,7 +49,6 @@ class PageDescription(models.Model):
     description_text = models.TextField('Текст', blank=True)
 
     def clean(self):
-        self.description_text = re.sub(quote, r"«\1»", self.description_text)
         self.description_text = re.sub(quote_office, r"«\1»", self.description_text)
         super().clean()
 
