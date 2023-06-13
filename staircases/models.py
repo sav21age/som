@@ -1,9 +1,9 @@
 from django.db import models
 from blocks.models import BlockPrice, BlockSVG
-from common.models import PageDescription, PageHWAW, PageMenu, PagePortfolio, SimplePage
+from common.models import PageCalculator, PageDescription, PageHWAW, PageMenu, PagePortfolio, SimplePage
 
 
-class Staircase(SimplePage, PageDescription, PageMenu, PagePortfolio, PageHWAW):
+class Staircase(SimplePage, PageCalculator, PageDescription, PageMenu, PagePortfolio, PageHWAW):
     block_svg_title = models.CharField(
         'Заголовок', max_length=200, blank=True)
     block_svg = models.ManyToManyField(

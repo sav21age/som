@@ -1,10 +1,10 @@
 from django.db import models
 from blocks.models import BlockPrice, BlockSVG
 from solo.models import SingletonModel
-from common.models import PageDescription, PageHWAW, PagePortfolio, SimplePage
+from common.models import PageCalculator, PageDescription, PageHWAW, PagePortfolio, SimplePage
 
 
-class Index(SimplePage, PageDescription, PagePortfolio, PageHWAW, SingletonModel):
+class Index(SimplePage, PageCalculator, PageDescription, PagePortfolio, PageHWAW, SingletonModel):
     block_svg_title = models.CharField(
         'Заголовок', max_length=200, blank=True)
     block_svg = models.ManyToManyField(

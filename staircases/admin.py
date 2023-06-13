@@ -1,9 +1,9 @@
 from django.contrib import admin
-from common.admin import PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, SimplePageAdmin
+from common.admin import PageCalculatorAdmin, PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, SimplePageAdmin
 from staircases.models import Staircase
 
 
-class StaircaseAdmin(SimplePageAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
+class StaircaseAdmin(SimplePageAdmin, PageCalculatorAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
     filter_horizontal = ('hwaw', 'block_price', 'block_svg', )
 

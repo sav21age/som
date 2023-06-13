@@ -69,6 +69,15 @@ class PageHWAWAdmin(admin.ModelAdmin):
             }),
         )
 
+class PageCalculatorAdmin(admin.ModelAdmin):
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        return fieldsets + (
+            ('Калькулятор', {
+                'fields': ('is_calculator',)
+            }),
+        )
+
 
 # fieldsets = (
 #     ('Заголовок и мета теги страницы', {

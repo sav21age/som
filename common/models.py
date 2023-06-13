@@ -80,3 +80,9 @@ class PageHWAW(models.Model):
 
     class Meta:
         abstract = True
+
+class PageCalculator(models.Model):
+    is_calculator = models.BooleanField('показывать', default=1)
+
+    class Meta:
+        abstract = True

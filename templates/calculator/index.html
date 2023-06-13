@@ -1,4 +1,5 @@
 {% load crispy_forms_tags cache %}
+{% if object.is_calculator %}
 {% cache cache_timeout calculator %}
 <section id="calculator" class="calculator mb-5">
   <div class="container">
@@ -14,3 +15,4 @@
   </div>
 </section>
 {% endcache %}
+{% endif %}
