@@ -1,4 +1,5 @@
 {% load thumbnail cache app_label humanize %}
+{% if object.block_price.all %}
 {% cache cache_timeout block_price object|app_label object.id %}
 <section id="block-price">
   <div class="container">
@@ -32,3 +33,4 @@
   </div>
 </section>
 {% endcache %}
+{% endif %}
