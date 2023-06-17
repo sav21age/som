@@ -37,7 +37,7 @@ class BlockIMG(Block):
     title = models.CharField('заголовок', max_length=200, unique=True)
     img_path = models.FileField(
         'путь к картинке', blank=True, null=True, upload_to=get_image_path,)
-    upload_to_dir = 'images/blocks'
+    upload_to_dir = 'blocks'
 
     class Meta:
         abstract = True
