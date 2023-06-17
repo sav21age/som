@@ -37,6 +37,7 @@ class BlockIMG(Block):
     title = models.CharField('заголовок', max_length=200, unique=True)
     img_path = models.FileField(
         'путь к картинке', blank=True, null=True, upload_to=get_image_path,)
+    upload_to_dir = 'images/blocks'
 
     class Meta:
         abstract = True
@@ -73,7 +74,7 @@ def validate_svg_path(value):
 
 def get_svg_path(instance, filename):
     f = os.path.splitext(filename)
-    return "blocks/svg/%s-%s.svg" % (f[0], random.randint(10000, 99999))
+    return "svg/%s-%s.svg" % (f[0], random.randint(10000, 99999))
 
 
 class BlockSVG(Block):
