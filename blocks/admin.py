@@ -1,6 +1,6 @@
 from django.contrib import admin
-from blocks.forms import BlockSVGAdminForm, BlockPriceAdminForm
-from blocks.models import BlockSVG, BlockText, BlockPrice
+from blocks.forms import BlockImageAdminForm, BlockSVGAdminForm, BlockPriceAdminForm
+from blocks.models import BlockImage, BlockSVG, BlockText, BlockPrice
 from django.db import models
 from django.forms import TextInput, Textarea
 
@@ -47,3 +47,12 @@ class BlockPriceAdmin(admin.ModelAdmin):
     formfield_overrides = formfield_overrides
 
 admin.site.register(BlockPrice, BlockPriceAdmin)
+
+class BlockImageAdmin(admin.ModelAdmin):
+    list_filter = ('is_visible', )
+    fields = ('title', 'img_path', 'is_zoom', 'is_visible', )
+    list_display = ('title', )
+    form = BlockImageAdminForm
+    formfield_overrides = formfield_overrides
+
+admin.site.register(BlockImage, BlockImageAdmin)

@@ -33,11 +33,29 @@ class BlockText(Block):
 
 # --
 
-class BlockPrice(Block):
+class BlockIMG(Block):
     title = models.CharField('заголовок', max_length=200, unique=True)
     img_path = models.FileField(
         'путь к картинке', blank=True, null=True, upload_to=get_image_path,)
 
+    class Meta:
+        abstract = True
+
+
+class BlockImage(BlockIMG):
+    block_name = models.CharField('название блока', max_length=80, blank=True)
+    is_zoom = models.BooleanField('увеличивать', default=1, db_index=True)
+
+    def __str__(self):
+        return '{0} - {1}'.format(self.block_name, self.title)
+
+    class Meta:
+        unique_together = ('block_name', 'title',)
+        verbose_name = 'Блок с картинкой'
+        verbose_name_plural = 'Блоки с картинками'
+
+
+class BlockPrice(BlockIMG):
     price = models.PositiveIntegerField('цена, руб.',)
 
     class Meta:
@@ -45,7 +63,6 @@ class BlockPrice(Block):
         verbose_name_plural = 'Блоки с ценами'
 
 # --
-
 
 def validate_svg_path(value):
     ext_allowed = ['.svg',]
