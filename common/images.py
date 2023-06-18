@@ -8,6 +8,6 @@ import uuid
 def get_image_path(instance, filename):
     f = os.path.splitext(filename)
     dir = 'images'
-    if instance.upload_to_dir:
+    if hasattr(instance, 'upload_to_dir'):
         dir = '{0}/{1}'.format(dir, instance.upload_to_dir)
     return '{0}/{1}{2}'.format(dir, uuid.uuid1().hex, f[1].lower())

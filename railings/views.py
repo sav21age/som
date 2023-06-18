@@ -1,12 +1,12 @@
 from django.http import Http404
 from django.shortcuts import render
-from railing.models import Railing
+from railings.models import Railing
 from django.db.models import Prefetch
 from images.models import Image
 from videos.models import Video
 
 
-def railing(request, slug):
+def railings(request, slug):
     try:
         object = Railing.is_visible_objects.filter(slug=slug) \
             .prefetch_related(Prefetch('portfolio_images', queryset=Image.is_visible_objects.all())) \
@@ -17,7 +17,7 @@ def railing(request, slug):
 
     response = render(
         request,
-        'railing/index.html',
+        'railings/index.html',
         {'object': object, }
     )
     return response

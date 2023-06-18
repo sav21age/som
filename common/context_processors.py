@@ -2,17 +2,17 @@ from django.conf import settings
 from callback.forms import CallbackForm
 from porch.models import Porch
 from staircases.models import Staircase
-from railing.models import Railing
-from steps.models import Steps
+from railings.models import Railing
+# from steps.models import Steps
 
 menu = {
-    'staircases': Staircase.objects.only(
+    'staircases': Staircase.is_visible_objects.only(
         'menu_name', 'slug').order_by('menu_order'),
-    'railing': Railing.objects.only(
+    'railings': Railing.is_visible_objects.only(
         'menu_name', 'slug').order_by('menu_order'),
-    'steps': Steps.objects.only(
-        'menu_name', 'slug').order_by('menu_order'),
-    'porch': Porch.objects.only(
+    # 'steps': Steps.objects.only(
+    #     'menu_name', 'slug').order_by('menu_order'),
+    'porch': Porch.is_visible_objects.only(
         'menu_name', 'slug').order_by('menu_order'),
 }
 

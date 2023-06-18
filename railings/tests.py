@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from railing.models import Railing
+from railings.models import Railing
 
 
 class RailingTest(TestCase):
@@ -17,8 +17,8 @@ class RailingTest(TestCase):
             .prefetch_related('portfolio_videos') \
             .all()[:1].get()
 
-        response = self.client.get(reverse('railing:detail', kwargs={'slug': obj.slug}))
+        response = self.client.get(reverse('railings:detail', kwargs={'slug': obj.slug}))
         self.assertEqual(response.status_code, 200)
 
-        response = self.client.get(reverse('railing:detail', kwargs={'slug': 'anything'}))
+        response = self.client.get(reverse('railings:detail', kwargs={'slug': 'anything'}))
         self.assertEqual(response.status_code, 404)

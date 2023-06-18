@@ -30,9 +30,10 @@ INSTALLED_APPS = [
     'images',
     'videos',
     'staircases',
-    'railing',
+    'railings',
     'porch',
-    'steps',
+    # 'steps',
+    'terraces',
     'bridges',
     'contacts',
     'callback',
@@ -178,18 +179,32 @@ THUMBNAIL_HIGHRES_INFIX = '@2x'
 
 THUMBNAIL_ALIASES = {
     '': {
-        '360w_poor': {'crop': 'scale', 'size': (360, 360), 'quality': 10, 'bw': True},
-        '360w': {'crop': 'scale', 'size': (360, 360), 'quality': 95, },
+        '360w_poor': {'crop': 'smart', 'size': (360, 360), 'quality': 10, 'bw': True},
+        '360w': {'crop': 'smart', 'size': (360, 360), 'quality': 95, },
 
-        '720w_poor': {'crop': 'scale', 'size': (720, 720), 'quality': 10, 'bw': True},
-        '720w': {'crop': 'scale', 'size': (720, 720), 'quality': 95, },
+        '720w_poor': {'crop': 'smart', 'size': (720, 720), 'quality': 10, 'bw': True},
+        '720w': {'crop': 'smart', 'size': (720, 720), 'quality': 95, },
 
-        '1080w_poor': {'crop': 'scale', 'size': (1080, 1080), 'quality': 10, 'bw': True},
-        '1080w': {'crop': 'scale', 'size': (1080, 1080), 'quality': 95, },
+        '1080w_poor': {'crop': 'smart', 'size': (1080, 1080), 'quality': 10, 'bw': True},
+        '1080w': {'crop': 'smart', 'size': (1080, 1080), 'quality': 95, },
 
         '1920w_poor': {'crop': 'scale', 'size': (1920, 1920), 'quality': 10, 'bw': True},
         '1920w': {'crop': 'scale', 'size': (1920, 1920), 'quality': 95, },
-    }}
+    }
+    # '': {
+    #     '360w_poor': {'crop': 'scale', 'size': (360, 360), 'quality': 10, 'bw': True},
+    #     '360w': {'crop': 'scale', 'size': (360, 360), 'quality': 95, },
+
+    #     '720w_poor': {'crop': 'scale', 'size': (720, 720), 'quality': 10, 'bw': True},
+    #     '720w': {'crop': 'scale', 'size': (720, 720), 'quality': 95, },
+
+    #     '1080w_poor': {'crop': 'scale', 'size': (1080, 1080), 'quality': 10, 'bw': True},
+    #     '1080w': {'crop': 'scale', 'size': (1080, 1080), 'quality': 95, },
+
+    #     '1920w_poor': {'crop': 'scale', 'size': (1920, 1920), 'quality': 10, 'bw': True},
+    #     '1920w': {'crop': 'scale', 'size': (1920, 1920), 'quality': 95, },
+    # }
+}
 
 # RECAPTCHA_DEFAULT_ACTION = 'generic'
 # RECAPTCHA_SCORE_THRESHOLD = 0.5

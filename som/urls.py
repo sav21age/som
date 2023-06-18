@@ -10,18 +10,20 @@ from contacts.views import contacts
 from django.views.generic import TemplateView
 from porch.sitemap import PorchSitemap
 from django.shortcuts import render
-from railing.sitemap import RailingSitemap
+from railings.sitemap import RailingSitemap
 from staircases.sitemap import StaircaseSitemap
-from steps.sitemap import StepsSitemap
 from django.contrib.sitemaps.views import sitemap
+from terraces.sitemap import TerraceSitemap
+from terraces.views import terraces
 
 sitemaps = {
     'index': IndexSitemap,
     'staircase': StaircaseSitemap,
     'railing': RailingSitemap,
-    'steps': StepsSitemap,
+    # 'steps': StepsSitemap,
+    'terrace': TerraceSitemap,
     'porch': PorchSitemap,
-    'bridges': BridgeSitemap,
+    'bridge': BridgeSitemap,
     'contacts': ContactsSitemap,
 }
 
@@ -31,11 +33,12 @@ urlpatterns = [
     path('', index, name='index'),
     path('contacts/', contacts, name='contacts'),
     path('crossing-bridge/', bridges, name='crossing-bridge'),
+    path('terrace/', terraces, name='terrace'),
     path('callback/', include(('callback.urls', 'callback'), namespace='callback')),
     path('staircases/', include(('staircases.urls', 'staircases'), namespace='staircases')),
-    path('railing/', include(('railing.urls', 'railing'), namespace='railing')),
+    path('railings/', include(('railings.urls', 'railings'), namespace='railings')),
     path('porch/', include(('porch.urls', 'porch'), namespace='porch')),
-    path('steps/', include(('steps.urls', 'steps'), namespace='steps')),
+    # path('steps/', include(('steps.urls', 'steps'), namespace='steps')),
     path('privacy-policy/', TemplateView.as_view(
         template_name="privacy-policy/privacy-policy.html"), name="privacy-policy"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},

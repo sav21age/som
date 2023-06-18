@@ -1,5 +1,5 @@
 from django.contrib import admin
-from railing.models import Railing
+from railings.models import Railing
 from common.admin import PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, SimplePageAdmin
 
 class RailingAdmin(SimplePageAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):

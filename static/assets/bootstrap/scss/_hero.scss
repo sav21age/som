@@ -25,40 +25,59 @@
 //     color: #fff;;
 // }
 
-.index-background {
-    // background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)), url(../../../images/background/staircase.jpg) center center no-repeat;
-    background: url(../../../images/background/index.jpg) center center no-repeat;
-    background-size: cover;
-    // background-color:rgba(0, 0, 0, 0.5);
-}
-.staircase-background {
-    background: url(../../../images/background/staircase.jpg) center center no-repeat;
-    background-size: cover;
-}
-.railing-background {
-    background: url(../../../images/background/railing.jpg) center center no-repeat;
-    background-size: cover;
-}
-.bridge-background {
-    background: url(../../../images/background/bridge.jpg) center center no-repeat;
-    background-size: cover;
-}
-.porch-background {
-    background: url(../../../images/background/porch.jpg) center center no-repeat;
-    background-size: cover;
-}
-.contact-background {
-    background: url(../../../images/background/contact.jpg) center center no-repeat;
-    background-size: cover;
-}
-.steps-background {
-    background: url(../../../images/background/steps.jpg) center center no-repeat;
-    background-size: cover;
-}
-.privacy-policy-background {
-    background: url(../../../images/background/privacy-policy.jpg) center center no-repeat;
-    background-size: cover;
-}
 .hero-eclipse{
   background-color:rgba(0, 0, 0, 0.5);
+}
+
+@mixin hero_background {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.index-background {
+    // background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .5)), url(../../../images/background/staircase.jpg) center center no-repeat;
+    // background-color:rgba(0, 0, 0, 0.5);
+    background-image: url(../../../images/background/index.jpg);
+    @include hero_background;
+}
+
+.staircase-background {
+    background-image: url(../../../images/background/staircase.jpg);
+    @include hero_background;
+}
+
+.railing-background {
+    background-image: url(../../../images/background/railing.jpg);
+    @include hero_background;
+}
+
+.bridge-background {
+    background-image: url(../../../images/background/bridge.jpg);
+    @include hero_background;
+}
+
+.terrace-background {
+    background-image: url(../../../images/background/terrace.jpg);
+    @include hero_background;
+}
+
+.porch-background {
+    background-image: url(../../../images/background/porch.jpg);
+    @include hero_background;
+}
+
+.contact-background {
+    background-image: url(../../../images/background/contact.jpg);
+    @include hero_background;
+}
+
+// .steps-background {
+//     background-image: url(../../../images/background/steps.jpg);
+//     @include hero_background;
+// }
+
+.privacy-policy-background {
+    background-image: url(../../../images/background/privacy-policy.jpg);
+    @include hero_background;
 }

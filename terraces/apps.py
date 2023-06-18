@@ -1,10 +1,10 @@
 from django.apps import AppConfig
 
 
-class RailingConfig(AppConfig):
+class BridgesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'railing'
-    verbose_name = 'Перила'
+    name = 'terraces'
+    verbose_name = 'Терраса'
 
     def ready(self):
         import common.signals

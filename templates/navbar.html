@@ -14,8 +14,8 @@
       <div class="nav-item dropdown">
         <button class="nav-link btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Лестница</button>
         <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-          {% for s in menu|dict:'staircases' %}
-          <a href="{% url 'staircases:detail' s.slug %}" class="dropdown-item" itemprop="url">{{s.menu_name}}</a>
+          {% for val in menu|dict:'staircases' %}
+          <a href="{% url 'staircases:detail' val.slug %}" class="dropdown-item" itemprop="url">{{val.menu_name}}</a>
           {%endfor%}
         </div>
       </div>
@@ -23,19 +23,19 @@
       <div class="nav-item dropdown">
         <button class="nav-link btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Крыльцо</button>
         <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-          {% for s in menu|dict:'porch' %}
-          <a href="{% url 'porch:detail' s.slug %}" class="dropdown-item" itemprop="url">{{s.menu_name}}</a>
+          {% for val in menu|dict:'porch' %}
+          <a href="{% url 'porch:detail' val.slug %}" class="dropdown-item" itemprop="url">{{val.menu_name}}</a>
           {%endfor%}
         </div>
       </div>
 
-      <a href="" class="nav-item nav-link" itemprop="url">Терраса</a>
+      <a href="{% url 'terrace' %}" class="nav-item nav-link" itemprop="url">Терраса</a>
 
       <div class="nav-item dropdown">
         <button class="nav-link btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Ограждения</button>
         <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-          {% for s in menu|dict:'railing' %}
-          <a href="{% url 'railing:detail' s.slug %}" class="dropdown-item" itemprop="url">{{s.menu_name}}</a>
+          {% for val in menu|dict:'railings' %}
+          <a href="{% url 'railings:detail' val.slug %}" class="dropdown-item" itemprop="url">{{val.menu_name}}</a>
           {%endfor%}
         </div>
       </div>
@@ -44,7 +44,7 @@
         <button class="nav-link btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Ступени</button>
         <div class="dropdown-menu rounded-0 rounded-bottom m-0">
           {% for s in menu|dict:'steps' %}
-          <a href="{% url 'steps:detail' s.slug %}" class="dropdown-item" itemprop="url">{{s.menu_name}}</a>
+          <a href="{% url 'steps:detail' val.slug %}" class="dropdown-item" itemprop="url">{{val.menu_name}}</a>
           {%endfor%}
         </div>
       </div> {% endcomment %}

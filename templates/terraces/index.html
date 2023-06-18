@@ -1,0 +1,19 @@
+{% extends "main.html" %}
+
+{% block head %}
+  <title>{{object.head_title}}</title>
+  <meta name="description" content="{{object.meta_description}}">
+{% endblock %} 
+
+{% block h1 %}{{object.name}}{% endblock %}
+
+{% block hero_background %}terrace-background{% endblock %}
+
+{% block content %}
+
+{% include "description.html" %}
+{% include "portfolio/index.html" %}
+{% include "hwaw/index.html" %}
+{% include "callback/index.html" %}
+
+{% endblock %}

@@ -599,48 +599,64 @@ button.nav-link {
   opacity: 1;
 }
 
+.hero-eclipse {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .index-background {
-  background: url(../../../images/background/index.jpg) center center no-repeat;
+  background-image: url(../../../images/background/index.jpg);
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .staircase-background {
-  background: url(../../../images/background/staircase.jpg) center center no-repeat;
+  background-image: url(../../../images/background/staircase.jpg);
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .railing-background {
-  background: url(../../../images/background/railing.jpg) center center no-repeat;
+  background-image: url(../../../images/background/railing.jpg);
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .bridge-background {
-  background: url(../../../images/background/bridge.jpg) center center no-repeat;
+  background-image: url(../../../images/background/bridge.jpg);
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.terrace-background {
+  background-image: url(../../../images/background/terrace.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .porch-background {
-  background: url(../../../images/background/porch.jpg) center center no-repeat;
+  background-image: url(../../../images/background/porch.jpg);
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .contact-background {
-  background: url(../../../images/background/contact.jpg) center center no-repeat;
+  background-image: url(../../../images/background/contact.jpg);
   background-size: cover;
-}
-
-.steps-background {
-  background: url(../../../images/background/steps.jpg) center center no-repeat;
-  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .privacy-policy-background {
-  background: url(../../../images/background/privacy-policy.jpg) center center no-repeat;
+  background-image: url(../../../images/background/privacy-policy.jpg);
   background-size: cover;
-}
-
-.hero-eclipse {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .overlay-wrapper {

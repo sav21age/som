@@ -11,9 +11,9 @@ from contacts.models import Contacts
 from images.models import Image
 from index.models import Index
 from porch.models import Porch
-from railing.models import Railing
+from railings.models import Railing
 from staircases.models import Staircase
-from steps.models import Steps
+from terraces.models import Terrace
 from videos.models import Video
 
 
@@ -26,7 +26,7 @@ from videos.models import Video
 @receiver(post_save, sender=Railing)
 @receiver(post_save, sender=Index)
 @receiver(post_save, sender=Staircase)
-@receiver(post_save, sender=Steps)
+@receiver(post_save, sender=Terrace)
 @receiver(post_save, sender=Porch)
 @receiver(post_save, sender=Bridge)
 def cache_invalidate(instance, **kwargs):
