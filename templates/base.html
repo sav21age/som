@@ -26,11 +26,11 @@
   {% comment %} <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap"> {% endcomment %}
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-  {% compress css %}
+  {% comment %} {% compress css %} {% endcomment %}
   <link type="text/css" href="{% static 'assets/bootstrap/css/main.css' %}" rel="stylesheet" media="screen">
   <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  {% endcompress %}
+  {% comment %} {% endcompress %} {% endcomment %}
 </head>
 <body>
   {% include 'header.html' %}
