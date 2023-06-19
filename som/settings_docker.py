@@ -49,7 +49,6 @@ RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
 
 # CACHE_BACKEND = "django.core.cache.backends.dummy.DummyCache"
 CACHE_BACKEND = 'django.core.cache.backends.locmem.LocMemCache'
