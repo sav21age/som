@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from easy_thumbnails.fields import ThumbnailerImageField
-from common.images import get_image_path
+from common.helpers import get_image_path
 from common.managers import IsVisibleManager
 from django.core.cache import cache
 

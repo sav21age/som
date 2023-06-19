@@ -1,13 +1,7 @@
 from django.contrib.contenttypes.admin import GenericStackedInline
 from images.forms import ImageAdminForm
 from images.models import Image
-from django.forms import TextInput, Textarea
-from django.db import models
-
-formfield_overrides = {
-    models.CharField: {'widget': TextInput(attrs={'style': 'width: 70%; font-size: 115%;'})},
-    models.TextField: {'widget': Textarea(attrs={'rows': 30, 'style': 'width: 70%; font-size: 115%;'})},
-}
+from common.helpers import formfield_overrides
 
 class ImageInline(GenericStackedInline):
     model = Image

@@ -17,7 +17,7 @@ class Index(SimplePage, PageCalculator, PageDescription, PagePortfolio, PageHWAW
 
     about_title = models.CharField('Заголовок', blank=True, max_length=200)
     about_text = models.TextField('Текст', blank=True)
-
+    
     class Meta:
         verbose_name = 'главная страница'
         verbose_name_plural = 'главные страницы'

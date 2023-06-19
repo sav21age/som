@@ -1,14 +1,8 @@
 from django.contrib import admin
-from django.forms import NumberInput, TextInput
 from solo.admin import SingletonModelAdmin
 from calculator.models import Coeff, CoeffStaircaseType, RailingType, Service, StepsMaterialType
-from django.db import models
+from common.helpers import formfield_overrides
 
-
-formfield_overrides = {
-    models.CharField: {'widget': TextInput(attrs={'style': 'width: 70%; font-size: 115%;'})},
-    models.IntegerField: {'widget': NumberInput(attrs={'style': 'width: 100px; font-size: 115%;'})},
-}
 
 class CoeffAdmin(SingletonModelAdmin):
     formfield_overrides = formfield_overrides

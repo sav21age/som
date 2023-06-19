@@ -1,0 +1,31 @@
+{% load thumbnail cache app_label humanize %}
+{% if object.typical_project %}
+{% comment %} {% cache cache_timeout block_railings object|app_label object.id %} {% endcomment %}
+<section class="typical-project">
+  <div class="container">
+    <div class="section-title">
+      <span>Типовой проект крыльца</span>
+      <p class="fst-italic">Возможены варианты с индивидуальными параметрами.</p>
+    </div>
+    <table class="table table-borderless">
+      <tr>
+        <td>Размеры (Д&times;Ш&times;В):</td>
+        <td>{{ object.typical_project.length }}&times;{{ object.typical_project.width }}&times;{{ object.typical_project.height }} м.</td>
+      </tr>
+      <tr>
+        <td>Металлический каркас:</td>
+        <td>{{ object.typical_project.frame_material }}, {{ object.typical_project.frame_width }}&times;{{ object.typical_project.frame_thickness }} мм.</td>
+      </tr>
+      <tr>
+        <td>Окраска:</td>
+        <td>{{ object.typical_project.coloring }}</td>
+      </tr>
+      <tr>
+        <td>Ступени:</td>
+        <td>{{ object.typical_project.steps_material }}, высота ступеней: {{ object.typical_project.steps_height }} м.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+{% comment %} {% endcache %} {% endcomment %}
+{% endif %}

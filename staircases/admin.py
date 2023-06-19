@@ -1,11 +1,11 @@
 from django.contrib import admin
-from common.admin import PageCalculatorAdmin, PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, SimplePageAdmin
+from common.admin import PageCalculatorAdmin, PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, PageRailingsAdmin, SimplePageAdmin
 from staircases.models import Staircase
 
 
-class StaircaseAdmin(SimplePageAdmin, PageCalculatorAdmin, PageHWAWAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
+class StaircaseAdmin(SimplePageAdmin, PageCalculatorAdmin, PageHWAWAdmin, PageRailingsAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
-    filter_horizontal = ('hwaw', 'block_price', 'block_svg', )
+    filter_horizontal = ('hwaw', 'block_price', 'block_svg', 'block_railings', )
 
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)

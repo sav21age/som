@@ -1,15 +1,15 @@
 import os
-import random
+import re
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from common.images import get_image_path
+from common.helpers import get_image_path, get_svg_path
 from common.managers import IsVisibleManager
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
-
+from common.helpers import quote, quote_office
 
 class Block(models.Model):
+    title = models.CharField('заголовок', max_length=200)
+
     is_visible = models.BooleanField('показывать', default=1, db_index=True)
 
     objects = models.Manager()
@@ -17,6 +17,11 @@ class Block(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def clean(self):
+        self.title = re.sub(quote, r"«\1»", self.title)
+        self.title = re.sub(quote_office, r"«\1»", self.title)
+        super().clean()
 
     class Meta:
         abstract = True
@@ -34,7 +39,6 @@ class BlockText(Block):
 # --
 
 class BlockIMG(Block):
-    title = models.CharField('заголовок', max_length=200, unique=True)
     img_path = models.FileField(
         'путь к картинке', blank=True, null=True, upload_to=get_image_path,)
     upload_to_dir = 'blocks'
@@ -46,12 +50,20 @@ class BlockIMG(Block):
 class BlockImage(BlockIMG):
     block_name = models.CharField('название блока', max_length=80, blank=True)
     is_zoom = models.BooleanField('увеличивать', default=1, db_index=True)
+    order_number = models.PositiveSmallIntegerField(
+        'порядковый номер', default=0,)
 
     def __str__(self):
         return '{0} - {1}'.format(self.block_name, self.title)
+    
+    def clean(self):
+        self.block_name = re.sub(quote, r"«\1»", self.block_name)
+        self.block_name = re.sub(quote_office, r"«\1»", self.block_name)
+        super().clean()
 
     class Meta:
         unique_together = ('block_name', 'title',)
+        ordering = ['order_number']
         verbose_name = 'Блок с картинкой'
         verbose_name_plural = 'Блоки с картинками'
 
@@ -72,14 +84,8 @@ def validate_svg_path(value):
         raise ValidationError('Неподдерживаемый тип файла.')
 
 
-def get_svg_path(instance, filename):
-    f = os.path.splitext(filename)
-    return "svg/%s-%s.svg" % (f[0], random.randint(10000, 99999))
-
-
 class BlockSVG(Block):
     block_name = models.CharField('название блока', max_length=80, blank=True)
-    title = models.CharField('заголовок', max_length=200)
     description = models.TextField('описание',)
     order_number = models.PositiveSmallIntegerField(
         'порядковый номер', default=0,)
@@ -88,6 +94,11 @@ class BlockSVG(Block):
 
     def __str__(self):
         return '{0} - {1}'.format(self.block_name, self.title)
+    
+    def clean(self):
+        self.block_name = re.sub(quote, r"«\1»", self.block_name)
+        self.block_name = re.sub(quote_office, r"«\1»", self.block_name)
+        super().clean()
 
     class Meta:
         unique_together = ('block_name', 'title',)

@@ -22,38 +22,66 @@
     </div>
 
     <div class="row mb-5">
-      <div class="col-lg-4">
+      <div class="col-md-6">
         <div class="h-100 d-flex align-items-center p-4">
           <div class="btn-lg-square flex-shrink-0">
             <i class="fa fa-phone-alt fa-lg text-primary"></i>
           </div>
           <div class="ms-4">
             <p class="mb-2">Телефон</p>
-            <h5 class="mb-0"><a href="tel:{{ object.phone|tel }}">{{ object.phone }}</a></h5>
+            <a class="mb-0 big" href="tel:{{ object.phone|tel }}">{{ object.phone }}</a>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-4">
+      <div class="col-md-6">
         <div class="h-100 d-flex align-items-center p-4">
           <div class="btn-lg-square flex-shrink-0">
             <i class="far fa-envelope fa-lg text-primary"></i>
           </div>
           <div class="ms-4">
             <p class="mb-2">Электронная почта</p>
-            <h5 class="mb-0"><a href="mailto:{{ object.email }}">{{ object.email }}</a></h5>
+            <a class="mb-0 big" href="mailto:{{ object.email }}">{{ object.email }}</a>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-4">
+      <div class="col-md-6">
         <div class="h-100 d-flex align-items-center p-4">
           <div class="btn-lg-square flex-shrink-0">
             <i class="far fa-clock fa-lg text-primary"></i>
           </div>
           <div class="ms-4">
             <p class="mb-2">График работы</p>
-            <h5 class="mb-0">{{ object.work_schedule }}</h5>
+            <p class="mb-0">{{ object.work_schedule }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="h-100 d-flex align-items-center p-4">
+          <div class="btn-lg-square flex-shrink-0">
+          <i class="fas fa-users fa-lg text-primary"></i>
+          </div>
+          <div class="ms-4">
+            <p class="mb-2">Социальные сети и мессенджеры</p>
+            <div class="d-flex justify-content-start">
+                <a class="btn-social btn-whatsapp" href="https://api.whatsapp.com/send?phone=+79062425219" target="_blank" rel="noopener nofollow" aria-label="Whatsapp">
+                  <i class="fab fa-whatsapp text-white"></i>
+                </a>
+                <a class="btn-social btn-telegram" href="https://t.me/+79062425219" target="_blank" rel="noopener nofollow" aria-label="Телеграм">
+                  <i class="fab fa-telegram-plane text-white"></i>
+                </a>
+                <a class="btn-social btn-vk" href="https://vk.com/public202109189" target="_blank" rel="noopener nofollow" aria-label="Вконтакте">
+                  <i class="fab fa-vk text-white"></i>
+                </a>
+                {% comment %} <a class="btn-social btn-instagram" href="https://www.instagram.com/lestnica_v_dom_spb/" target="_blank" rel="noopener" aria-label="Инстаграм">
+                  <i class="fab fa-instagram"></i>
+                </a> {% endcomment %}
+                <a class="btn-social btn-youtube" href="https://www.youtube.com/channel/UCMrVSYMuyIifKcLg6MuMXkA" target="_blank" rel="noopener nofollow" aria-label="Youtube">
+                  <i class="fab fa-youtube text-white"></i>
+                </a>
+            </div>
           </div>
         </div>
       </div>

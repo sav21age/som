@@ -1,6 +1,14 @@
-p.card-title {
+.card-body {
+    padding: 7px!important;
+}
+
+.card-title {
     font-size: 20px;
     font-weight: 500;
+}
+
+.card-text{
+    line-height: 1.5;
 }
 
 .bd-placeholder-img {

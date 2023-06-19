@@ -1,13 +1,11 @@
 import re
 from django.db import models
-from blocks.models import BlockSVG
+from blocks.models import BlockImage, BlockSVG
 from common.managers import IsVisibleManager
 from django.contrib.contenttypes import fields
 from images.models import Image
 from videos.models import Video
-
-quote = re.compile(r'\"(.*?)\"')
-quote_office = re.compile(r'\“(.*?)\”')
+from common.helpers import quote, quote_office
 
 
 class SimplePage(models.Model):
@@ -73,6 +71,17 @@ class PagePortfolio(models.Model):
         abstract = True
 
 
+class PageRailings(models.Model):
+    block_railings_title = models.CharField(
+        'Заголовок', max_length=200, blank=True)
+    block_railings = models.ManyToManyField(
+        BlockImage, verbose_name='"Контент"', related_name='+',
+        blank=True, db_index=True)
+
+    class Meta:
+        abstract = True
+
+
 class PageHWAW(models.Model):
     hwaw = models.ManyToManyField(
         BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
@@ -81,8 +90,15 @@ class PageHWAW(models.Model):
     class Meta:
         abstract = True
 
+
 class PageCalculator(models.Model):
     is_calculator = models.BooleanField('показывать', default=1)
 
     class Meta:
         abstract = True
+
+
+class TypicalProject(models.Model):
+    pass
+    
+    

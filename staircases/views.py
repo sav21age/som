@@ -4,7 +4,7 @@ from django.db.models import Prefetch
 from staircases.models import Staircase
 from images.models import Image
 from videos.models import Video
-from blocks.models import BlockPrice, BlockSVG
+from blocks.models import BlockImage, BlockPrice, BlockSVG
 from calculator.forms import CalculatorForm
 
 
@@ -16,6 +16,7 @@ def staircase(request, slug):
             .prefetch_related(Prefetch('block_price', queryset=BlockPrice.is_visible_objects.all())) \
             .prefetch_related(Prefetch('portfolio_images', queryset=Image.is_visible_objects.all())) \
             .prefetch_related(Prefetch('portfolio_videos', queryset=Video.is_visible_objects.all())) \
+            .prefetch_related(Prefetch('block_railings', queryset=BlockImage.is_visible_objects.all())) \
             .get()
     except Staircase.DoesNotExist:
         raise Http404

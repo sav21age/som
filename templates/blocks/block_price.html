@@ -7,11 +7,11 @@
       <span>Наши цены на Вашу лестницу Вас приятно удивят</span>
       <p class="fst-italic">Указанные цены не являются публичной офертой.</p>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       {% for price in object.block_price.all %}
         {% comment %} {% if price.is_visible %} {% endcomment %}
           <div class="col">
-            <div class="card rounded-0 border-light h-100">
+            <div class="card rounded-0 border-0 h-100">
               {% if not price.img_path %}
               <svg class="bd-placeholder-img card-img-top" width="100%" height="308" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
                 {% comment %} <title>{{ price.title }}</title> {% endcomment %}
@@ -19,7 +19,11 @@
                 <text x="50%" y="50%" fill="#000" dy=".3em">Картинка</text>
               </svg>
               {% else %}
-              <img src="{{ price.img_path|thumbnail_url:'1920w' }}" data-srcset="{{ price.img_path|thumbnail_url:'360w' }} 360w, {{ price.img_path|thumbnail_url:'720w' }} 720w, {{ price.img_path|thumbnail_url:'1080w' }} 1080w, {{ price.img_path|thumbnail_url:'1920w' }} 1920w" srcset="{{ price.img_path|thumbnail_url:'360w_poor' }} 360w, {{ price.img_path|thumbnail_url:'720w_poor' }} 720w, {{ price.img_path|thumbnail_url:'1080w_poor' }} 1080w, {{ price.img_path|thumbnail_url:'1920w_poor' }} 1920w" sizes="(max-width: 576px) 100vw, ((min-width: 577px) and (max-width: 992px)) 50vw, 30vw" class="img-fluid lozad" alt="{{price.title}}" title="{{price.title}}">
+              <img src="{{ price.img_path|thumbnail_url:'1920w' }}" 
+              data-srcset="{{ price.img_path|thumbnail_url:'360w' }} 360w, {{ price.img_path|thumbnail_url:'720w' }} 720w, {{ price.img_path|thumbnail_url:'1080w' }} 1080w" 
+              srcset="{{ price.img_path|thumbnail_url:'360w_poor' }} 360w, {{ price.img_path|thumbnail_url:'720w_poor' }} 720w, {{ price.img_path|thumbnail_url:'1080w_poor' }} 1080w" 
+              sizes="(max-width: 576px) 100vw, ((min-width: 577px) and (max-width: 992px)) 50vw, 30vw" 
+              class="img-fluid lozad" alt="{{price.title}}" title="{{price.title}}">
               {% endif %}
               <div class="card-body">
                 <p class="card-title">от {{ price.price|intcomma }} руб.</p>

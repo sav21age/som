@@ -1,5 +1,5 @@
 section {
-  padding: 40px 0 20px;
+  padding: 30px 0 30px;
   // overflow: hidden;
 }
 
@@ -80,7 +80,7 @@ section {
 //   // border-image: 5 repeating-linear-gradient(135deg, $metal-color, $metal-color 5px, transparent 5px, transparent 5px, $metal-color 5px, $metal-color 10px, transparent 10px, transparent 20px);
 // }
 
-#block-price {
+#block-price, .block-railings {
   border-top: 3px solid transparent;
   // border-image: 5 repeating-linear-gradient(45deg, #e4e4e4, #e4e4e4 5px, transparent 5px, transparent 5px, #e4e4e4 5px, #e4e4e4 10px, transparent 10px, transparent 20px);
   border-image: 5 repeating-linear-gradient(45deg, $primary-background, $primary-background 5px, transparent 5px, transparent 5px, $primary-background 5px, $primary-background 10px, transparent 10px, transparent 20px);
@@ -90,7 +90,7 @@ section {
   @include background_blue;
 }
 
-#calculator {
+#calculator, .typical-project {
   border-top: 3px solid transparent;
   border-image: 5 repeating-linear-gradient(45deg, $gold-background, $gold-background 5px, transparent 5px, transparent 5px, $gold-background 5px, $gold-background 10px, transparent 10px, transparent 20px);
 }

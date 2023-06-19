@@ -1,14 +1,7 @@
 from django.contrib import admin
 from blocks.forms import BlockImageAdminForm, BlockSVGAdminForm, BlockPriceAdminForm
 from blocks.models import BlockImage, BlockSVG, BlockText, BlockPrice
-from django.db import models
-from django.forms import TextInput, Textarea
-
-
-formfield_overrides = {
-    models.CharField: {'widget': TextInput(attrs={'style': 'width: 70%; font-size: 115%;'})},
-    models.TextField: {'widget': Textarea(attrs={'rows': 7, 'style': 'width: 70%; font-size: 115%;'})},
-}
+from common.helpers import formfield_overrides 
 
 class BlockSVGAdmin(admin.ModelAdmin):
     fields = ('block_name', 'title', 'description',
@@ -49,9 +42,9 @@ class BlockPriceAdmin(admin.ModelAdmin):
 admin.site.register(BlockPrice, BlockPriceAdmin)
 
 class BlockImageAdmin(admin.ModelAdmin):
-    list_filter = ('is_visible', )
-    fields = ('title', 'img_path', 'is_zoom', 'is_visible', )
-    list_display = ('title', )
+    fields = ('block_name', 'title', 'img_path', 'order_number', 'is_zoom', 'is_visible', )
+    list_filter = ('is_visible', 'block_name',)
+    list_display = ('title', 'order_number', 'block_name',)
     form = BlockImageAdminForm
     formfield_overrides = formfield_overrides
 
