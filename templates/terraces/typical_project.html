@@ -1,31 +1,37 @@
 {% load thumbnail cache app_label humanize %}
-{% comment %} {% if object.block_railings.all %} {% endcomment %}
-{% comment %} {% cache cache_timeout block_railings object|app_label object.id %} {% endcomment %}
+{% if object.typical_project %}
+{% cache cache_timeout typical_project object|app_label object.id %}
 <section class="typical-project">
   <div class="container">
     <div class="section-title">
-      <span>Типовой проект террасы</span>
+      <span>{{ object.typical_project.name }}</span>
       <p class="fst-italic">Возможены варианты с индивидуальными параметрами.</p>
     </div>
     <table class="table table-borderless">
       <tr>
-        <td>Размеры (Д&times;Ш&times;В):</td>
-        <td>{{ typical_project.length }}&times;{{ typical_project.width }}&times;{{ typical_project.height }} м.</td>
+        <td>Размеры (В&times;Ш&times;Д):</td>
+        <td>{{ object.typical_project.height }}&times;{{ object.typical_project.width }}&times;{{ object.typical_project.length }} м.</td>
       </tr>
       <tr>
         <td>Металлический каркас:</td>
-        <td>{{ typical_project.frame_material }}, размеры: {{ typical_project.frame_width }}&times;{{ typical_project.frame_thickness }} мм.</td>
+        <td>{{ object.typical_project.frame_material }}, размеры: {{ object.typical_project.frame_width }}&times;{{ object.typical_project.frame_thickness }} мм.</td>
       </tr>
       <tr>
         <td>Окраска:</td>
-        <td>{{ typical_project.coloring }}</td>
+        <td>{{ object.typical_project.coloring }}</td>
       </tr>
       <tr>
         <td>Настил:</td>
-        <td>{{ typical_project.flooring_material }}</td>
+        <td>{{ object.typical_project.flooring_material }}</td>
       </tr>
+      {% if object.typical_project.extra %}
+      <tr>
+        <td>Дополнительно:</td>
+        <td>{{ object.typical_project.extra }}</td>
+      </tr>
+      {% endif %}
     </table>
   </div>
 </section>
-{% comment %} {% endcache %} {% endcomment %}
-{% comment %} {% endif %} {% endcomment %}
+{% endcache %}
+{% endif %}

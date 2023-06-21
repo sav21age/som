@@ -10,10 +10,10 @@ from bridges.models import Bridge
 from contacts.models import Contacts
 from images.models import Image
 from index.models import Index
-from porch.models import Porch
+from porch.models import Porch, PorchTypicalProject
 from railings.models import Railing
-from staircases.models import Staircase
-from terraces.models import Terrace
+from staircases.models import Staircase, StaircaseTypicalProject
+from terraces.models import Terrace, TerraceTypicalProject
 from videos.models import Video
 
 
@@ -29,6 +29,9 @@ from videos.models import Video
 @receiver(post_save, sender=Terrace)
 @receiver(post_save, sender=Porch)
 @receiver(post_save, sender=Bridge)
+@receiver(post_save, sender=TerraceTypicalProject)
+@receiver(post_save, sender=PorchTypicalProject)
+@receiver(post_save, sender=StaircaseTypicalProject)
 def cache_invalidate(instance, **kwargs):
     if kwargs.get('raw'):  # add for test, pass fixtures
         return

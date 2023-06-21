@@ -98,7 +98,6 @@ class PageCalculator(models.Model):
         abstract = True
 
 
-class TypicalProject(models.Model):
-    pass
-    
+# class TypicalProject(models.Model):
+#     pass
     

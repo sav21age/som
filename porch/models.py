@@ -4,9 +4,10 @@ from common.models import PageDescription, PageHWAW, PageMenu, PagePortfolio, Pa
 
 class PorchTypicalProject(models.Model):
     name = models.CharField('название', max_length=250)
-    length = models.DecimalField('длина, м', max_digits=2, decimal_places=1, null=True)
+    height = models.DecimalField('высота, м', max_digits=2, decimal_places=1, null=True)
     width = models.DecimalField('ширина, м', max_digits=2, decimal_places=1, null=True)
-    height = models.DecimalField('высота, м', max_digits=3, decimal_places=2, null=True)
+    # length = models.DecimalField('длина, м', max_digits=2, decimal_places=1, null=True)
+    depth = models.DecimalField('глубина, м', max_digits=2, decimal_places=1, null=True)
     
     frame_kosour_count = models.PositiveSmallIntegerField('количество косоуров', null=True)
     frame_material = models.CharField('материал каркаса', max_length=250)
@@ -18,7 +19,7 @@ class PorchTypicalProject(models.Model):
     steps_material = models.CharField('материал ступеней', max_length=250)
     steps_height = models.DecimalField('высота ступеней, м', max_digits=4, decimal_places=2, null=True)
 
-    upload_to_dir = 'porch'
+    extra = models.CharField('дополнительно', max_length=250, blank=True)
 
     def __str__(self):
         return '{}'.format(self.name)
@@ -29,7 +30,7 @@ class PorchTypicalProject(models.Model):
 
 
 class Porch(SimplePage, PageDescription, PageMenu, PagePortfolio, PageHWAW, PageRailings):
-    typical_project = models.ForeignKey(PorchTypicalProject, verbose_name='типичный проект', blank=True, null=True, on_delete=models.DO_NOTHING)
+    typical_project = models.ForeignKey(PorchTypicalProject, verbose_name='типовой проект', blank=True, null=True, on_delete=models.DO_NOTHING)
 
     class Meta:
         ordering = ('menu_order', )

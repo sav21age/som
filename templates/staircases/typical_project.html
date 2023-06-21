@@ -8,21 +8,25 @@
       <p class="fst-italic">Возможены варианты с индивидуальными параметрами.</p>
     </div>
     <table class="table table-borderless">
+      {% if object.typical_project.frame_broken_material %}
       <tr>
-        <td>Размеры (В&times;Ш&times;Г):</td>
-        <td>{{ object.typical_project.height }}&times;{{ object.typical_project.width }}&times;{{ object.typical_project.depth }} м.</td>
+        <td>Металлический "ломаный" каркас:</td>
+        <td>{{ object.typical_project.frame_broken_material }}, {{ object.typical_project.frame_broken_width }}&times;{{ object.typical_project.frame_broken_thickness }} мм.</td>
       </tr>
+      {% endif%}
+      {% if object.typical_project.frame_straight_material %}
       <tr>
-        <td>Металлический каркас:</td>
-        <td>{{ object.typical_project.frame_material }}, {{ object.typical_project.frame_width }}&times;{{ object.typical_project.frame_thickness }} мм., количество косоуров: {{ object.typical_project.frame_kosour_count }}</td>
+        <td>Металлический "прямой" каркас:</td>
+        <td>{{ object.typical_project.frame_straight_material }}, {{ object.typical_project.frame_straight_width }}&times;{{ object.typical_project.frame_straight_thickness }} мм.</td>
       </tr>
+      {% endif %}
       <tr>
         <td>Окраска:</td>
         <td>{{ object.typical_project.coloring }}</td>
       </tr>
       <tr>
         <td>Ступени:</td>
-        <td>{{ object.typical_project.steps_material }}, высота ступеней: {{ object.typical_project.steps_height }} м.</td>
+        <td>{{ object.typical_project.steps_material }}{% if object.typical_project.steps_height %}, высота ступеней: {{ object.typical_project.steps_height }} м.{% endif %}</td>
       </tr>
       {% if object.typical_project.extra %}
       <tr>

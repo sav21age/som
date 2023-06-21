@@ -12,11 +12,7 @@ class BridgeTest(TestCase):
     def test_detail(self):
         """ Test bridge detail view """
 
-        obj = Bridge.objects \
-        .prefetch_related('hwaw') \
-        .prefetch_related('portfolio_images') \
-        .prefetch_related('portfolio_videos') \
-        .get()
+        obj = Bridge.objects.get()
 
         response = self.client.get(reverse(obj.slug))
         self.assertEqual(response.status_code, 200)

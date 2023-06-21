@@ -55,7 +55,7 @@ header {
 }
 
 .footer .copyright {
-  padding: 25px 0 5px;
+  padding: 20px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -75,6 +75,11 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.footer i:not(.fa-whatsapp, .fa-telegram-plane, .fa-vk, .fa-youtube) {
+  width: 19px;
+  margin-right: 7px;
 }
 
 section {
@@ -418,6 +423,7 @@ button.nav-link {
 .btn-whatsapp {
   background-color: #4fce5d;
   font-size: 23px;
+  padding-top: 1px;
 }
 
 .btn-telegram {

@@ -7,11 +7,18 @@ from common.helpers import formfield_overrides
 
 class TerraceAdmin(SimplePageAdmin, PageHWAWAdmin, PageRailingsAdmin, PagePortfolioAdmin, PageDescriptionAdmin, SingletonModelAdmin):
     filter_horizontal = ('hwaw', 'block_railings', )
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        return fieldsets + (
+            ('Типовой проект', {
+                'fields': ('typical_project',)
+            }),
+        )
 
 admin.site.register(Terrace, TerraceAdmin)
 
 
-class TerraceTypicalProjectAdmin(SingletonModelAdmin):
+class TerraceTypicalProjectAdmin(admin.ModelAdmin):
     formfield_overrides = formfield_overrides
 
 admin.site.register(TerraceTypicalProject, TerraceTypicalProjectAdmin)

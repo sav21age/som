@@ -229,6 +229,10 @@ LOGGING = {
         },
     },
     'loggers': {
+        'django.security.DisallowedHost': {
+            'handlers': [],
+            'propagate': False,
+        },
         'db': {
             'handlers': ['db_log'],
             'level': 'DEBUG'

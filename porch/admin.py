@@ -11,7 +11,7 @@ class PorchAdmin(SimplePageAdmin, PageHWAWAdmin, PageRailingsAdmin, PagePortfoli
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
         return fieldsets + (
-            ('Типичный проект', {
+            ('Типовой проект', {
                 'fields': ('typical_project',)
             }),
         )

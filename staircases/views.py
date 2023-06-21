@@ -11,6 +11,7 @@ from calculator.forms import CalculatorForm
 def staircase(request, slug):
     try:
         object = Staircase.is_visible_objects.filter(slug=slug) \
+            .select_related('typical_project') \
             .prefetch_related('hwaw') \
             .prefetch_related(Prefetch('block_svg', queryset=BlockSVG.is_visible_objects.all())) \
             .prefetch_related(Prefetch('block_price', queryset=BlockPrice.is_visible_objects.all())) \
