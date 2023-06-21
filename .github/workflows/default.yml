@@ -76,4 +76,6 @@ jobs:
             
             docker-compose rm -f
             docker-compose pull
-            docker-compose up -d
+            docker-compose up -
+            
+            docker exec -i app python manage.py clearcache
