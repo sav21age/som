@@ -8,7 +8,7 @@ class IndexSitemap(Sitemap):
 
     def items(self):
         # return ['index']
-        return Index.is_visible_objects.all()
+        return Index.objects.order_by('id')
     
     def lastmod(self, obj):
         return obj.updated_at

@@ -7,7 +7,7 @@ class TerraceSitemap(Sitemap):
     priority = 1
 
     def items(self):
-        return Terrace.is_visible_objects.all()
+        return Terrace.objects.order_by('id')
     
     def lastmod(self, obj):
         return obj.updated_at

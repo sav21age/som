@@ -8,7 +8,7 @@ class BridgeSitemap(Sitemap):
 
     def items(self):
         # return ['bridges']
-        return Bridge.is_visible_objects.all()
+        return Bridge.objects.order_by('id')
     
     def lastmod(self, obj):
         return obj.updated_at

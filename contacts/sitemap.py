@@ -8,7 +8,7 @@ class ContactsSitemap(Sitemap):
     
     def items(self):
         # return ['contacts']
-        return Contacts.is_visible_objects.all()
+        return Contacts.objects.order_by('id')
     
     def lastmod(self, obj):
         return obj.updated_at
