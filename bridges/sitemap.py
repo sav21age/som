@@ -4,7 +4,7 @@ from bridges.models import Bridge
 
 
 class BridgeSitemap(Sitemap):
-    priority = 0.5
+    priority = 1
 
     def items(self):
         # return ['bridges']
@@ -17,4 +17,4 @@ class BridgeSitemap(Sitemap):
         # return reverse(item)
 
     def location(self, obj):
-        return reverse('bridges')
+        return reverse('crossing-bridge')

@@ -4,10 +4,9 @@ from terraces.models import Terrace
 
 
 class TerraceSitemap(Sitemap):
-    priority = 0.5
+    priority = 1
 
     def items(self):
-        # return ['bridges']
         return Terrace.is_visible_objects.all()
     
     def lastmod(self, obj):
@@ -17,4 +16,4 @@ class TerraceSitemap(Sitemap):
         # return reverse(item)
 
     def location(self, obj):
-        return reverse('terraces')
+        return reverse('terrace')

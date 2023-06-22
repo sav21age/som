@@ -16,6 +16,7 @@ settings_local.py
 *.log
 *.zip
 *.json
+*.cdr
 
 .ssh
 .coverage

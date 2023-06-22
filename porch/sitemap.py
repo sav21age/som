@@ -4,7 +4,7 @@ from porch.models import Porch
 
 
 class PorchSitemap(Sitemap):
-    priority = 0.5
+    priority = 1
 
     def items(self):
         return Porch.is_visible_objects.all()
