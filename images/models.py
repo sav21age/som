@@ -1,12 +1,11 @@
+import re
+from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from easy_thumbnails.fields import ThumbnailerImageField
 from common.helpers import get_image_path
 from common.managers import IsVisibleManager
-from django.core.cache import cache
+from common.helpers import quote, quote_office
 
 
 class Image(models.Model):
@@ -32,6 +31,17 @@ class Image(models.Model):
 
     def __str__(self):
         return self.path.path
+    
+    def clean(self):
+        if self.alt:
+            self.alt = re.sub(quote, r"«\1»", self.alt)
+            self.alt = re.sub(quote_office, r"«\1»", self.alt)
+
+        if self.title:
+            self.title = re.sub(quote, r"«\1»", self.title)
+            self.title = re.sub(quote_office, r"«\1»", self.title)
+
+        super().clean()
 
     class Meta:
         ordering = ('order_number',)

@@ -194,6 +194,9 @@ THUMBNAIL_ALIASES = {
         '360w_poor': {'crop': 'scale', 'size': (360, 360), 'quality': 10, 'bw': True},
         '360w': {'crop': 'scale', 'size': (360, 360), 'quality': 95, },
 
+        '540w_poor': {'crop': 'scale', 'size': (540, 540), 'quality': 10, 'bw': True},
+        '540w': {'crop': 'scale', 'size': (540, 540), 'quality': 95, },
+
         '720w_poor': {'crop': 'scale', 'size': (720, 720), 'quality': 10, 'bw': True},
         '720w': {'crop': 'scale', 'size': (720, 720), 'quality': 95, },
 
