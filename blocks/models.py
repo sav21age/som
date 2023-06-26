@@ -48,7 +48,7 @@ class BlockIMG(Block):
 
 
 class BlockImage(BlockIMG):
-    block_name = models.CharField('название блока', max_length=80, blank=True)
+    block_name = models.CharField('название блока', max_length=80)
     is_zoom = models.BooleanField('увеличивать', default=1, db_index=True)
     order_number = models.PositiveSmallIntegerField(
         'порядковый номер', default=0,)
@@ -85,7 +85,7 @@ def validate_svg_path(value):
 
 
 class BlockSVG(Block):
-    block_name = models.CharField('название блока', max_length=80, blank=True)
+    block_name = models.CharField('название блока', max_length=80)
     description = models.TextField('описание',)
     order_number = models.PositiveSmallIntegerField(
         'порядковый номер', default=0,)
