@@ -21,7 +21,7 @@ class Image(models.Model):
         resize_source={'size': (800, 800), 'crop': 'scale'}
     )
 
-    alt = models.CharField('аттрибут alt', max_length=200, null=True, blank=True, )
+    # alt = models.CharField('аттрибут alt', max_length=200, null=True, blank=True, )
     title = models.CharField('аттрибут title', max_length=200, null=True, blank=True, )
     order_number = models.PositiveSmallIntegerField('порядковый номер', default=0)
     is_visible = models.BooleanField('показывать', default=1, db_index=True)
@@ -33,9 +33,9 @@ class Image(models.Model):
         return self.path.path
     
     def clean(self):
-        if self.alt:
-            self.alt = re.sub(quote, r"«\1»", self.alt)
-            self.alt = re.sub(quote_office, r"«\1»", self.alt)
+        # if self.alt:
+        #     self.alt = re.sub(quote, r"«\1»", self.alt)
+        #     self.alt = re.sub(quote_office, r"«\1»", self.alt)
 
         if self.title:
             self.title = re.sub(quote, r"«\1»", self.title)

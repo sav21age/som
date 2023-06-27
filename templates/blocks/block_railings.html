@@ -6,11 +6,11 @@
     <div class="section-title">
       <span>{{ object.block_railings_title }}</span>
     </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
       {% for image in object.block_railings.all %}
         <div class="col">
           <div class="card rounded-0 border-0 h-100">
-            <img src="{{ image.img_path|thumbnail_url:'1920w' }}" data-srcset="{{ image.img_path|thumbnail_url:'360w' }} 360w, {{ image.img_path|thumbnail_url:'720w' }} 720w, {{ image.img_path|thumbnail_url:'1080w' }} 1080w" srcset="{{ image.img_path|thumbnail_url:'360w_poor' }} 360w, {{ image.img_path|thumbnail_url:'720w_poor' }} 720w, {{ image.img_path|thumbnail_url:'1080w_poor' }} 1080w" sizes="(max-width: 576px) 100vw, ((min-width: 577px) and (max-width: 992px)) 50vw, 30vw" class="img-fluid lozad" alt="{{image.title}}" title="{{image.title}}">
+            <img src="{{ image.img_path|thumbnail_url:'1080w' }}" data-srcset="{{ image.img_path|thumbnail_url:'360w' }} 360w, {{ image.img_path|thumbnail_url:'540w' }} 540w, {{ image.img_path|thumbnail_url:'720w' }} 720w" srcset="{{ image.img_path|thumbnail_url:'360w_poor' }} 360w, {{ image.img_path|thumbnail_url:'540w_poor' }} 540w, {{ image.img_path|thumbnail_url:'720w_poor' }} 720w" sizes="(max-width: 576px) 50vw, ((min-width: 577px) and (max-width: 768px)) 50vw, ((min-width: 769px) and (max-width: 992px)) 33vw, 25vw" class="img-fluid lozad" alt="{{image.title}}" title="{{image.title}}">
             <div class="card-body">
               <p class="card-text">{{ image.title }}</p>
             </div>

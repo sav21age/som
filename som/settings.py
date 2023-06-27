@@ -203,8 +203,8 @@ THUMBNAIL_ALIASES = {
         '1080w_poor': {'crop': 'scale', 'size': (1080, 1080), 'quality': 10, 'bw': True},
         '1080w': {'crop': 'scale', 'size': (1080, 1080), 'quality': 95, },
 
-        '1920w_poor': {'crop': 'scale', 'size': (1920, 1920), 'quality': 10, 'bw': True},
-        '1920w': {'crop': 'scale', 'size': (1920, 1920), 'quality': 95, },
+        # '1920w_poor': {'crop': 'scale', 'size': (1920, 1920), 'quality': 10, 'bw': True},
+        # '1920w': {'crop': 'scale', 'size': (1920, 1920), 'quality': 95, },
     }
 }
 
