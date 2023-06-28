@@ -57,8 +57,9 @@ class PageRailingsAdmin(admin.ModelAdmin):
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
         return fieldsets + (
-            ('Варианты ограждений', {
-                'fields': ('block_railings_title', 'block_railings',)
+            ('Типовые варианты ограждений', {
+                # 'fields': ('block_railings_title', 'block_railings',)
+                'fields': ('block_railings',)
             }),
         )
     

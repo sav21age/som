@@ -73,10 +73,9 @@ class PagePortfolio(models.Model):
 
 
 class PageRailings(models.Model):
-    block_railings_title = models.CharField(
-        'Заголовок', max_length=200, blank=True)
+    # block_railings_title = models.CharField('Заголовок', max_length=200, blank=True)
     block_railings = models.ManyToManyField(
-        BlockImage, verbose_name='"Контент"', related_name='+',
+        BlockImage, verbose_name='ограждения', related_name='+',
         blank=True, db_index=True)
 
     class Meta:
