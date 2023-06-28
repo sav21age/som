@@ -1,11 +1,9 @@
 from django.db import models
 from blocks.models import BlockPrice, BlockSVG
-from common.models import PageCalculator, PageDescription, PageHWAW, PageMenu, PagePortfolio, PageRailings, SimplePage
+from common.models import PageCalculator, PageDescription, PageHWAW, PageMenu, PagePortfolio, PageRailings, SimplePage, TypicalProject
 
 
-class StaircaseTypicalProject(models.Model):
-    name = models.CharField('название', max_length=250)
-    
+class StaircaseTypicalProject(TypicalProject):
     frame_broken_material = models.CharField('материал "ломаного" каркаса', max_length=250, blank=True)
     frame_broken_width = models.PositiveSmallIntegerField('ширина "ломаного" каркаса, мм', blank=True, null=True)
     frame_broken_thickness = models.PositiveSmallIntegerField('толщина "ломаного" каркаса, мм', blank=True, null=True)
@@ -18,13 +16,6 @@ class StaircaseTypicalProject(models.Model):
 
     steps_material = models.CharField('материал ступеней', max_length=250)
     steps_height = models.DecimalField('высота ступеней, м', max_digits=4, decimal_places=2, blank=True, null=True)
-
-    def __str__(self):
-        return '{}'.format(self.name)
-    
-    class Meta:
-        verbose_name = 'типовой проект'
-        verbose_name_plural = 'типовой проект'
 
 
 class Staircase(SimplePage, PageCalculator, PageDescription, PageMenu, PagePortfolio, PageHWAW, PageRailings):

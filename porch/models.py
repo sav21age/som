@@ -1,10 +1,8 @@
 from django.db import models
-from common.models import PageDescription, PageHWAW, PageMenu, PagePortfolio, PageRailings, SimplePage
+from common.models import PageDescription, PageHWAW, PageMenu, PagePortfolio, PageRailings, SimplePage, TypicalProject
 
 
-class PorchTypicalProject(models.Model):
-    name = models.CharField('название', max_length=250)
-    
+class PorchTypicalProject(TypicalProject):
     height = models.DecimalField('высота, м', max_digits=2, decimal_places=1, null=True)
     width = models.DecimalField('ширина, м', max_digits=2, decimal_places=1, null=True)
     # length = models.DecimalField('длина, м', max_digits=2, decimal_places=1, null=True)
@@ -21,13 +19,6 @@ class PorchTypicalProject(models.Model):
     steps_height = models.DecimalField('высота ступеней, м', max_digits=4, decimal_places=2, null=True)
 
     extra = models.CharField('дополнительно', max_length=250, blank=True)
-
-    def __str__(self):
-        return '{}'.format(self.name)
-    
-    class Meta:
-        verbose_name = 'типовой проект'
-        verbose_name_plural = 'типовой проект'
 
 
 class Porch(SimplePage, PageDescription, PageMenu, PagePortfolio, PageHWAW, PageRailings):

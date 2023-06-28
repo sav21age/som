@@ -99,6 +99,21 @@ class PageCalculator(models.Model):
         abstract = True
 
 
-# class TypicalProject(models.Model):
-#     pass
+class TypicalProject(models.Model):
+    name = models.CharField('название', max_length=250)
+
+    def __str__(self):
+        return self.name
+    
+    def clean(self):
+        self.name = re.sub(quote, r"«\1»", self.name)
+        self.name = re.sub(quote_office, r"«\1»", self.name)
+
+        super().clean()
+
+    class Meta:
+        abstract = True
+        verbose_name = 'типовой проект'
+        verbose_name_plural = 'типовой проект'
+
     

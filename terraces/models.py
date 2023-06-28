@@ -1,11 +1,9 @@
 from django.db import models
 from solo.models import SingletonModel
-from common.models import PageDescription, PageHWAW, PagePortfolio, PageRailings, SimplePage
+from common.models import PageDescription, PageHWAW, PagePortfolio, PageRailings, SimplePage, TypicalProject
 
 
-class TerraceTypicalProject(models.Model):
-    name = models.CharField('название', max_length=250)
-    
+class TerraceTypicalProject(TypicalProject):
     height = models.DecimalField('высота, м', max_digits=2, decimal_places=1, null=True)
     width = models.DecimalField('ширина, м', max_digits=3, decimal_places=1, null=True)
     length = models.DecimalField('длина, м', max_digits=3, decimal_places=1, null=True)
@@ -20,13 +18,6 @@ class TerraceTypicalProject(models.Model):
     flooring_material = models.CharField('материал настила', max_length=250)
 
     extra = models.CharField('дополнительно', max_length=250, blank=True)
-
-    def __str__(self):
-        return '{}'.format(self.name)
-    
-    class Meta:
-        verbose_name = 'типовой проект'
-        verbose_name_plural = 'типовой проект'
 
 
 class Terrace(SimplePage, PageDescription, PagePortfolio, PageHWAW, PageRailings, SingletonModel):
