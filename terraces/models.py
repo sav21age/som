@@ -5,6 +5,7 @@ from common.models import PageDescription, PageHWAW, PagePortfolio, PageRailings
 
 class TerraceTypicalProject(models.Model):
     name = models.CharField('название', max_length=250)
+    
     height = models.DecimalField('высота, м', max_digits=2, decimal_places=1, null=True)
     width = models.DecimalField('ширина, м', max_digits=3, decimal_places=1, null=True)
     length = models.DecimalField('длина, м', max_digits=3, decimal_places=1, null=True)
