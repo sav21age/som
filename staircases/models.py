@@ -20,13 +20,13 @@ class StaircaseTypicalProject(TypicalProject):
 
 class Staircase(SimplePage, PageCalculator, PageDescription, PageMenu, PagePortfolio, PageHWAW, PageRailings):
     block_svg_title = models.CharField(
-        'Заголовок', max_length=200, blank=True)
+        'заголовок', max_length=200, blank=True)
     block_svg = models.ManyToManyField(
-        BlockSVG, verbose_name='"Контент"', related_name='block_svg',
+        BlockSVG, verbose_name='объекты', related_name='block_svg',
         blank=True, db_index=True)
 
     block_price = models.ManyToManyField(
-        BlockPrice, verbose_name='"Цены"', related_name='+',
+        BlockPrice, verbose_name='объекты', related_name='+',
         blank=True, db_index=True)
 
     typical_project = models.ForeignKey(

@@ -6,17 +6,17 @@ from common.models import PageCalculator, PageDescription, PageHWAW, PagePortfol
 
 class Index(SimplePage, PageCalculator, PageDescription, PagePortfolio, PageHWAW, SingletonModel):
     block_svg_title = models.CharField(
-        'Заголовок', max_length=200, blank=True)
+        'заголовок', max_length=200, blank=True)
     block_svg = models.ManyToManyField(
-        BlockSVG, verbose_name='Контент', related_name='+',
+        BlockSVG, verbose_name='объекты', related_name='+',
         blank=True, db_index=True)
 
     block_price = models.ManyToManyField(
-        BlockPrice, verbose_name='"Цены"', related_name='+',
+        BlockPrice, verbose_name='объекты', related_name='+',
         blank=True, db_index=True)
 
-    about_title = models.CharField('Заголовок', blank=True, max_length=200)
-    about_text = models.TextField('Текст', blank=True)
+    about_title = models.CharField('заголовок', blank=True, max_length=200)
+    about_text = models.TextField('текст', blank=True)
     
     class Meta:
         verbose_name = 'главная страница'

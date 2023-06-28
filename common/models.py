@@ -43,8 +43,8 @@ class SimplePage(models.Model):
 
 
 class PageDescription(models.Model):
-    description_title = models.CharField('Заголовок', blank=True, max_length=200)
-    description_text = models.TextField('Текст', blank=True)
+    description_title = models.CharField('заголовок', blank=True, max_length=200)
+    description_text = models.TextField('текст', blank=True)
 
     def clean(self):
         if self.description_text:
@@ -75,7 +75,7 @@ class PagePortfolio(models.Model):
 class PageRailings(models.Model):
     # block_railings_title = models.CharField('Заголовок', max_length=200, blank=True)
     block_railings = models.ManyToManyField(
-        BlockImage, verbose_name='ограждения', related_name='+',
+        BlockImage, verbose_name='объекты', related_name='+',
         blank=True, db_index=True)
 
     class Meta:
@@ -84,7 +84,7 @@ class PageRailings(models.Model):
 
 class PageHWAW(models.Model):
     hwaw = models.ManyToManyField(
-        BlockSVG, verbose_name='"Как мы работаем?"', related_name='+', 
+        BlockSVG, verbose_name='объекты', related_name='+', 
         blank=True, db_index=True)
 
     class Meta:
