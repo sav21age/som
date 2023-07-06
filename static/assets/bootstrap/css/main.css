@@ -205,7 +205,7 @@ section {
   color: #232c35;
 }
 
-#block-price, .block-railings {
+#block-price, #block-svg, .block-railings {
   border-top: 3px solid transparent;
   -o-border-image: 5 -o-repeating-linear-gradient(45deg, #f7f9fb, #f7f9fb 5px, transparent 5px, transparent 5px, #f7f9fb 5px, #f7f9fb 10px, transparent 10px, transparent 20px);
      border-image: 5 repeating-linear-gradient(45deg, #f7f9fb, #f7f9fb 5px, transparent 5px, transparent 5px, #f7f9fb 5px, #f7f9fb 10px, transparent 10px, transparent 20px);
