@@ -20,6 +20,7 @@ def main(request):
     context = {
       'debug': settings.DEBUG,
       'cache_timeout': settings.CACHE_TIMEOUT,
+      'rel_canonical': request.build_absolute_uri(),
       'menu': menu,
       'callback_form': CallbackForm(),
       'recaptcha_key': settings.RECAPTCHA_PUBLIC_KEY,
