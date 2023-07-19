@@ -1,5 +1,6 @@
 {% load thumbnail cache app_label humanize %}
 {% if object.block_railings.all %}
+<!--noindex-->
 {% cache cache_timeout block_railings object|app_label object.id %}
 <section class="block-railings">
   <div class="container">
@@ -22,4 +23,5 @@
   </div>
 </section>
 {% endcache %}
+<!--/noindex-->
 {% endif %}
