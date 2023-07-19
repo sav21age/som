@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /admin
 Disallow: /privacy-policy
+
 Disallow: /catalog/
 Disallow: /portfolio/
 Disallow: /kompaniya/

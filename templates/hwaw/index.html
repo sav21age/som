@@ -1,5 +1,6 @@
 {% load static cache app_label %}
 {% cache cache_timeout hwaw object|app_label object.id %}
+<!--noindex-->
 <section id="hwaw" class="d-none d-sm-block">
   <div class="container">
         <div class="section-title">
@@ -23,4 +24,5 @@
       </div>
   </div>
 </section>
+<!--/noindex-->
 {% endcache %}
