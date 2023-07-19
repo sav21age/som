@@ -4,7 +4,7 @@ from staircases.models import Staircase, StaircaseTypicalProject
 from common.helpers import formfield_overrides
 
 
-class StaircaseAdmin(SimplePageAdmin, PageCalculatorAdmin, PageHWAWAdmin, PageRailingsAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
+class StaircaseAdmin(PagePortfolioAdmin, SimplePageAdmin, PageCalculatorAdmin, PageHWAWAdmin, PageRailingsAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
     filter_horizontal = ('hwaw', 'block_price', 'block_svg', 'block_railings', )
 

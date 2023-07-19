@@ -4,7 +4,11 @@
 <section id="portfolio" class="portfolio">
   <div class="container">
     <div class="section-title">
+      {% if object.portfolio_title %}
+      <span>{{object.portfolio_title}}</span>
+      {% else %}
       <span>Наши работы</span>
+      {% endif%}
     </div>
     <div class="row portfolio-container">
     {% for image in object.portfolio_images.all %}
