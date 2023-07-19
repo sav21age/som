@@ -1,6 +1,6 @@
 import re
 from django.db import models
-from blocks.models import BlockImage, BlockSVG
+from blocks.models import BlockImage, BlockPrice, BlockSVG
 from common.managers import IsVisibleManager
 from django.contrib.contenttypes import fields
 from images.models import Image
@@ -67,6 +67,27 @@ class PagePortfolio(models.Model):
     portfolio_title = models.CharField('Заголовок', blank=True, max_length=200)
     portfolio_images = fields.GenericRelation(Image)
     portfolio_videos = fields.GenericRelation(Video)
+
+    class Meta:
+        abstract = True
+
+
+class PagePrice(models.Model):
+    block_price_title = models.CharField('Заголовок', blank=True, max_length=200)
+    block_price = models.ManyToManyField(
+        BlockPrice, verbose_name='объекты', related_name='+',
+        blank=True, db_index=True)
+
+    class Meta:
+        abstract = True
+
+
+class PageSVG(models.Model):
+    block_svg_title = models.CharField(
+        'заголовок', max_length=200, blank=True)
+    block_svg = models.ManyToManyField(
+        BlockSVG, verbose_name='объекты', related_name='block_svg',
+        blank=True, db_index=True)
 
     class Meta:
         abstract = True

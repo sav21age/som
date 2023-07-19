@@ -4,7 +4,11 @@
 <section id="block-price">
   <div class="container">
     <div class="section-title">
-      <span>Наши цены на Вашу лестницу Вас приятно удивят</span>
+      {%if object.block_price_title%}
+        <span>{{object.block_price_title}}</span>
+      {%else%}
+        <span>Наши цены на Вашу лестницу Вас приятно удивят</span>
+      {%endif%}
       <p class="fst-italic">Указанные цены не являются публичной офертой.</p>
     </div>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

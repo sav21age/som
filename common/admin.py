@@ -53,6 +53,27 @@ class PagePortfolioAdmin(admin.ModelAdmin):
         )
 
 
+class PagePriceAdmin(admin.ModelAdmin):
+    inlines = [ImageInline, VideoInline,]
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        return fieldsets + (
+            ('Блок с ценами', {
+                'fields': ('block_price_title', 'block_price',)
+            }),
+        )
+
+class PageSVGAdmin(admin.ModelAdmin):
+    inlines = [ImageInline, VideoInline,]
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        return fieldsets + (
+            ('Блок с векторной графикой', {
+                'fields': ('block_svg_title', 'block_svg', )
+            }),
+        )
+
+
 class PageRailingsAdmin(admin.ModelAdmin):
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)

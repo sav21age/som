@@ -1,6 +1,6 @@
 from django.db import models
 from blocks.models import BlockPrice, BlockSVG
-from common.models import PageCalculator, PageDescription, PageHWAW, PageMenu, PagePortfolio, PageRailings, SimplePage, TypicalProject
+from common.models import PageCalculator, PageDescription, PageHWAW, PageMenu, PagePortfolio, PagePrice, PageRailings, PageSVG, SimplePage, TypicalProject
 
 
 class StaircaseTypicalProject(TypicalProject):
@@ -18,17 +18,7 @@ class StaircaseTypicalProject(TypicalProject):
     steps_height = models.DecimalField('высота ступеней, м', max_digits=4, decimal_places=2, blank=True, null=True)
 
 
-class Staircase(SimplePage, PageCalculator, PageDescription, PageMenu, PagePortfolio, PageHWAW, PageRailings):
-    block_svg_title = models.CharField(
-        'заголовок', max_length=200, blank=True)
-    block_svg = models.ManyToManyField(
-        BlockSVG, verbose_name='объекты', related_name='block_svg',
-        blank=True, db_index=True)
-
-    block_price = models.ManyToManyField(
-        BlockPrice, verbose_name='объекты', related_name='+',
-        blank=True, db_index=True)
-
+class Staircase(SimplePage, PagePrice, PageSVG, PageCalculator, PageDescription, PageMenu, PagePortfolio, PageHWAW, PageRailings):
     typical_project = models.ForeignKey(
         StaircaseTypicalProject, verbose_name='типовой проект', 
         blank=True, null=True, on_delete=models.DO_NOTHING)
