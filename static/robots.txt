@@ -1,5 +1,13 @@
 User-agent: *
 Disallow: /admin
 Disallow: /privacy-policy
+Disallow: /catalog/
+Disallow: /portfolio/
+Disallow: /kompaniya/
+Disallow: /aktsii/
+Disallow: /kontakty/
+Disallow: /uslugi/
+Disallow: /proekty/
+
 Host: studio-of-metal.ru
 Sitemap: https://studio-of-metal.ru/sitemap.xml
