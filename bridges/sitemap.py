@@ -17,4 +17,4 @@ class BridgeSitemap(Sitemap):
         # return reverse(item)
 
     def location(self, obj):
-        return reverse('crossing-bridge')
+        return reverse('decorative-bridge')
