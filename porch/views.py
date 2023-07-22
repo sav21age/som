@@ -9,7 +9,7 @@ from videos.models import Video
 
 def porch(request, slug):
     try:
-        object = Porch.objects.filter(slug=slug) \
+        object = Porch.is_visible_objects.filter(slug=slug) \
             .select_related('typical_project') \
             .prefetch_related('hwaw') \
             .prefetch_related(Prefetch('portfolio_images', queryset=Image.is_visible_objects.all())) \
