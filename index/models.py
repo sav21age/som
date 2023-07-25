@@ -1,5 +1,5 @@
 from django.db import models
-from blocks.models import BlockPrice, BlockSVG
+from blocks.models import BlockSVG
 from solo.models import SingletonModel
 from common.models import PageCalculator, PageDescription, PageHWAW, PagePortfolio, PagePrice, SimplePage
 

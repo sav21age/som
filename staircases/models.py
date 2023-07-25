@@ -1,5 +1,4 @@
 from django.db import models
-from blocks.models import BlockPrice, BlockSVG
 from common.models import PageCalculator, PageDescription, PageHWAW, PageMenu, PagePortfolio, PagePrice, PageRailings, PageSVG, SimplePage, TypicalProject
 
 

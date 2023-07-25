@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.db.models import Prefetch
 from blocks.models import BlockImage
 from images.models import Image
-from terraces.models import Terrace, TerraceTypicalProject
+from terraces.models import Terrace
 from videos.models import Video
 
 
