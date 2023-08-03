@@ -1,7 +1,7 @@
 {% load static cache app_label %}
 {% if object.block_svg.all %}
 {% cache cache_timeout block_svg object|app_label object.id %}
-<section id="block-svg" class="d-none d-sm-block">
+<div class="block-svg section d-none d-sm-block">
   <div class="container">
     <div class="section-title">
       <span>{{ object.block_svg_title }}</span>
@@ -20,6 +20,6 @@
     {% endfor %}
     </div>
   </div>
-</section>
+</div>
 {% endcache %}
 {% endif %}

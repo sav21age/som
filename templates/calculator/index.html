@@ -1,7 +1,7 @@
 {% load crispy_forms_tags cache %}
 {% if object.is_calculator %}
 {% cache cache_timeout calculator %}
-<section id="calculator" class="calculator mb-5">
+<div id="calculator" class="section calculator mb-5">
   <div class="container">
     <div class="section-title">
       <span>Рассчитайте стоимость Вашей лестницы</span>
@@ -13,6 +13,6 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 {% endcache %}
 {% endif %}

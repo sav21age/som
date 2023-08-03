@@ -81,7 +81,7 @@ header {
   margin-right: 7px;
 }
 
-.section {
+section, .section {
   padding: 30px 0 30px;
 }
 
@@ -147,7 +147,7 @@ header {
   margin-bottom: 15px;
 }
 
-#block-svg .order-number {
+.block-svg .order-number {
   font-size: 230px;
   font-weight: bold;
   color: #c0c0c0;
@@ -156,14 +156,14 @@ header {
   opacity: 0.1;
   line-height: 0.9;
 }
-#block-svg .icon-box {
+.block-svg .icon-box {
   text-align: center;
   padding: 20px 20px;
   -webkit-transition: all ease-in-out 0.3s;
   transition: all ease-in-out 0.3s;
   z-index: 1;
 }
-#block-svg .icon-box .icon {
+.block-svg .icon-box .icon {
   margin: 0 auto;
   width: 70px;
   height: 70px;
@@ -184,12 +184,12 @@ header {
           transform-style: preserve-3d;
   border-radius: 50%;
 }
-#block-svg p {
+.block-svg p {
   line-height: 1.5;
   font-size: 14px;
   margin-bottom: 0;
 }
-#block-svg .caption {
+.block-svg .caption {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -200,7 +200,7 @@ header {
   color: #232c35;
 }
 
-#block-price, #block-svg, .block-railings {
+.block-price, .block-svg, .block-railings {
   border-top: 3px solid transparent;
   -o-border-image: 5 repeating-linear-gradient(45deg, #f7f9fb, #f7f9fb 5px, transparent 5px, transparent 5px, #f7f9fb 5px, #f7f9fb 10px, transparent 10px, transparent 20px);
      border-image: 5 repeating-linear-gradient(45deg, #f7f9fb, #f7f9fb 5px, transparent 5px, transparent 5px, #f7f9fb 5px, #f7f9fb 10px, transparent 10px, transparent 20px);

@@ -2,7 +2,7 @@
 {% if object.block_railings.all %}
 <!--noindex-->
 {% cache cache_timeout block_railings object|app_label object.id %}
-<section class="block-railings">
+<div class="block-railings section">
   <div class="container">
     <div class="section-title">
       {% comment %} <span>{{ object.block_railings_title }}</span> {% endcomment %}
@@ -21,7 +21,7 @@
       {% endfor %}
     </div>
   </div>
-</section>
+</div>
 {% endcache %}
 <!--/noindex-->
 {% endif %}
