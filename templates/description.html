@@ -1,7 +1,7 @@
 {% load markdownify cache app_label %}
 {% cache cache_timeout descrition object|app_label object.id %}
 {% include "line-blue-background.html" %}
-<section class="about">
+<section class="description">
   <div class="container">
     {% if object.description_title %}
     <div class="section-title">

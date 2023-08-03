@@ -18,7 +18,7 @@ section, .section {
   //   color: $metal-color;
   //   opacity: 0.1;
   // }
-  span {
+  h2, span {
     font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
@@ -86,7 +86,7 @@ section, .section {
   border-image: 5 repeating-linear-gradient(45deg, $primary-background, $primary-background 5px, transparent 5px, transparent 5px, $primary-background 5px, $primary-background 10px, transparent 10px, transparent 20px);
 }
 
-.about {
+.about, .description {
   @include background_blue;
 }
 
