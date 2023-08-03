@@ -21,6 +21,16 @@ class Image(models.Model):
         resize_source={'size': (800, 800), 'crop': 'scale'}
     )
 
+    CHOICES = (
+        ('', 'None'),
+        ('M', 'Ограждение «Модерн»'),
+        ('C', 'Ограждение «Классика»'),
+        ('A', 'Ограждение «Ар-деко»'),
+        ('S', 'Ограждение «Современное»'),
+    )
+    # purpose = models.CharField(null=True, blank=True)
+    purpose = models.CharField('назначение', max_length=2, choices=CHOICES, default='', blank=True)
+
     # alt = models.CharField('аттрибут alt', max_length=200, null=True, blank=True, )
     title = models.CharField('аттрибут title', max_length=200, null=True, blank=True, )
     order_number = models.PositiveSmallIntegerField('порядковый номер', default=0)

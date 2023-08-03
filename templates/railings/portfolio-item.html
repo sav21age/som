@@ -1,0 +1,19 @@
+{% load thumbnail %}
+<div class="section-title">
+<span>{{ title }}</span>
+<p>{{ text }}</p>
+</div>
+<div class="row portfolio-container">
+{% for image in images %}
+<div class="col-sm-6 col-md-4 col-lg-3 portfolio-item">
+    <div class="portfolio-wrap">
+    <img src="{{ image.path|thumbnail_url:'1080w' }}" data-srcset="{{ image.path|thumbnail_url:'360w' }} 360w, {{ image.path|thumbnail_url:'540w' }} 540w, {{ image.path|thumbnail_url:'720w' }} 720w" srcset="{{ image.path|thumbnail_url:'360w_poor' }} 360w, {{ image.path|thumbnail_url:'540w_poor' }} 540w, {{ image.path|thumbnail_url:'720w_poor' }} 720w" sizes="(max-width: 576px) 94vw, ((min-width: 577px) and (max-width: 768px)) 44vw, ((min-width: 769px) and (max-width: 992px)) 29vw, 22vw" class="img-fluid lozad" alt="{{ image.title }}" title="{{ image.title }}">
+    <div class="portfolio-info">
+        <div class="portfolio-links">
+        <a href="{{ image.path|thumbnail_url:'1080w' }}" data-gallery="portfolioGallery" class="portfolio-lightbox" aria-label="Увеличить"><i class="fas fa-search-plus"></i></a>
+        </div>
+    </div>
+    </div>
+</div>
+{% endfor %}
+</div>

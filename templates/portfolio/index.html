@@ -1,7 +1,7 @@
 {% load thumbnail cache app_label static %}
 {% cache cache_timeout portfolio object|app_label object.id %}
 {% include "line-gold-background.html" %}
-<section id="portfolio" class="portfolio">
+<div class="portfolio section">
   <div class="container">
     <div class="section-title">
       {% if object.portfolio_title %}
@@ -41,5 +41,5 @@
     </div>
   </div>
   {% endif %}
-</section>
+</div>
 {% endcache %}

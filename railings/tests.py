@@ -14,7 +14,6 @@ class RailingTest(TestCase):
 
         obj = Railing.is_visible_objects \
             .prefetch_related('portfolio_images') \
-            .prefetch_related('portfolio_videos') \
             .all()[:1].get()
 
         response = self.client.get(reverse('railings:detail', kwargs={'slug': obj.slug}))

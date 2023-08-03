@@ -1,0 +1,23 @@
+{% load thumbnail cache app_label static %}
+{% cache cache_timeout portfolio object|app_label object.id %}
+{% include "line-gold-background.html" %}
+<div class="portfolio section">
+  <div class="container">
+    {% with images=object.portfolio_images_m.all title=object.portfolio_title_m  text=object.portfolio_text_m %}
+    {% include "railings/portfolio-item.html" %}
+    {% endwith %}
+
+    {% with images=object.portfolio_images_c.all title=object.portfolio_title_c  text=object.portfolio_text_c %}
+    {% include "railings/portfolio-item.html" %}
+    {% endwith %}
+
+    {% with images=object.portfolio_images_a.all title=object.portfolio_title_a  text=object.portfolio_text_a %}
+    {% include "railings/portfolio-item.html" %}
+    {% endwith %}
+
+    {% with images=object.portfolio_images_s.all title=object.portfolio_title_s  text=object.portfolio_text_s %}
+    {% include "railings/portfolio-item.html" %}
+    {% endwith %}
+  </div>
+</div>
+{% endcache %}

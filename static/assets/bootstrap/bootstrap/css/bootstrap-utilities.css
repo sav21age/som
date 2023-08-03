@@ -330,13 +330,11 @@
   height: 1em;
   fill: currentcolor;
   -webkit-transition: 0.2s ease-in-out transform;
-  -o-transition: 0.2s ease-in-out transform;
   transition: 0.2s ease-in-out transform;
 }
 @media (prefers-reduced-motion: reduce) {
   .icon-link > .bi {
     -webkit-transition: none;
-    -o-transition: none;
     transition: none;
   }
 }
@@ -525,8 +523,7 @@
 
 .text-truncate {
   overflow: hidden;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
