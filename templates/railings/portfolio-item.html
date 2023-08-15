@@ -1,7 +1,7 @@
-{% load thumbnail %}
+{% load thumbnail markdownify %}
 <div class="section-title">
 <span>{{ title }}</span>
-<p>{{ text }}</p>
+<p>{{ text|markdownify }}</p>
 </div>
 <div class="row portfolio-container">
 {% for image in images %}
