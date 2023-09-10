@@ -1,6 +1,6 @@
 {% load thumbnail markdownify %}
 <div class="section-title">
-<span>{{ title }}</span>
+<span>{{ title|safe }}</span>
 <p>{{ text|markdownify }}</p>
 </div>
 <div class="row portfolio-container">
