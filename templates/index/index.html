@@ -4,6 +4,8 @@
 {% block head %}
   <title>{{object.head_title}}</title>
   <meta name="description" content="{{object.meta_description}}">
+  <meta property="og:title" content="{{ object.head_title }}">
+  <meta property="og:url" content="{{host}}{% url 'index' %}">
 {% endblock %} 
 
 {% block h1 %}{{object.name}}{% endblock %}
