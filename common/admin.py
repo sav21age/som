@@ -1,8 +1,10 @@
 from django.contrib import admin
+# from common.forms import PageDescriptionAdminForm, SimplePageAdminForm
 from common.forms import SimplePageAdminForm
 from images.admin import ImageInline
 from videos.admin import VideoInline
 from common.helpers import formfield_overrides
+
 
 class SimplePageAdmin(admin.ModelAdmin):
     save_on_top = True
@@ -33,6 +35,7 @@ class PageMenuAdmin(admin.ModelAdmin):
 
 
 class PageDescriptionAdmin(admin.ModelAdmin):
+    # form = PageDescriptionAdminForm
     def get_fieldsets(self, request, obj=None):
         fieldsets = super().get_fieldsets(request, obj)
         return fieldsets + (

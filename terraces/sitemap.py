@@ -15,5 +15,5 @@ class TerraceSitemap(Sitemap):
     # def location(self, item):
         # return reverse(item)
 
-    def location(self, obj):
+    def location(self, item):
         return reverse('terrace')

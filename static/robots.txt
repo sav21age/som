@@ -12,5 +12,5 @@ Disallow: /proekty/
 
 Disallow: /steps/
 
-Host: studio-of-metal.ru
+Host: https://studio-of-metal.ru
 Sitemap: https://studio-of-metal.ru/sitemap.xml

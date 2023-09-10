@@ -4,6 +4,8 @@ import uuid
 import random
 from django.forms import NumberInput, TextInput, Textarea
 from django.db import models
+from codemirror import CodeMirrorTextarea
+
 
 # def get_image_path(instance, filename):
 #     f = os.path.splitext(filename)
@@ -12,9 +14,22 @@ from django.db import models
 quote = re.compile(r'\"(.*?)\"')
 quote_office = re.compile(r'\“(.*?)\”')
 
+
+codemirror_widget = CodeMirrorTextarea(
+    mode="markdown",
+    # theme="eclipse",
+    # theme="neo",
+    config={
+        'fixedGutter': True,
+        'lineWrapping': True,
+        'matchBrackets': True,
+    },
+)
+
 formfield_overrides = {
     models.CharField: {'widget': TextInput(attrs={'style': 'width: 70%; font-size: 115%;'})},
-    models.TextField: {'widget': Textarea(attrs={'rows': 30, 'style': 'width: 70%; font-size: 115%;'})},
+    # models.TextField: {'widget': Textarea(attrs={'rows': 30, 'style': 'width: 70%; font-size: 115%;'})},
+    models.TextField: {'widget': codemirror_widget},
     models.IntegerField: {'widget': NumberInput(attrs={'style': 'width: 100px; font-size: 115%;'})},
     models.DecimalField: {'widget': NumberInput(attrs={'style': 'width: 100px; font-size: 115%;'})},
 }

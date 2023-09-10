@@ -144,6 +144,9 @@ COMPRESS_JS_FILTERS = ['compressor.filters.jsmin.SlimItFilter',]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CODEMIRROR_PATH = "codemirror"
+CODEMIRROR_MODE = "htmlmixed"
+
 MARKDOWNIFY = {
     "default": {
         "WHITELIST_TAGS": [

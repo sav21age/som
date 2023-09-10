@@ -1,10 +1,8 @@
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+from django.db.models.signals import post_save, post_delete
 # from django.conf import settings
 # from django.core.cache.utils import make_template_fragment_key
 # from django.core.cache import caches, cache
 from django.core.cache import cache
-from django.db.models.signals import post_save
 from blocks.models import BlockPrice, BlockSVG, BlockText
 from bridges.models import Bridge
 from contacts.models import Contacts
@@ -17,24 +15,37 @@ from terraces.models import Terrace, TerraceTypicalProject
 from videos.models import Video
 
 
-@receiver(post_save, sender=BlockText)
-@receiver(post_save, sender=BlockPrice)
-@receiver(post_save, sender=BlockSVG)
-@receiver(post_save, sender=Contacts)
-@receiver(post_save, sender=Image)
-@receiver(post_save, sender=Video)
-@receiver(post_save, sender=Railing)
-@receiver(post_save, sender=Index)
-@receiver(post_save, sender=Staircase)
-@receiver(post_save, sender=Terrace)
-@receiver(post_save, sender=Porch)
-@receiver(post_save, sender=Bridge)
-@receiver(post_save, sender=TerraceTypicalProject)
-@receiver(post_save, sender=PorchTypicalProject)
-@receiver(post_save, sender=StaircaseTypicalProject)
+def receiver_multiple(signal, senders, **kwargs):
+    """
+    Based on django.dispatch.dispatcher.receiver
+
+    Allows multiple senders so we can avoid using a stack of
+    regular receiver decorators with one sender each.
+    """
+
+    def decorator(receiver_func):
+        for sender in senders:
+            if isinstance(signal, (list, tuple)):
+                for s in signal:
+                    s.connect(receiver_func, sender=sender, **kwargs)
+            else:
+                signal.connect(receiver_func, sender=sender, **kwargs)
+
+        return receiver_func
+
+    return decorator
+
+
+senders = [
+    BlockText, BlockPrice, BlockSVG, Contacts, Image, Video, Railing, Index,
+    Staircase, Terrace, Porch, Bridge, TerraceTypicalProject, PorchTypicalProject,
+    StaircaseTypicalProject,]
+@receiver_multiple([post_save, post_delete], senders)
 def cache_invalidate(instance, **kwargs):
     if kwargs.get('raw'):  # add for test, pass fixtures
         return
+
+    cache.clear()
 
     # fragment_names = [
     #     'gridview_object',
@@ -56,7 +67,7 @@ def cache_invalidate(instance, **kwargs):
     # key = make_template_fragment_key('images', [instance._meta.app_label, instance.id])
     # caches['images'].delete(key)
     # caches['images'].remove()
-    cache.clear()
+
 
 # @receiver(post_save, sender=Porch)
 # def cache_invalidate(instance, **kwargs):
