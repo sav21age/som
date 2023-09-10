@@ -20,9 +20,13 @@
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#ffffff">
 
-  {% block head %}{% endblock %}
+  <title>{{ object.head_title }}</title>
+  <meta name="description" content="{{ object.meta_description }}">
+  <meta property="og:title" content="{{ object.head_title }}">
+  <meta property="og:description" content="{{ object.meta_description }}">
 	<meta property="og:type" content="website">
   <meta property="og:image" content="{{host}}{% static 'images/logo-black-300x43.png' %}">
+  {% block head %}{% endblock %}
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload stylesheet" as="style" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
