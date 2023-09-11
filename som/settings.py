@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'staircases',
     'railings',
     'porch',
-    # 'steps',
     'terraces',
     'bridges',
     'contacts',
