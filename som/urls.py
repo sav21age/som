@@ -40,7 +40,7 @@ urlpatterns = [
     path('porch/', include(('porch.urls', 'porch'), namespace='porch')),
     # path('steps/', include(('steps.urls', 'steps'), namespace='steps')),
     path('privacy-policy/', TemplateView.as_view(
-        template_name="privacy-policy/privacy-policy.html"), name="privacy-policy"),
+        template_name="privacy-policy/index.html"), name="privacy-policy"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
 ]
