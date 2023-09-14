@@ -3,15 +3,13 @@ from callback.forms import CallbackForm
 from porch.models import Porch
 from staircases.models import Staircase
 from railings.models import Railing
-# from steps.models import Steps
+
 
 menu = {
     'staircases': Staircase.is_visible_objects.only(
         'menu_name', 'slug').order_by('menu_order'),
     'railings': Railing.is_visible_objects.only(
         'menu_name', 'slug').order_by('menu_order'),
-    # 'steps': Steps.objects.only(
-    #     'menu_name', 'slug').order_by('menu_order'),
     'porch': Porch.is_visible_objects.only(
         'menu_name', 'slug').order_by('menu_order'),
 }
