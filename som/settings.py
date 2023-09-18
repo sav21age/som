@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'compressor',
     'easy_thumbnails',
     'solo',
+    'menu',
+    'treebeard',
     'reset_migrations',
     'blocks',
     'index',
@@ -167,6 +169,13 @@ MARKDOWNIFY = {
             'h4',
             'h5',
             'h6',
+        ],
+        "WHITELIST_ATTRS": [
+            'href',
+            'src',
+            'alt',
+            'title',
+            'rel',
         ]
     }
 }
