@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'compressor',
     'easy_thumbnails',
     'solo',
-    'menu',
+    # 'menu',
     'treebeard',
     'reset_migrations',
     'blocks',
