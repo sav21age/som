@@ -1,5 +1,4 @@
 from django.contrib.sitemaps import Sitemap
-from django.shortcuts import reverse
 from bridges.models import Bridge
 
 
@@ -16,5 +15,5 @@ class BridgeSitemap(Sitemap):
     # def location(self, item):
         # return reverse(item)
 
-    def location(self, obj):
-        return reverse('decorative-bridge')
+    # def location(self, obj):
+    #     return reverse('decorative-bridge')

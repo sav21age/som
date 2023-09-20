@@ -1,5 +1,4 @@
 from django.contrib.sitemaps import Sitemap
-from django.urls import reverse
 from railings.models import Railing
 
 
@@ -12,5 +11,5 @@ class RailingSitemap(Sitemap):
     def lastmod(self, obj):
         return obj.updated_at
 
-    def location(self, obj):
-        return reverse('railings:detail', kwargs={'slug': obj.slug})
+    # def location(self, obj):
+    #     return reverse('railings:detail', kwargs={'slug': obj.slug})

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 from common.models import SimplePage
 from solo.models import SingletonModel
 
@@ -23,7 +24,10 @@ class Contacts(SimplePage, SingletonModel):
 
     def __str__(self):
         return 'Контакты'
-       
+
     class Meta:
         verbose_name = 'контакты'
         verbose_name_plural = 'контакты'
+
+    def get_absolute_url(self):
+        return reverse('contacts')

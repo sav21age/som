@@ -1,6 +1,7 @@
 from django.db import models
-from common.models import PageDescription, PageMenu, SimplePage
+from django.urls import reverse
 from django.contrib.contenttypes import fields
+from common.models import PageDescription, PageMenu, SimplePage
 from images.models import Image
 
 
@@ -35,3 +36,6 @@ class Railing(SimplePage, PageDescription, PageMenu):
         ordering = ('menu_order', )
         verbose_name = 'ограждение'
         verbose_name_plural = 'ограждения'
+
+    def get_absolute_url(self):
+        return reverse('railings:detail', kwargs={'slug': self.slug})

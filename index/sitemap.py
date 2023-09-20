@@ -1,5 +1,4 @@
 from django.contrib.sitemaps import Sitemap
-from django.shortcuts import reverse
 from index.models import Index
 
 
@@ -16,5 +15,5 @@ class IndexSitemap(Sitemap):
     # def location(self, item):
         # return reverse(item)
 
-    def location(self, obj):
-        return reverse('index')
+    # def location(self, obj):
+    #     return reverse('index')

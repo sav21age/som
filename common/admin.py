@@ -4,6 +4,7 @@ from common.forms import SimplePageAdminForm
 from images.admin import ImageInline
 from videos.admin import VideoInline
 from common.helpers import formfield_overrides
+from adminsortable2.admin import SortableAdminBase
 
 
 class SimplePageAdmin(admin.ModelAdmin):

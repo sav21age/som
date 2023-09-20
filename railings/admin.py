@@ -2,8 +2,10 @@ from django.contrib import admin
 from images.admin import ImageInline
 from railings.models import Railing
 from common.admin import PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, SimplePageAdmin
+from adminsortable2.admin import SortableAdminBase
 
-class RailingAdmin(SimplePageAdmin, PageDescriptionAdmin, PageMenuAdmin):
+
+class RailingAdmin(SortableAdminBase, SimplePageAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
     inlines = [ImageInline,]
 

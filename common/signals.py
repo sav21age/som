@@ -8,6 +8,7 @@ from bridges.models import Bridge
 from contacts.models import Contacts
 from images.models import Image
 from index.models import Index
+from menu.models import Menu
 from porch.models import Porch, PorchTypicalProject
 from railings.models import Railing
 from staircases.models import Staircase, StaircaseTypicalProject
@@ -39,7 +40,7 @@ def receiver_multiple(signal, senders, **kwargs):
 senders = [
     BlockText, BlockPrice, BlockSVG, Contacts, Image, Video, Railing, Index,
     Staircase, Terrace, Porch, Bridge, TerraceTypicalProject, PorchTypicalProject,
-    StaircaseTypicalProject,]
+    StaircaseTypicalProject, Menu]
 @receiver_multiple([post_save, post_delete], senders)
 def cache_invalidate(instance, **kwargs):
     if kwargs.get('raw'):  # add for test, pass fixtures

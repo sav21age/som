@@ -2,9 +2,10 @@ from django.contrib import admin
 from common.admin import PageCalculatorAdmin, PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, PagePriceAdmin, PageRailingsAdmin, PageSVGAdmin, SimplePageAdmin
 from staircases.models import Staircase, StaircaseTypicalProject
 from common.helpers import formfield_overrides
+from adminsortable2.admin import SortableAdminBase
 
 
-class StaircaseAdmin(PagePortfolioAdmin, PagePriceAdmin, PageSVGAdmin, SimplePageAdmin, PageCalculatorAdmin, PageHWAWAdmin, PageRailingsAdmin, PageDescriptionAdmin, PageMenuAdmin):
+class StaircaseAdmin(SortableAdminBase, PagePortfolioAdmin, PagePriceAdmin, PageSVGAdmin, SimplePageAdmin, PageCalculatorAdmin, PageHWAWAdmin, PageRailingsAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
     filter_horizontal = ('hwaw', 'block_price', 'block_svg', 'block_railings', )
 

@@ -1,10 +1,11 @@
 from django.contrib import admin
+from adminsortable2.admin import SortableAdminBase
 from porch.models import Porch, PorchTypicalProject
 from common.admin import PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, PageRailingsAdmin, SimplePageAdmin
 from common.helpers import formfield_overrides
 
 
-class PorchAdmin(SimplePageAdmin, PageHWAWAdmin, PageRailingsAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
+class PorchAdmin(SortableAdminBase, SimplePageAdmin, PageHWAWAdmin, PageRailingsAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
     list_display = ('name', 'menu_name', 'menu_order',)
     filter_horizontal = ('hwaw', 'block_railings', )
 

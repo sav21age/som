@@ -1,5 +1,10 @@
 from django.db import models
-from common.models import PageCalculator, PageDescription, PageHWAW, PageMenu, PagePortfolio, PagePrice, PageRailings, PageSVG, SimplePage, TypicalProject
+from django.urls import reverse
+from common.models import (
+    PageCalculator, PageDescription, PageHWAW, PageMenu,
+    PagePortfolio, PagePrice, PageRailings, PageSVG, SimplePage,
+    TypicalProject
+)
 
 
 class StaircaseTypicalProject(TypicalProject):
@@ -26,3 +31,6 @@ class Staircase(SimplePage, PagePrice, PageSVG, PageCalculator, PageDescription,
         ordering = ('menu_order', )
         verbose_name = 'лестницу'
         verbose_name_plural = 'лестницы'
+
+    def get_absolute_url(self):
+        return reverse('staircases:detail', kwargs={'slug': self.slug})

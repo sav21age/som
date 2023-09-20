@@ -1,0 +1,43 @@
+{% load cache %}
+{% cache cache_timeout menu %}
+{% comment %} {% for item, info in m %}
+    {% if info.open %}
+        <ul><li>
+    {% else %}
+        </li><li>
+    {% endif %}
+
+    {% if info.level == 0 and not item.url %}
+        {{ item.name }}
+    {% else %}
+        {% if item.is_visible == True %}
+            <a href="{{ item.url }}">{{ item.name }}</a>
+        {% endif %}
+    {% endif%}
+
+    {% for close in info.close %}
+        </li></ul>
+    {% endfor %}
+{% endfor %} {% endcomment %}
+
+{% for item, info in menu %}
+    {% if info.level == 0 and not item.url %}
+        <div class="nav-item dropdown">
+            <button class="nav-link btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">{{item.name}}</button>
+            <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+    {% else %}
+        {% if item.is_visible %}
+            {% if info.level == 0 %}
+                <a href="{{ item.url }}" class="nav-item nav-link" itemprop="url">{{ item.name }}</a>
+            {% else %}
+                <a href="{{ item.url }}" class="dropdown-item" itemprop="url">{{ item.name }}</a>
+            {% endif %}
+        {% endif %}
+    {% endif%}
+
+    {% for close in info.close %}
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %}
+{% endcache %}

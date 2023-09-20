@@ -1,5 +1,4 @@
 from django.contrib.sitemaps import Sitemap
-from django.shortcuts import reverse
 from contacts.models import Contacts
 
 
@@ -16,5 +15,5 @@ class ContactsSitemap(Sitemap):
     # def location(self, item):
         # return reverse(item)
 
-    def location(self, obj):
-        return reverse('contacts')
+    # def location(self, obj):
+    #     return reverse('contacts')

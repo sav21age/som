@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from blocks.models import BlockSVG
 from solo.models import SingletonModel
 from common.models import PageCalculator, PageDescription, PageHWAW, PagePortfolio, PagePrice, SimplePage
@@ -17,10 +18,14 @@ class Index(SimplePage, PageCalculator, PagePrice, PageDescription, PagePortfoli
 
     about_title = models.CharField('заголовок', blank=True, max_length=200)
     about_text = models.TextField('текст', blank=True)
-    
+
     class Meta:
         verbose_name = 'главная страница'
         verbose_name_plural = 'главные страницы'
+
+    def get_absolute_url(self):
+        return reverse('index')
+
 
 
 # from django.db.models.signals import post_save

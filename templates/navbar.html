@@ -1,5 +1,4 @@
-{% load static dict %}
-{% comment %} <nav class="navbar navbar-expand-lg navbar-dark py-3 py-lg-0 px-2 px-sm-4" itemscope itemtype="http://schema.org/SiteNavigationElement"> {% endcomment %}
+{% load static dict menu %}
 <nav class="navbar navbar-expand-md navbar-dark py-md-0" itemscope itemtype="http://schema.org/SiteNavigationElement">
   <a href="/" class="navbar-brand d-md-none d-xs-block" itemprop="url">
     <img src="{% static 'images/logo.svg' %}" alt="ПМ Студия Металла" width="260">
@@ -7,11 +6,12 @@
   <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Меню">
     <span class="navbar-toggler-icon"></span>
   </button>
-  {% comment %} <div class="collapse navbar-collapse pt-2 py-lg-0" id="navbarCollapse"> {% endcomment %}
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav">
       
-      <div class="nav-item dropdown">
+      {% menu %}
+
+      {% comment %} <div class="nav-item dropdown">
         <button class="nav-link btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Лестница</button>
         <div class="dropdown-menu rounded-0 rounded-bottom m-0">
           {% for val in menu|dict:'staircases' %}
@@ -42,16 +42,7 @@
         </div>
       </div>
 
-      {% comment %} <div class="nav-item dropdown">
-        <button class="nav-link btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Ступени</button>
-        <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-          {% for s in menu|dict:'steps' %}
-          <a href="{% url 'steps:detail' val.slug %}" class="dropdown-item" itemprop="url">{{val.menu_name}}</a>
-          {%endfor%}
-        </div>
-      </div> {% endcomment %}
-
-      <a href="{% url 'contacts' %}" class="nav-item nav-link" itemprop="url">Контакты</a>
+      <a href="{% url 'contacts' %}" class="nav-item nav-link" itemprop="url">Контакты</a> {% endcomment %}
 
     </div>
   </div>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from solo.models import SingletonModel
 from common.models import PageDescription, PageHWAW, PagePortfolio, PageRailings, SimplePage, TypicalProject
 
@@ -26,3 +27,7 @@ class Terrace(SimplePage, PageDescription, PagePortfolio, PageHWAW, PageRailings
     class Meta:
         verbose_name = 'терраса'
         verbose_name_plural = 'террасы'
+
+    def get_absolute_url(self):
+        return reverse('terrace')
+

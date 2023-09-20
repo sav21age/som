@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
 from django.db.models import Prefetch
+from django.core.exceptions import ObjectDoesNotExist
 from staircases.models import Staircase
 from images.models import Image
 from videos.models import Video
@@ -10,7 +11,7 @@ from calculator.forms import CalculatorForm
 
 def staircase(request, slug):
     try:
-        object = Staircase.is_visible_objects.filter(slug=slug) \
+        obj = Staircase.is_visible_objects.filter(slug=slug) \
             .select_related('typical_project') \
             .prefetch_related('hwaw') \
             .prefetch_related(Prefetch('block_svg', queryset=BlockSVG.is_visible_objects.all())) \
@@ -19,12 +20,15 @@ def staircase(request, slug):
             .prefetch_related(Prefetch('portfolio_videos', queryset=Video.is_visible_objects.all())) \
             .prefetch_related(Prefetch('block_railings', queryset=BlockImage.is_visible_objects.all())) \
             .get()
-    except Staircase.DoesNotExist:
-        raise Http404
+    except ObjectDoesNotExist as e:
+        raise Http404 from e
 
     response = render(
         request,
         'staircases/index.html',
-        {'object': object, 'form': CalculatorForm(),}
+        {
+            'object': obj, 
+            'form': CalculatorForm(),
+        }
     )
     return response
