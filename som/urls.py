@@ -1,18 +1,19 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth import views as auth_views
+from django.contrib.sitemaps.views import sitemap
+from django.views.generic import TemplateView
+from django.shortcuts import render
 from index.views import index
+from index.sitemap import IndexSitemap
 from bridges.sitemap import BridgeSitemap
 from bridges.views import bridges
 from contacts.sitemap import ContactsSitemap
-from index.sitemap import IndexSitemap
 from contacts.views import contacts
-from django.views.generic import TemplateView
 from porch.sitemap import PorchSitemap
-from django.shortcuts import render
 from railings.sitemap import RailingSitemap
 from staircases.sitemap import StaircaseSitemap
-from django.contrib.sitemaps.views import sitemap
 from terraces.sitemap import TerraceSitemap
 from terraces.views import terraces
 
@@ -29,6 +30,7 @@ sitemaps = {
 
 
 urlpatterns = [
+    path('admin/logout/', auth_views.LogoutView.as_view(next_page='/admin/login'), name='logout'),
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('contacts/', contacts, name='contacts'),
