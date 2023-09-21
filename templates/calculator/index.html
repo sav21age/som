@@ -1,20 +1,8 @@
-{% load crispy_forms_tags cache %}
+{% load cache calculator %}
 {% if object.is_calculator %}
-{% cache cache_timeout calculator %}
 <!--noindex-->
-<div id="calculator" class="section calculator mb-5">
-  <div class="container">
-    <div class="section-title">
-      <span>Рассчитайте стоимость Вашей лестницы</span>
-      <p class="fst-italic">Расчет осуществляется в рублях и является приблизительным, не является публичной офертой.</p>
-    </div>
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        {% crispy form %}
-      </div>
-    </div>
-  </div>
-</div>
-<!--/noindex-->
+{% cache cache_timeout calculator %}
+  {% calculator %}
 {% endcache %}
+<!--/noindex-->
 {% endif %}

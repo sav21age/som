@@ -6,7 +6,6 @@ from staircases.models import Staircase
 from images.models import Image
 from videos.models import Video
 from blocks.models import BlockImage, BlockPrice, BlockSVG
-from calculator.forms import CalculatorForm
 
 
 def staircase(request, slug):
@@ -26,9 +25,6 @@ def staircase(request, slug):
     response = render(
         request,
         'staircases/index.html',
-        {
-            'object': obj, 
-            'form': CalculatorForm(),
-        }
+        {'object': obj, }
     )
     return response
