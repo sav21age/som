@@ -4,10 +4,7 @@ from menu.models import Menu
 register = template.Library()
 
 
-@register.inclusion_tag('menu.html', takes_context=True)
-def menu(context):
+@register.inclusion_tag('menu.html')
+def menu():
     qs = Menu.get_annotated_list()
-    return {
-        'menu': qs, 
-        'cache_timeout': context['cache_timeout'], 
-    }
+    return {'menu': qs,}
