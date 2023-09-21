@@ -6,7 +6,7 @@ class StaircaseSitemap(Sitemap):
     priority = 1
 
     def items(self):
-        return Staircase.is_visible_objects.all()
+        return Staircase.is_visible_objects.order_by('id').all()
 
     def lastmod(self, obj):
         return obj.updated_at

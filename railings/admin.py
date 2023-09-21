@@ -1,12 +1,12 @@
 from django.contrib import admin
+from adminsortable2.admin import SortableAdminBase
 from images.admin import ImageInline
 from railings.models import Railing
-from common.admin import PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, SimplePageAdmin
-from adminsortable2.admin import SortableAdminBase
+from common.admin import PageDescriptionAdmin, SimplePageAdmin
 
 
-class RailingAdmin(SortableAdminBase, SimplePageAdmin, PageDescriptionAdmin, PageMenuAdmin):
-    list_display = ('name', 'menu_name', 'menu_order',)
+class RailingAdmin(SortableAdminBase, SimplePageAdmin, PageDescriptionAdmin):
+    list_display = ('name',)
     inlines = [ImageInline,]
 
     def get_fieldsets(self, request, obj=None):

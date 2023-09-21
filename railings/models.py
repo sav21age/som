@@ -1,11 +1,11 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.contenttypes import fields
-from common.models import PageDescription, PageMenu, SimplePage
+from common.models import PageDescription, SimplePage
 from images.models import Image
 
 
-class Railing(SimplePage, PageDescription, PageMenu):
+class Railing(SimplePage, PageDescription):
     portfolio_title_m = models.CharField('заголовок', blank=True, max_length=200)
     portfolio_text_m = models.TextField('текст', blank=True)
     @property
@@ -33,7 +33,7 @@ class Railing(SimplePage, PageDescription, PageMenu):
     portfolio_images = fields.GenericRelation(Image)
 
     class Meta:
-        ordering = ('menu_order', )
+        # ordering = ('menu_order', )
         verbose_name = 'ограждение'
         verbose_name_plural = 'ограждения'
 

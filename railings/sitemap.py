@@ -6,7 +6,7 @@ class RailingSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Railing.is_visible_objects.all()
+        return Railing.is_visible_objects.order_by('id').all()
 
     def lastmod(self, obj):
         return obj.updated_at

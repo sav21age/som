@@ -6,7 +6,7 @@ class PorchSitemap(Sitemap):
     priority = 1
 
     def items(self):
-        return Porch.is_visible_objects.all()
+        return Porch.is_visible_objects.order_by('id').all()
 
     def lastmod(self, obj):
         return obj.updated_at

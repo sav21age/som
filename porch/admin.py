@@ -1,12 +1,17 @@
 from django.contrib import admin
 from adminsortable2.admin import SortableAdminBase
 from porch.models import Porch, PorchTypicalProject
-from common.admin import PageHWAWAdmin, PageMenuAdmin, PageDescriptionAdmin, PagePortfolioAdmin, PageRailingsAdmin, SimplePageAdmin
+from common.admin import (
+    PageHWAWAdmin, PageDescriptionAdmin, PagePortfolioAdmin,
+    PageRailingsAdmin, SimplePageAdmin
+)
 from common.helpers import formfield_overrides
 
 
-class PorchAdmin(SortableAdminBase, SimplePageAdmin, PageHWAWAdmin, PageRailingsAdmin, PagePortfolioAdmin, PageDescriptionAdmin, PageMenuAdmin):
-    list_display = ('name', 'menu_name', 'menu_order',)
+class PorchAdmin(
+    SortableAdminBase, SimplePageAdmin, PageHWAWAdmin,
+    PageRailingsAdmin, PagePortfolioAdmin, PageDescriptionAdmin):
+    list_display = ('name',)
     filter_horizontal = ('hwaw', 'block_railings', )
 
     def get_fieldsets(self, request, obj=None):
@@ -17,10 +22,12 @@ class PorchAdmin(SortableAdminBase, SimplePageAdmin, PageHWAWAdmin, PageRailings
             }),
         )
 
+
 admin.site.register(Porch, PorchAdmin)
 
 
 class PorchTypicalProjectAdmin(admin.ModelAdmin):
     formfield_overrides = formfield_overrides
+
 
 admin.site.register(PorchTypicalProject, PorchTypicalProjectAdmin)

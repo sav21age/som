@@ -1,10 +1,9 @@
 from django.contrib import admin
 # from common.forms import PageDescriptionAdminForm, SimplePageAdminForm
 from common.forms import SimplePageAdminForm
+from common.helpers import formfield_overrides
 from images.admin import ImageInline
 from videos.admin import VideoInline
-from common.helpers import formfield_overrides
-from adminsortable2.admin import SortableAdminBase
 
 
 class SimplePageAdmin(admin.ModelAdmin):

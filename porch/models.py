@@ -1,6 +1,6 @@
 from django.db import models
 from common.models import (
-    PageDescription, PageHWAW, PageMenu, PagePortfolio, PageRailings,
+    PageDescription, PageHWAW, PagePortfolio, PageRailings,
     SimplePage, TypicalProject
 )
 from django.urls import reverse
@@ -32,13 +32,13 @@ class PorchTypicalProject(TypicalProject):
     extra = models.CharField('дополнительно', max_length=250, blank=True)
 
 
-class Porch(SimplePage, PageDescription, PageMenu, PagePortfolio, PageHWAW, PageRailings):
+class Porch(SimplePage, PageDescription, PagePortfolio, PageHWAW, PageRailings):
     typical_project = models.ForeignKey(
         PorchTypicalProject, 
         verbose_name='типовой проект', blank=True, null=True, on_delete=models.DO_NOTHING)
 
     class Meta:
-        ordering = ('menu_order', )
+        # ordering = ('menu_order', )
         verbose_name = 'крыльцо'
         verbose_name_plural = 'крыльцо'
 
