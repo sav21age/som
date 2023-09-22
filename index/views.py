@@ -6,7 +6,6 @@ from index.models import Index
 from images.models import Image
 from videos.models import Video
 from blocks.models import BlockPrice, BlockSVG
-from calculator.forms import CalculatorForm
 
 
 def index(request):
@@ -24,9 +23,6 @@ def index(request):
     response = render(
         request,
         'index/index.html',
-        {
-            'object': obj,
-            'form': CalculatorForm(),
-        }
+        {'object': obj, }
     )
     return response
